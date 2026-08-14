@@ -1,0 +1,711 @@
+/* ==========================================================================
+   RESOLVEFARM - Contact Page Exact Reference Reproduction (contact-ref.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.contact-hero {
+  position: relative;
+  height: 360px;
+  min-height: 320px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #0F2818;
+}
+
+.contact-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/farm/about-farmer.png');
+  background-size: cover;
+  background-position: center top;
+  filter: brightness(0.9);
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 40, 24, 0.4) 0%,
+    rgba(15, 40, 24, 0.75) 45%,
+    rgba(15, 40, 24, 0.92) 100%
+  );
+}
+
+.contact-hero-container {
+  position: relative;
+  z-index: 2;
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-hero-content {
+  width: 48%;
+  max-width: 560px;
+  text-align: left;
+  color: var(--color-white);
+}
+
+.contact-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #A3C9A8;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.contact-hero h1 {
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.contact-hero h1 span.text-highlight {
+  color: #79B885;
+}
+
+.contact-hero-line {
+  width: 50px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.25rem;
+}
+
+.contact-hero p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Contact Information & Form Section (Side-by-Side 2 Columns)
+   -------------------------------------------------------------------------- */
+.contact-info-form-section {
+  padding: 5rem 0 4rem;
+  background-color: #FFFFFF;
+}
+
+.contact-info-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+.section-title-wrapper {
+  margin-bottom: 2rem;
+}
+
+.section-title-wrapper h2 {
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #2F6B3F;
+  margin-bottom: 0.6rem;
+}
+
+.section-title-line {
+  width: 40px;
+  height: 2px;
+  background-color: #2F6B3F;
+}
+
+/* Contact Info List */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.contact-icon-bubble {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon-bubble.bubble-green {
+  background-color: #E6F3EA;
+  color: #2F6B3F;
+}
+
+.contact-icon-bubble.bubble-red {
+  background-color: #FCEBE9;
+  color: #D94A38;
+}
+
+.contact-icon-bubble.bubble-yellow {
+  background-color: #FAF4E3;
+  color: #B88E28;
+}
+
+.contact-info-text h3 {
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: #1C211D;
+  margin-bottom: 0.25rem;
+}
+
+.contact-info-text p,
+.contact-info-text a {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.5;
+}
+
+.contact-info-text a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-info-text a:hover {
+  color: #2F6B3F;
+}
+
+.contact-info-text span.sub-text {
+  display: block;
+  font-size: 0.82rem;
+  color: #888888;
+  margin-top: 0.15rem;
+}
+
+.social-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.social-circle-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #163A24;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-circle-btn:hover {
+  background-color: #2F6B3F;
+  transform: translateY(-2px);
+}
+
+/* Contact Form */
+.contact-form-block {
+  width: 100%;
+}
+
+.form-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-field-wrapper {
+  margin-bottom: 1rem;
+}
+
+.form-input-ref {
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  background-color: #FAFAFA;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #1C211D;
+  transition: all 0.3s ease;
+}
+
+.form-input-ref::placeholder {
+  color: #9CA3AF;
+}
+
+.form-input-ref:focus {
+  outline: none;
+  background-color: #FFFFFF;
+  border-color: #2F6B3F;
+  box-shadow: 0 0 0 3px rgba(47, 107, 63, 0.12);
+}
+
+textarea.form-input-ref {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.btn-send-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  background-color: #C0392B;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(192, 57, 43, 0.25);
+}
+
+.btn-send-message:hover {
+  background-color: #A93226;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(192, 57, 43, 0.35);
+}
+
+/* Toast Feedback Alert */
+.form-alert-toast {
+  margin-top: 1.25rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 10px;
+  display: none;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  animation: fadeInToast 0.35s ease;
+}
+
+.form-alert-toast.success {
+  display: flex;
+  background-color: #EBF7EE;
+  color: #1B5E20;
+  border: 1px solid #C8E6C9;
+}
+
+.form-alert-toast.error {
+  display: flex;
+  background-color: #FDE8E5;
+  color: #B71C1C;
+  border: 1px solid #FFCDD2;
+}
+
+@keyframes fadeInToast {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --------------------------------------------------------------------------
+   Why Connect With Us Section (4 Cards Grid)
+   -------------------------------------------------------------------------- */
+.why-connect-section {
+  padding: 4rem 0;
+  background-color: #F8FAF7;
+  border-top: 1px solid #EEF2ED;
+  border-bottom: 1px solid #EEF2ED;
+  text-align: center;
+}
+
+.why-connect-header {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-connect-header h2 {
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #2F6B3F;
+  margin-bottom: 0.6rem;
+}
+
+.why-connect-header .header-line {
+  width: 40px;
+  height: 2px;
+  background-color: #2F6B3F;
+}
+
+.why-connect-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.why-card {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.why-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -0.75rem;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: #E2E8F0;
+}
+
+.why-icon-bubble {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.why-icon-bubble.bubble-green {
+  background-color: #E6F3EA;
+  color: #2F6B3F;
+}
+
+.why-icon-bubble.bubble-red {
+  background-color: #FCEBE9;
+  color: #D94A38;
+}
+
+.why-icon-bubble.bubble-yellow {
+  background-color: #FAF4E3;
+  color: #B88E28;
+}
+
+.why-card h3 {
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: #1C211D;
+  margin-bottom: 0.5rem;
+}
+
+.why-card p {
+  font-size: 0.88rem;
+  color: #666666;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Location Map & Farm Hours Section (2 Large Cards)
+   -------------------------------------------------------------------------- */
+.location-hours-section {
+  padding: 4.5rem 0;
+  background-color: #F8FAF7;
+}
+
+.location-hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Left Card: Landscape Image with Floating Card */
+.location-visual-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 380px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.location-visual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.floating-location-box {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.floating-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #E6F3EA;
+  color: #2F6B3F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.floating-text h4 {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: #1C211D;
+  margin-bottom: 0.2rem;
+}
+
+.floating-text p {
+  font-size: 0.82rem;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/* Right Card: Dark Forest Green Farm Hours Box */
+.farm-hours-card {
+  background-color: #1A3E26;
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.farm-hours-header h3 {
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #A3C9A8;
+  margin-bottom: 1.75rem;
+}
+
+.hours-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.88rem;
+}
+
+.hours-row:last-child {
+  border-bottom: none;
+}
+
+.hours-day {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.hours-day svg {
+  color: #A3C9A8;
+  flex-shrink: 0;
+}
+
+.hours-time {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.hours-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* Decorative background illustration overlay */
+.farm-hours-bg-svg {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Wholesale Supply CTA Banner (Kept before footer as requested)
+   -------------------------------------------------------------------------- */
+.wholesale-banner-section {
+  padding: 3.5rem 0;
+  background-color: #163A24;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wholesale-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.wholesale-banner-content h3 {
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.wholesale-banner-content p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* --------------------------------------------------------------------------
+   Clean Minimal Footer (Reference Reproduction)
+   -------------------------------------------------------------------------- */
+.ref-site-footer {
+  background-color: #FFFFFF;
+  padding: 1.75rem 0;
+  border-top: 1px solid #E5E7EB;
+  font-size: 0.88rem;
+  color: #666666;
+}
+
+.ref-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.ref-footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.ref-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.ref-footer-links a {
+  color: #666666;
+  transition: color 0.3s ease;
+}
+
+.ref-footer-links a:hover {
+  color: #2F6B3F;
+}
+
+.ref-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ref-footer-socials a {
+  color: #163A24;
+  transition: color 0.3s ease;
+}
+
+.ref-footer-socials a:hover {
+  color: #2F6B3F;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 1023px) {
+  .contact-hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .contact-info-form-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .why-connect-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .why-card:not(:last-child)::after {
+    display: none;
+  }
+
+  .location-hours-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wholesale-banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .contact-hero {
+    height: auto;
+    padding: 4rem 0 3.5rem;
+  }
+
+  .contact-hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .form-inputs-row {
+    grid-template-columns: 1fr;
+  }
+
+  .why-connect-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ref-footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .ref-footer-copy {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

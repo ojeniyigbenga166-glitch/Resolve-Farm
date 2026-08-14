@@ -1,0 +1,148 @@
+/* ==========================================================================
+   RESOLVEFARM - Responsive Styles
+   ========================================================================== */
+
+/* Tablet (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .feature-card:nth-child(2) {
+    border-right: none;
+  }
+  
+  .feature-card:nth-child(1),
+  .feature-card:nth-child(2) {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .about-container,
+  .quality-container,
+  .testimonials-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .produce-container {
+    grid-template-columns: 1fr;
+  }
+
+  .produce-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Mobile (320px - 767px) */
+@media screen and (max-width: 767px) {
+  .container,
+  .hero-container,
+  .about-container,
+  .stats-container,
+  .produce-container,
+  .testimonials-container,
+  .cta-container,
+  .footer-container {
+    width: calc(100% - 2rem);
+    padding: 0;
+  }
+
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  
+  .hero {
+    height: auto;
+    min-height: 520px;
+    padding: 4rem 0 3rem 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.25rem;
+  }
+  
+  /* Mobile Navigation adjustments */
+  .desktop-nav,
+  .desktop-only {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .feature-card:last-child {
+    border-bottom: none;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 280px;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .produce-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .quality-container {
+    grid-template-columns: 1fr;
+  }
+
+  .quality-content {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .testimonials-container {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-image-circle {
+    width: 240px;
+    height: 240px;
+  }
+
+  .cta-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

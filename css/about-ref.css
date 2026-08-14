@@ -1,0 +1,691 @@
+/* ==========================================================================
+   About Page (Reference Design) Styles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --about-primary: #244A1B;
+  --about-primary-dark: #1B3515;
+  --about-accent-red: #C92F2F;
+  --about-cream: #F7F7F2;
+  --about-white: #FFFFFF;
+  --about-text-main: #202020;
+  --about-text-sec: #666666;
+  --about-soft-green: #E8F0E5;
+  --about-soft-red: #F8E5E5;
+  --about-soft-beige: #F5EED9;
+  
+  --font-about-heading: 'Playfair Display', serif;
+  --font-about-body: 'Manrope', sans-serif;
+}
+
+body.about-page {
+  font-family: var(--font-about-body);
+  color: var(--about-text-main);
+  background-color: var(--about-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+/* Disable the homepage watermark on the about page */
+body.about-page::before {
+  display: none;
+}
+
+/* Scope heading/paragraph resets only to about content sections */
+.about-hero h1, .about-purpose h2,
+.values-section h2, .about-drives h3,
+.about-journey h2 {
+  font-family: var(--font-about-heading);
+  margin: 0;
+}
+
+.about-purpose p, .about-hero p, .drive-feature p {
+  margin: 0;
+}
+
+/* ------------------------------------------------
+   (Navigation is handled by site-header from style.css)
+------------------------------------------------- */
+
+/* ------------------------------------------------
+   Hero Section
+------------------------------------------------- */
+.about-hero {
+  position: relative;
+  height: 380px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.about-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/farm/about-farmer.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  animation: slowZoom 20s ease-out forwards;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.78) 45%,
+    rgba(0,0,0,0.92) 100%
+  );
+  z-index: 2;
+}
+
+.about-hero-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-hero-content {
+  width: 100%;
+  max-width: 450px;
+  animation: fadeUp 1s ease-out;
+}
+
+.about-eyebrow {
+  display: block;
+  font-family: var(--font-about-heading);
+  font-style: italic;
+  color: #B5D2A8;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-hero h1 {
+  color: var(--about-white);
+  font-size: 46px;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.about-hero h1 span {
+  color: #8CBA77;
+}
+
+.about-hero-divider {
+  width: 30px;
+  height: 2px;
+  background-color: var(--about-white);
+  margin-bottom: 1.5rem;
+}
+
+.about-hero p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------
+   Our Purpose Section
+------------------------------------------------- */
+.about-purpose {
+  padding: 80px 0;
+  background-color: var(--about-white);
+}
+
+.about-purpose-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-purpose-text {
+  flex: 0 0 40%;
+}
+
+.purpose-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--about-primary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.purpose-divider {
+  width: 25px;
+  height: 2px;
+  background-color: var(--about-primary);
+  margin-bottom: 1.5rem;
+}
+
+.about-purpose h2 {
+  font-size: 38px;
+  line-height: 1.15;
+  color: var(--about-text-main);
+  margin-bottom: 1.5rem;
+}
+
+.about-purpose p {
+  font-size: 15px;
+  color: var(--about-text-sec);
+  line-height: 1.7;
+  max-width: 340px;
+  margin-bottom: 2rem;
+}
+
+.about-purpose-cta {
+  display: inline-block;
+  background-color: var(--about-accent-red);
+  color: var(--about-white);
+  text-decoration: none;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.about-purpose-cta:hover {
+  background-color: #B02828;
+  transform: translateY(-2px);
+}
+
+.about-purpose-collage {
+  flex: 0 0 calc(60% - 6rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 16px;
+}
+
+.collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.collage-img:hover {
+  transform: scale(1.03);
+}
+
+.collage-img-1 {
+  grid-row: span 2;
+}
+.collage-img-2 {
+  grid-row: 1;
+  grid-column: 2;
+}
+.collage-img-3 {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+/* ------------------------------------------------
+   What Drives Us Section
+------------------------------------------------- */
+.about-drives {
+  background-color: var(--about-cream);
+  padding: 80px 0;
+}
+
+.about-drives-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.drives-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--about-primary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.drives-divider {
+  width: 30px;
+  height: 2px;
+  background-color: var(--about-primary);
+  margin: 0 auto;
+}
+
+.about-drives-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.drive-feature {
+  text-align: center;
+  position: relative;
+  padding: 0 1rem;
+}
+
+/* Vertical separators */
+.drive-feature:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -1rem;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: rgba(0,0,0,0.06);
+}
+
+.drive-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+}
+
+.drive-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.drive-icon.bg-green {
+  background-color: var(--about-soft-green);
+  color: var(--about-primary);
+}
+.drive-icon.bg-red {
+  background-color: var(--about-soft-red);
+  color: var(--about-accent-red);
+}
+.drive-icon.bg-beige {
+  background-color: var(--about-soft-beige);
+  color: #B58548;
+}
+
+.drive-feature h3 {
+  font-size: 1.1rem;
+  color: var(--about-text-main);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-about-body);
+}
+
+.drive-feature p {
+  font-size: 0.85rem;
+  color: var(--about-text-sec);
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------
+   Journey In Numbers Section
+------------------------------------------------- */
+.about-journey {
+  padding: 80px 0;
+  background-color: var(--about-white);
+}
+
+.about-journey-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  height: 400px;
+}
+
+.journey-image {
+  flex: 0 0 50%;
+  border-radius: 12px 0 0 12px;
+  object-fit: cover;
+  width: 50%;
+  height: 100%;
+}
+
+.journey-panel {
+  flex: 0 0 50%;
+  background-color: var(--about-primary);
+  border-radius: 0 12px 12px 0;
+  padding: 4rem;
+  color: var(--about-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--about-soft-green);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.journey-divider {
+  width: 30px;
+  height: 2px;
+  background-color: var(--about-soft-green);
+  margin-bottom: 2.5rem;
+}
+
+.journey-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  flex-grow: 1;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.stat-item-1 { padding: 0 2rem 2rem 0; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.stat-item-2 { padding: 0 0 2rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.stat-item-3 { padding: 2rem 2rem 0 0; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat-item-4 { padding: 2rem 0 0 2rem; }
+
+.stat-item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.25rem;
+}
+
+.stat-icon {
+  color: var(--about-soft-green);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--font-about-heading);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+
+
+/* ------------------------------------------------
+   Meet The Team Section
+------------------------------------------------- */
+.about-team {
+  padding: 90px 0;
+  background-color: var(--about-cream);
+}
+
+.about-team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-team-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.team-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--about-primary);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.team-divider {
+  width: 30px;
+  height: 2px;
+  background-color: var(--about-primary);
+  margin: 0 auto 1.5rem auto;
+}
+
+.about-team-header h2 {
+  font-family: var(--font-about-heading);
+  font-size: 2.5rem;
+  color: var(--about-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.about-team-header p {
+  font-size: 1rem;
+  color: var(--about-text-sec);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.team-card {
+  background-color: var(--about-white);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.team-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.team-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-img-wrap img {
+  transform: scale(1.05);
+}
+
+.team-social {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+  padding: 1.5rem 1.25rem 1rem 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.team-card:hover .team-social {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-social a {
+  width: 34px;
+  height: 34px;
+  background-color: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--about-white);
+  transition: background-color 0.2s ease;
+}
+
+.team-social a:hover {
+  background-color: var(--about-primary);
+  border-color: var(--about-primary);
+}
+
+.team-info {
+  padding: 1.5rem;
+}
+
+.team-info h3 {
+  font-family: var(--font-about-heading);
+  font-size: 1.25rem;
+  color: var(--about-text-main);
+  margin-bottom: 0.3rem;
+}
+
+.team-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--about-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.team-info p {
+  font-size: 0.88rem;
+  color: var(--about-text-sec);
+  line-height: 1.65;
+}
+
+/* ------------------------------------------------
+   Animations & Responsive
+------------------------------------------------- */
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .about-purpose-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .about-purpose-text {
+    max-width: 100%;
+  }
+  .about-purpose-collage {
+    width: 100%;
+    flex: none;
+    height: 400px;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+  .about-drives-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3rem;
+  }
+  .drive-feature:nth-child(2)::after {
+    display: none;
+  }
+  
+  .about-journey-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .journey-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px 12px 0 0;
+  }
+  .journey-panel {
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    padding: 3rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-hero {
+    height: 300px;
+  }
+  .about-hero-container {
+    justify-content: flex-start;
+  }
+  
+  .about-hero h1 {
+    font-size: 32px;
+  }
+  
+  .about-purpose-collage {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .collage-img {
+    height: 250px;
+  }
+  
+  .about-drives-grid {
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+  .drive-feature::after {
+    display: none !important;
+  }
+  
+  .journey-stats-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .stat-item {
+    padding: 1.5rem 0;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

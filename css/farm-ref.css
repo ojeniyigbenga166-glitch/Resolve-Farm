@@ -1,0 +1,517 @@
+/* ==========================================================================
+   Our Farm Page Styles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --farm-primary: #244A1B;
+  --farm-primary-dark: #1B3515;
+  --farm-accent-red: #C92F2F;
+  --farm-cream: #F7F7F2;
+  --farm-white: #FFFFFF;
+  --farm-text-main: #202020;
+  --farm-text-sec: #666666;
+  --farm-soft-green: #E8F0E5;
+  --farm-soft-red: #F8E5E5;
+
+  --font-farm-heading: 'Playfair Display', serif;
+  --font-farm-body: 'Manrope', sans-serif;
+}
+
+body.farm-page {
+  font-family: var(--font-farm-body);
+  color: var(--farm-text-main);
+  background-color: var(--farm-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+body.farm-page::before {
+  display: none;
+}
+
+/* ------------------------------------------------
+   Farm Hero
+------------------------------------------------- */
+.farm-hero {
+  position: relative;
+  height: 420px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.farm-hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('../assets/images/farm/about-farmer.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  animation: farmSlowZoom 20s ease-out forwards;
+}
+
+.farm-hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.55) 50%,
+    rgba(0,0,0,0.35) 100%
+  );
+  z-index: 2;
+}
+
+.farm-hero-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.farm-hero-content {
+  max-width: 520px;
+  animation: farmFadeUp 1s ease-out;
+}
+
+.farm-hero-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #8CBA77;
+  margin-bottom: 0.75rem;
+}
+
+.farm-hero h1 {
+  font-family: var(--font-farm-heading);
+  color: var(--farm-white);
+  font-size: 52px;
+  line-height: 1.08;
+  margin: 0 0 1.5rem 0;
+}
+
+.farm-hero h1 span {
+  color: var(--farm-accent-red);
+}
+
+.farm-hero p {
+  color: rgba(255,255,255,0.88);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0;
+}
+
+/* ------------------------------------------------
+   Our Farms Section (Locations)
+------------------------------------------------- */
+.farm-locations {
+  padding: 90px 0;
+  background-color: var(--farm-white);
+}
+
+.farm-locations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.farm-locations-text {
+  flex: 0 0 35%;
+}
+
+.farm-loc-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--farm-primary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.farm-loc-divider {
+  width: 25px;
+  height: 2px;
+  background-color: var(--farm-primary);
+  margin-bottom: 1.5rem;
+}
+
+.farm-locations-text h2 {
+  font-family: var(--font-farm-heading);
+  font-size: 36px;
+  line-height: 1.15;
+  color: var(--farm-text-main);
+  margin: 0 0 1.25rem 0;
+}
+
+.farm-locations-text p {
+  font-size: 15px;
+  color: var(--farm-text-sec);
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 0 2rem 0;
+}
+
+.farm-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--farm-accent-red);
+  color: var(--farm-white);
+  text-decoration: none;
+  height: 42px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.farm-explore-btn:hover {
+  background-color: #B02828;
+  transform: translateY(-2px);
+}
+
+.farm-explore-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.farm-explore-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Farm Location Cards Grid */
+.farm-locations-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 16px;
+}
+
+.farm-loc-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.farm-loc-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.farm-loc-card:hover img {
+  transform: scale(1.04);
+}
+
+.farm-loc-card-1 {
+  grid-row: span 2;
+}
+
+.farm-loc-label {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: var(--farm-white);
+  border-radius: 999px;
+  padding: 8px 16px 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.farm-loc-label-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--farm-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--farm-white);
+}
+
+.farm-loc-label-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.farm-loc-label-text strong {
+  font-size: 0.82rem;
+  color: var(--farm-text-main);
+  line-height: 1.2;
+}
+
+.farm-loc-label-text span {
+  font-size: 0.72rem;
+  color: var(--farm-text-sec);
+}
+
+.farm-loc-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--farm-text-sec);
+  margin-left: 4px;
+}
+
+/* ------------------------------------------------
+   Farming Across Canada (Map Section)
+------------------------------------------------- */
+.farm-map-section {
+  padding: 90px 0;
+  background-color: var(--farm-cream);
+}
+
+.farm-map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.farm-map-visual {
+  flex: 0 0 45%;
+  position: relative;
+}
+
+.farm-map-visual svg {
+  width: 100%;
+  height: auto;
+}
+
+.map-pin {
+  fill: var(--farm-accent-red);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.farm-map-content {
+  flex: 1;
+}
+
+.farm-map-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--farm-primary);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.farm-map-content h2 {
+  font-family: var(--font-farm-heading);
+  font-size: 36px;
+  line-height: 1.15;
+  color: var(--farm-text-main);
+  margin: 0 0 1.25rem 0;
+}
+
+.farm-map-content > p {
+  font-size: 15px;
+  color: var(--farm-text-sec);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 0 2.5rem 0;
+}
+
+.farm-map-features {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.farm-map-feat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.farm-map-feat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--farm-soft-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--farm-primary);
+}
+
+.farm-map-feat strong {
+  font-size: 0.82rem;
+  color: var(--farm-text-main);
+}
+
+/* ------------------------------------------------
+   Farm Practices Section
+------------------------------------------------- */
+.farm-practices {
+  padding: 90px 0;
+  background-color: var(--farm-white);
+}
+
+.farm-practices-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.farm-practices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.farm-practice-card {
+  text-align: center;
+}
+
+.farm-practice-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.farm-practice-card:hover .farm-practice-img {
+  transform: scale(1.03);
+}
+
+.farm-practice-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.farm-practice-icon.green { background-color: var(--farm-soft-green); color: var(--farm-primary); }
+.farm-practice-icon.red { background-color: var(--farm-soft-red); color: var(--farm-accent-red); }
+
+.farm-practice-card h3 {
+  font-family: var(--font-farm-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--farm-text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.farm-practice-card p {
+  font-size: 0.85rem;
+  color: var(--farm-text-sec);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ------------------------------------------------
+   Animations
+------------------------------------------------- */
+@keyframes farmSlowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+@keyframes farmFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------------------------
+   Responsive
+------------------------------------------------- */
+@media (max-width: 1024px) {
+  .farm-locations-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .farm-locations-text {
+    flex: none;
+    max-width: 100%;
+  }
+  .farm-locations-grid {
+    width: 100%;
+    grid-template-rows: 220px 220px;
+  }
+
+  .farm-map-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .farm-map-visual {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .farm-practices-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .farm-hero {
+    height: 340px;
+  }
+  .farm-hero h1 {
+    font-size: 36px;
+  }
+
+  .farm-locations-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .farm-loc-card-1 {
+    grid-row: auto;
+  }
+  .farm-loc-card {
+    height: 250px;
+  }
+
+  .farm-map-features {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .farm-map-feat {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .farm-practices-grid {
+    grid-template-columns: 1fr;
+  }
+}

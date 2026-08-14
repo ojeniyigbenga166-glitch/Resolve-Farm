@@ -1,0 +1,11 @@
+{
+  "name": "resolvefarm",
+  "version": "1.0.0",
+  "description": "RESOLVEFARM - Frontend Phase 1",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx --yes live-server ."
+  },
+  "author": "",
+  "license": "ISC"
+}

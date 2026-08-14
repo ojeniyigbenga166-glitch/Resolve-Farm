@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Photo & Video Gallery | RESOLVE FARMS</title>
+  <meta name="description" content="Explore photos and video highlights of Resolve Farms. Sustainable Canadian agriculture, fresh harvests, greenhouse produce, and farm life moments.">
+  
+  <!-- CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/gallery-ref.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  
+  <!-- JS -->
+  <script src="../js/main.js" defer></script>
+  <script src="../js/navigation.js" defer></script>
+  <script src="../js/animations.js" defer></script>
+  <script src="../js/gallery.js" defer></script>
+</head>
+<body class="gallery-page">
+  
+  <!-- NAVIGATION BAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="../index.html">
+          <div class="logo-top">
+            <span class="logo-res">RES</span>
+            <span class="logo-tomato">
+              <svg viewBox="0 0 24 24" fill="var(--color-tomato)" width="18" height="18">
+                <path d="M12 21.5c-4.4 0-8-3.6-8-8 0-3.3 2-6.2 5-7.4v-1.1c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v1.1c3 1.2 5 4.1 5 7.4 0 4.4-3.6 8-8 8z"/>
+                <path fill="var(--color-farm-green)" d="M12 3.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                <path fill="var(--color-farm-green)" d="M12 6c-.5 0-1-.2-1.4-.6L8.1 2.9c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l2.5 2.5 2.5-2.5c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-2.5 2.5C13 5.8 12.5 6 12 6z"/>
+              </svg>
+            </span>
+            <span class="logo-lve">LVE</span>
+          </div>
+          <div class="logo-bottom">
+            <span class="logo-line"></span>
+            <span class="logo-farms">FARMS</span>
+            <span class="logo-line"></span>
+          </div>
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="farm.html">Our Farm</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions desktop-only">
+        <a href="#" class="cart-icon" aria-label="Cart">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </a>
+        <a href="contact.html" class="btn btn-primary">Get In Touch <span class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span></a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="gallery-hero">
+      <div class="gallery-hero-bg"></div>
+      <div class="gallery-hero-overlay"></div>
+      <div class="gallery-hero-container">
+        <span class="gallery-eyebrow">VISUAL JOURNEY AT RESOLVE FARMS</span>
+        <h1>Life, Harvest & <br><span>Nature in Focus.</span></h1>
+        <div class="gallery-hero-divider"></div>
+        <p>Explore moments captured across our Canadian fields—from early morning greenhouse care to vibrant seasonal harvests and community stories.</p>
+      </div>
+    </section>
+
+    <!-- STICKY FILTER BAR -->
+    <section class="gallery-filter-section">
+      <div class="container">
+        <div class="gallery-filter-container">
+          <button class="filter-btn active" data-filter="all">
+            <span>All Moments</span>
+            <span class="filter-count">0</span>
+          </button>
+          <button class="filter-btn" data-filter="crops">
+            <span>Crops & Harvest</span>
+            <span class="filter-count">0</span>
+          </button>
+          <button class="filter-btn" data-filter="farm">
+            <span>Farm Fields & Life</span>
+            <span class="filter-count">0</span>
+          </button>
+          <button class="filter-btn" data-filter="team">
+            <span>Our People</span>
+            <span class="filter-count">0</span>
+          </button>
+          <button class="filter-btn" data-filter="video">
+            <span>Video Highlights</span>
+            <span class="filter-count">0</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID SECTION -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-grid" id="gallery-grid">
+
+          <!-- Item 1: Greenhouse Tomatoes -->
+          <div class="gallery-item" data-category="crops" data-title="Greenhouse Heirloom Tomatoes" data-caption="Nurtured heirloom tomatoes growing under sustainable climate-controlled care." data-full-src="../assets/images/gallery/greenhouse-tomatoes.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/gallery/greenhouse-tomatoes.png" alt="Greenhouse Heirloom Tomatoes" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Crops & Harvest</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Greenhouse Heirloom Tomatoes</h3>
+              <p>Climatically managed vines yielding sweet, vibrant red tomatoes year-round.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Golden Sunflower Fields -->
+          <div class="gallery-item" data-category="farm" data-title="Golden Hour Sunflower Field" data-caption="Vibrant golden sunflowers glowing at sunset across our expanses in Ontario." data-full-src="../assets/images/gallery/sunflower-field.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/gallery/sunflower-field.png" alt="Golden Hour Sunflower Field" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Farm Fields</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Golden Hour Sunflower Field</h3>
+              <p>Promoting biodiversity and natural pollination across our farming eco-system.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Video Feature -->
+          <div class="gallery-item" data-category="video" data-title="Resolve Farm Portrait Video" data-caption="Watch an authentic look into morning field walkthroughs and daily harvest routines." data-video-src="../assets/images/produce/resolved_farm_portrait.mp4">
+            <div class="gallery-thumb-wrap">
+              <video src="../assets/images/produce/resolved_farm_portrait.mp4" muted loop playsinline></video>
+              <div class="video-play-indicator">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="gallery-overlay">
+                <span class="gallery-badge badge-video">Video Tour</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Resolve Farm Life Portrait</h3>
+              <p>A video showcase of sustainable farming in action on our Canadian fields.</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Dewy Bell Peppers -->
+          <div class="gallery-item" data-category="crops" data-title="Dewy Sweet Bell Peppers" data-caption="Fresh red and yellow bell peppers harvested at peak crispness and nutrient density." data-full-src="../assets/images/gallery/bell-peppers.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/gallery/bell-peppers.png" alt="Dewy Sweet Bell Peppers" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Crops & Harvest</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Dewy Sweet Bell Peppers</h3>
+              <p>Organically nurtured blocky bell peppers grown with drip irrigation efficiency.</p>
+            </div>
+          </div>
+
+          <!-- Item 5: Dedicated Farmer Harvest -->
+          <div class="gallery-item" data-category="team" data-title="Farmer Harvest Crate" data-caption="Our experienced agricultural hands bringing fresh produce to Canadian tables." data-full-src="../assets/images/gallery/farmer-harvest.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/gallery/farmer-harvest.png" alt="Farmer Harvest Crate" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Our People</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Farmer Harvest Crate</h3>
+              <p>Passion and hand-crafted care behind every bushel harvested at Resolve Farms.</p>
+            </div>
+          </div>
+
+          <!-- Item 6: Fresh Produce Stand -->
+          <div class="gallery-item" data-category="crops" data-title="Farm Stand Fresh Market" data-caption="Daily market displays overflowing with freshly picked vegetables and herbs." data-full-src="../assets/images/gallery/fresh-market.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/gallery/fresh-market.png" alt="Farm Stand Fresh Market" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Crops & Harvest</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Farm Stand Fresh Market</h3>
+              <p>Connecting consumers directly with nutritious, farm-fresh produce.</p>
+            </div>
+          </div>
+
+          <!-- Item 7: African Corn Harvest -->
+          <div class="gallery-item" data-category="crops" data-title="Golden African Sweet Corn" data-caption="Golden sweet corn cultivated with rich soil nutrients and non-GMO practices." data-full-src="../assets/images/produce/african-corn.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/produce/african-corn.png" alt="Golden African Sweet Corn" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Crops & Harvest</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Golden African Sweet Corn</h3>
+              <p>Plump, sweet kernels harvested at maximum natural flavor and sweetness.</p>
+            </div>
+          </div>
+
+          <!-- Item 8: Thriving Pepper Crops -->
+          <div class="gallery-item" data-category="farm" data-title="Pepper Plantation Rows" data-caption="Extensive rows of healthy pepper plants benefiting from rich organic compost." data-full-src="../assets/images/produce/peppers.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/produce/peppers.png" alt="Pepper Plantation Rows" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Farm Fields</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Pepper Plantation Rows</h3>
+              <p>Carefully managed field acreage utilizing natural pest management strategies.</p>
+            </div>
+          </div>
+
+          <!-- Item 9: Head Agronomist -->
+          <div class="gallery-item" data-category="team" data-title="Soil & Crop Health Research" data-caption="Scientific soil sampling and precision agronomist field diagnostics." data-full-src="../assets/images/farm/team-agronomist.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/farm/team-agronomist.png" alt="Soil & Crop Health Research" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Our People</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Soil & Crop Agronomy</h3>
+              <p>Combining modern agricultural science with eco-friendly growing techniques.</p>
+            </div>
+          </div>
+
+          <!-- Item 10: Farm Founder -->
+          <div class="gallery-item" data-category="team" data-title="Leadership in Sustainable Farming" data-caption="Founder vision focused on premium food security, soil stewardship, and community." data-full-src="../assets/images/farm/team-founder.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/farm/team-founder.png" alt="Leadership in Sustainable Farming" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Our People</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Founder & Visionary</h3>
+              <p>Driving sustainable agriculture forward with integrity and high standards.</p>
+            </div>
+          </div>
+
+          <!-- Item 11: Operations Manager -->
+          <div class="gallery-item" data-category="team" data-title="Harvest Operations Management" data-caption="Overseeing efficient cold-chain distribution and fresh harvest handling." data-full-src="../assets/images/farm/team-manager.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/farm/team-manager.png" alt="Harvest Operations Management" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Our People</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Harvest Operations</h3>
+              <p>Guaranteeing peak freshness from field pick to store shelves.</p>
+            </div>
+          </div>
+
+          <!-- Item 12: Broad Farmland Sunrise -->
+          <div class="gallery-item" data-category="farm" data-title="Expansive Farmland Horizon" data-caption="Morning mist rising over green acres on our Canadian farming property." data-full-src="../assets/images/hero/hero-bg.png">
+            <div class="gallery-thumb-wrap">
+              <img src="../assets/images/hero/hero-bg.png" alt="Expansive Farmland Horizon" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Farm Fields</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Expansive Farmland Horizon</h3>
+              <p>Over 500 acres of fertile soil dedicated to sustainable crop rotation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO SPOTLIGHT SECTION -->
+    <section class="gallery-video-spotlight">
+      <div class="video-spotlight-container">
+        <div class="video-spotlight-text">
+          <span class="section-eyebrow section-eyebrow--light">VIDEO SPOTLIGHT</span>
+          <h2>Experience Resolve Farms in Motion</h2>
+          <p>Take a closer look at our daily operations. From solar-assisted irrigation systems to hands-on crop inspection, see how our team maintains uncompromised standards.</p>
+          
+          <ul class="video-highlights-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Eco-friendly greenhouse climate control technology</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Same-day harvest & precision packing methods</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Regenerative soil preservation and natural composting</span>
+            </li>
+          </ul>
+
+          <a href="contact.html" class="btn btn-primary">Schedule a Farm Tour <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
+        </div>
+
+        <div class="video-frame-wrapper">
+          <video src="../assets/images/produce/resolved_farm_portrait.mp4" controls poster="../assets/images/gallery/greenhouse-tomatoes.png" playsinline></video>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BANNER -->
+    <section class="gallery-stats-banner">
+      <div class="container">
+        <div class="gallery-stats-grid">
+          <div class="gallery-stat-card">
+            <div class="gallery-stat-num">500<span>+</span></div>
+            <div class="gallery-stat-label">Acres Cultivated</div>
+          </div>
+          <div class="gallery-stat-card">
+            <div class="gallery-stat-num">100<span>%</span></div>
+            <div class="gallery-stat-label">Sustainable Practices</div>
+          </div>
+          <div class="gallery-stat-card">
+            <div class="gallery-stat-num">12<span>+</span></div>
+            <div class="gallery-stat-label">Produce Varieties</div>
+          </div>
+          <div class="gallery-stat-card">
+            <div class="gallery-stat-num">4.9<span>★</span></div>
+            <div class="gallery-stat-label">Community Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM / SOCIAL CTA BOX -->
+    <section class="gallery-social-section">
+      <div class="container">
+        <div class="gallery-social-box">
+          <span class="social-handle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @RESOLVEFARMS
+          </span>
+          <h2>Follow Our Daily Farm Journey</h2>
+          <p>Tag us in your farm-to-table recipes or follow along for behind-the-scenes glimpses of harvest season, planting days, and farm life updates.</p>
+
+          <div class="social-mini-grid">
+            <img src="../assets/images/gallery/greenhouse-tomatoes.png" alt="Tomatoes" loading="lazy">
+            <img src="../assets/images/gallery/bell-peppers.png" alt="Bell Peppers" loading="lazy">
+            <img src="../assets/images/gallery/sunflower-field.png" alt="Sunflowers" loading="lazy">
+            <img src="../assets/images/gallery/fresh-market.png" alt="Market" loading="lazy">
+            <img src="../assets/images/produce/african-corn.png" alt="African Corn" loading="lazy">
+            <img src="../assets/images/gallery/farmer-harvest.png" alt="Farmer Harvest" loading="lazy">
+          </div>
+
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-primary">Join Us on Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="gallery-lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox-content-wrapper">
+      <button class="lightbox-close-btn" aria-label="Close image viewer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <button class="lightbox-nav-btn lightbox-prev" aria-label="Previous image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+
+      <div class="lightbox-media-container">
+        <!-- Media dynamically inserted by gallery.js -->
+      </div>
+
+      <button class="lightbox-nav-btn lightbox-next" aria-label="Next image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      <div class="lightbox-caption-bar">
+        <div class="lightbox-info">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="lightbox-counter">1 of 12</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Column 1: Brand -->
+        <div class="footer-col footer-brand">
+          <div class="logo">
+            <a href="../index.html">
+              <div class="logo-top">
+                <span class="logo-res">RES</span>
+                <span class="logo-tomato">
+                  <svg viewBox="0 0 24 24" fill="var(--color-tomato)" width="18" height="18">
+                    <path d="M12 21.5c-4.4 0-8-3.6-8-8 0-3.3 2-6.2 5-7.4v-1.1c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v1.1c3 1.2 5 4.1 5 7.4 0 4.4-3.6 8-8 8z"/>
+                    <path fill="var(--color-farm-green)" d="M12 3.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    <path fill="var(--color-farm-green)" d="M12 6c-.5 0-1-.2-1.4-.6L8.1 2.9c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l2.5 2.5 2.5-2.5c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-2.5 2.5C13 5.8 12.5 6 12 6z"/>
+                  </svg>
+                </span>
+                <span class="logo-lve">LVE</span>
+              </div>
+              <div class="logo-bottom">
+                <span class="logo-line"></span>
+                <span class="logo-farms">FARMS</span>
+                <span class="logo-line"></span>
+              </div>
+            </a>
+          </div>
+          <p class="footer-desc">Sustainable Canadian agricultural production delivering peak quality peppers, tomatoes, corn, and organic produce.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="farm.html">Our Farm</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3: Contact Us -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="contact-info">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-corn)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+1 (800) 234-5678</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-corn)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@resolvefarm.ca</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-corn)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Farm Road, Ontario, Canada</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Column 4: Gallery Preview -->
+        <div class="footer-col">
+          <h4>Gallery</h4>
+          <div class="footer-gallery-grid">
+            <img src="../assets/images/gallery/greenhouse-tomatoes.png" alt="Tomatoes" loading="lazy">
+            <img src="../assets/images/gallery/bell-peppers.png" alt="Peppers" loading="lazy">
+            <img src="../assets/images/gallery/sunflower-field.png" alt="Sunflowers" loading="lazy">
+            <img src="../assets/images/produce/african-corn.png" alt="Corn" loading="lazy">
+            <img src="../assets/images/gallery/farmer-harvest.png" alt="Farmer" loading="lazy">
+            <img src="../assets/images/gallery/fresh-market.png" alt="Market" loading="lazy">
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 RESOLVEFARMS. All Rights Reserved.</p>
+        <a href="#" class="privacy-link">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
