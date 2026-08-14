@@ -18,7 +18,7 @@
 .contact-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../assets/images/farm/about-farmer.png');
+  background-image: url('../assets/images/farm/about-farmer.webp');
   background-size: cover;
   background-position: center top;
   filter: brightness(0.9);
