@@ -1,0 +1,115 @@
+/* ==========================================================================
+   RESOLVEFARM - Mobile Navigation Styles
+   ========================================================================== */
+
+/* Hamburger to X animation */
+.mobile-menu-btn.is-active .hamburger {
+  background-color: transparent;
+}
+.mobile-menu-btn.is-active .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+  transition: all 0.3s ease;
+}
+.mobile-menu-btn.is-active .hamburger::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 199;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.mobile-nav-overlay.is-visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(320px, 85vw);
+  height: 100vh;
+  background-color: var(--color-forest);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav.is-open {
+  right: 0;
+}
+
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-close:hover {
+  color: #fff;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 1rem 0;
+  flex: 1;
+}
+
+.mobile-nav-links li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mobile-nav-links a {
+  display: block;
+  padding: 1rem 1.75rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.mobile-nav-links a.active {
+  color: var(--color-corn);
+}
+
+.mobile-nav-cta {
+  padding: 1.5rem 1.75rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-cta .btn {
+  width: 100%;
+  justify-content: center;
+}

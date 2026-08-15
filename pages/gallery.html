@@ -16,12 +16,13 @@
   <link rel="stylesheet" href="../css/gallery-ref.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/mobile-nav.css">
   
   <!-- JS -->
-  <script src="../js/main.js" defer></script>
-  <script src="../js/navigation.js" defer></script>
-  <script src="../js/animations.js" defer></script>
-  <script src="../js/gallery.js" defer></script>
+  <script type="module" src="../js/main.js" defer></script>
+  <script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/animations.js" defer></script>
+  <script type="module" src="../js/gallery.js" defer></script>
 </head>
 <body class="gallery-page">
   
@@ -70,6 +71,43 @@
       </button>
     </div>
   </header>
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay"></div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="logo">
+        <a href="../index.html">
+          <div class="logo-top">
+            <span class="logo-res" style="color:#fff;">RES</span>
+            <span class="logo-tomato">
+              <svg viewBox="0 0 24 24" fill="var(--color-tomato)" width="16" height="16">
+                <path d="M12 21.5c-4.4 0-8-3.6-8-8 0-3.3 2-6.2 5-7.4v-1.1c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v1.1c3 1.2 5 4.1 5 7.4 0 4.4-3.6 8-8 8z"/>
+              </svg>
+            </span>
+            <span class="logo-lve" style="color:#fff;">LVE</span>
+          </div>
+          <div class="logo-bottom"><span class="logo-farms" style="font-size:0.65rem;">FARMS</span></div>
+        </a>
+      </div>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="farm.html">Our Farm</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-cta">
+      <a href="contact.html" class="btn btn-primary">Get In Touch
+        <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </nav>
 
   <main>
     <!-- HERO SECTION -->
@@ -118,9 +156,9 @@
         <div class="gallery-grid" id="gallery-grid">
 
           <!-- Item 1: Greenhouse Tomatoes -->
-          <div class="gallery-item" data-category="crops" data-title="Greenhouse Heirloom Tomatoes" data-caption="Nurtured heirloom tomatoes growing under sustainable climate-controlled care." data-full-src="../assets/images/gallery/greenhouse-tomatoes.webp">
+          <div class="gallery-item" data-category="crops" data-title="Greenhouse Heirloom Tomatoes" data-caption="Nurtured heirloom tomatoes growing under sustainable climate-controlled care." data-full-src="/assets/images/gallery/greenhouse-tomatoes.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/gallery/greenhouse-tomatoes.webp" alt="Greenhouse Heirloom Tomatoes" loading="lazy">
+              <img src="/assets/images/gallery/greenhouse-tomatoes.webp" alt="Greenhouse Heirloom Tomatoes" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -135,9 +173,9 @@
           </div>
 
           <!-- Item 2: Golden Sunflower Fields -->
-          <div class="gallery-item" data-category="farm" data-title="Golden Hour Sunflower Field" data-caption="Vibrant golden sunflowers glowing at sunset across our expanses in Ontario." data-full-src="../assets/images/gallery/sunflower-field.webp">
+          <div class="gallery-item" data-category="farm" data-title="Golden Hour Sunflower Field" data-caption="Vibrant golden sunflowers glowing at sunset across our expanses in Ontario." data-full-src="/assets/images/gallery/sunflower-field.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/gallery/sunflower-field.webp" alt="Golden Hour Sunflower Field" loading="lazy">
+              <img src="/assets/images/gallery/sunflower-field.webp" alt="Golden Hour Sunflower Field" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Farm Fields</span>
                 <div class="gallery-overlay-icon">
@@ -152,9 +190,9 @@
           </div>
 
           <!-- Item 3: Video Feature -->
-          <div class="gallery-item" data-category="video" data-title="Resolve Farm Portrait Video" data-caption="Watch an authentic look into morning field walkthroughs and daily harvest routines." data-video-src="../assets/images/produce/resolved_farm_portrait.mp4">
+          <div class="gallery-item" data-category="video" data-title="Resolve Farm Portrait Video" data-caption="Watch an authentic look into morning field walkthroughs and daily harvest routines." data-video-src="/assets/images/produce/resolved_farm_portrait.mp4">
             <div class="gallery-thumb-wrap">
-              <video src="../assets/images/produce/resolved_farm_portrait.mp4" muted loop playsinline></video>
+              <video src="/assets/images/produce/resolved_farm_portrait.mp4" muted loop playsinline></video>
               <div class="video-play-indicator">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
@@ -172,9 +210,9 @@
           </div>
 
           <!-- Item 4: Dewy Bell Peppers -->
-          <div class="gallery-item" data-category="crops" data-title="Dewy Sweet Bell Peppers" data-caption="Fresh red and yellow bell peppers harvested at peak crispness and nutrient density." data-full-src="../assets/images/gallery/bell-peppers.webp">
+          <div class="gallery-item" data-category="crops" data-title="Dewy Sweet Bell Peppers" data-caption="Fresh red and yellow bell peppers harvested at peak crispness and nutrient density." data-full-src="/assets/images/gallery/bell-peppers.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/gallery/bell-peppers.webp" alt="Dewy Sweet Bell Peppers" loading="lazy">
+              <img src="/assets/images/gallery/bell-peppers.webp" alt="Dewy Sweet Bell Peppers" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -189,9 +227,9 @@
           </div>
 
           <!-- Item 5: Dedicated Farmer Harvest -->
-          <div class="gallery-item" data-category="team" data-title="Farmer Harvest Crate" data-caption="Our experienced agricultural hands bringing fresh produce to Canadian tables." data-full-src="../assets/images/gallery/farmer-harvest.webp">
+          <div class="gallery-item" data-category="team" data-title="Farmer Harvest Crate" data-caption="Our experienced agricultural hands bringing fresh produce to Canadian tables." data-full-src="/assets/images/gallery/farmer-harvest.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/gallery/farmer-harvest.webp" alt="Farmer Harvest Crate" loading="lazy">
+              <img src="/assets/images/gallery/farmer-harvest.webp" alt="Farmer Harvest Crate" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Our People</span>
                 <div class="gallery-overlay-icon">
@@ -206,9 +244,9 @@
           </div>
 
           <!-- Item 6: Fresh Produce Stand -->
-          <div class="gallery-item" data-category="crops" data-title="Farm Stand Fresh Market" data-caption="Daily market displays overflowing with freshly picked vegetables and herbs." data-full-src="../assets/images/gallery/fresh-market.webp">
+          <div class="gallery-item" data-category="crops" data-title="Farm Stand Fresh Market" data-caption="Daily market displays overflowing with freshly picked vegetables and herbs." data-full-src="/assets/images/gallery/fresh-market.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/gallery/fresh-market.webp" alt="Farm Stand Fresh Market" loading="lazy">
+              <img src="/assets/images/gallery/fresh-market.webp" alt="Farm Stand Fresh Market" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -223,9 +261,9 @@
           </div>
 
           <!-- Item 7: African Corn Harvest -->
-          <div class="gallery-item" data-category="crops" data-title="Golden African Sweet Corn" data-caption="Golden sweet corn cultivated with rich soil nutrients and non-GMO practices." data-full-src="../assets/images/produce/african-corn.webp">
+          <div class="gallery-item" data-category="crops" data-title="Golden African Sweet Corn" data-caption="Golden sweet corn cultivated with rich soil nutrients and non-GMO practices." data-full-src="/assets/images/produce/african-corn.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/produce/african-corn.webp" alt="Golden African Sweet Corn" loading="lazy">
+              <img src="/assets/images/produce/african-corn.webp" alt="Golden African Sweet Corn" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -240,9 +278,9 @@
           </div>
 
           <!-- Item 8: Thriving Pepper Crops -->
-          <div class="gallery-item" data-category="farm" data-title="Pepper Plantation Rows" data-caption="Extensive rows of healthy pepper plants benefiting from rich organic compost." data-full-src="../assets/images/produce/peppers.webp">
+          <div class="gallery-item" data-category="farm" data-title="Pepper Plantation Rows" data-caption="Extensive rows of healthy pepper plants benefiting from rich organic compost." data-full-src="/assets/images/produce/peppers.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/produce/peppers.webp" alt="Pepper Plantation Rows" loading="lazy">
+              <img src="/assets/images/produce/peppers.webp" alt="Pepper Plantation Rows" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Farm Fields</span>
                 <div class="gallery-overlay-icon">
@@ -257,9 +295,9 @@
           </div>
 
           <!-- Item 9: Head Agronomist -->
-          <div class="gallery-item" data-category="team" data-title="Soil & Crop Health Research" data-caption="Scientific soil sampling and precision agronomist field diagnostics." data-full-src="../assets/images/farm/team-agronomist.webp">
+          <div class="gallery-item" data-category="team" data-title="Soil & Crop Health Research" data-caption="Scientific soil sampling and precision agronomist field diagnostics." data-full-src="/assets/images/farm/team-agronomist.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/farm/team-agronomist.webp" alt="Soil & Crop Health Research" loading="lazy">
+              <img src="/assets/images/farm/team-agronomist.webp" alt="Soil & Crop Health Research" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Our People</span>
                 <div class="gallery-overlay-icon">
@@ -274,9 +312,9 @@
           </div>
 
           <!-- Item 10: Farm Founder -->
-          <div class="gallery-item" data-category="team" data-title="Leadership in Sustainable Farming" data-caption="Founder vision focused on premium food security, soil stewardship, and community." data-full-src="../assets/images/farm/team-founder.webp">
+          <div class="gallery-item" data-category="team" data-title="Leadership in Sustainable Farming" data-caption="Founder vision focused on premium food security, soil stewardship, and community." data-full-src="/assets/images/farm/team-founder.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/farm/team-founder.webp" alt="Leadership in Sustainable Farming" loading="lazy">
+              <img src="/assets/images/farm/team-founder.webp" alt="Leadership in Sustainable Farming" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Our People</span>
                 <div class="gallery-overlay-icon">
@@ -291,9 +329,9 @@
           </div>
 
           <!-- Item 11: Operations Manager -->
-          <div class="gallery-item" data-category="team" data-title="Harvest Operations Management" data-caption="Overseeing efficient cold-chain distribution and fresh harvest handling." data-full-src="../assets/images/farm/team-manager.webp">
+          <div class="gallery-item" data-category="team" data-title="Harvest Operations Management" data-caption="Overseeing efficient cold-chain distribution and fresh harvest handling." data-full-src="/assets/images/farm/team-manager.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/farm/team-manager.webp" alt="Harvest Operations Management" loading="lazy">
+              <img src="/assets/images/farm/team-manager.webp" alt="Harvest Operations Management" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Our People</span>
                 <div class="gallery-overlay-icon">
@@ -308,9 +346,9 @@
           </div>
 
           <!-- Item 12: Broad Farmland Sunrise -->
-          <div class="gallery-item" data-category="farm" data-title="Expansive Farmland Horizon" data-caption="Morning mist rising over green acres on our Canadian farming property." data-full-src="../assets/images/hero/hero-bg.webp">
+          <div class="gallery-item" data-category="farm" data-title="Expansive Farmland Horizon" data-caption="Morning mist rising over green acres on our Canadian farming property." data-full-src="/assets/images/hero/hero-bg.webp">
             <div class="gallery-thumb-wrap">
-              <img src="../assets/images/hero/hero-bg.webp" alt="Expansive Farmland Horizon" loading="lazy">
+              <img src="/assets/images/hero/hero-bg.webp" alt="Expansive Farmland Horizon" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Farm Fields</span>
                 <div class="gallery-overlay-icon">
@@ -355,7 +393,7 @@
         </div>
 
         <div class="video-frame-wrapper">
-          <video src="../assets/images/produce/resolved_farm_portrait.mp4" controls poster="../assets/images/gallery/greenhouse-tomatoes.webp" playsinline></video>
+          <video src="/assets/images/produce/resolved_farm_portrait.mp4" controls poster="/assets/images/gallery/greenhouse-tomatoes.webp" playsinline></video>
         </div>
       </div>
     </section>
@@ -396,12 +434,12 @@
           <p>Tag us in your farm-to-table recipes or follow along for behind-the-scenes glimpses of harvest season, planting days, and farm life updates.</p>
 
           <div class="social-mini-grid">
-            <img src="../assets/images/gallery/greenhouse-tomatoes.webp" alt="Tomatoes" loading="lazy">
-            <img src="../assets/images/gallery/bell-peppers.webp" alt="Bell Peppers" loading="lazy">
-            <img src="../assets/images/gallery/sunflower-field.webp" alt="Sunflowers" loading="lazy">
-            <img src="../assets/images/gallery/fresh-market.webp" alt="Market" loading="lazy">
-            <img src="../assets/images/produce/african-corn.webp" alt="African Corn" loading="lazy">
-            <img src="../assets/images/gallery/farmer-harvest.webp" alt="Farmer Harvest" loading="lazy">
+            <img src="/assets/images/gallery/greenhouse-tomatoes.webp" alt="Tomatoes" loading="lazy">
+            <img src="/assets/images/gallery/bell-peppers.webp" alt="Bell Peppers" loading="lazy">
+            <img src="/assets/images/gallery/sunflower-field.webp" alt="Sunflowers" loading="lazy">
+            <img src="/assets/images/gallery/fresh-market.webp" alt="Market" loading="lazy">
+            <img src="/assets/images/produce/african-corn.webp" alt="African Corn" loading="lazy">
+            <img src="/assets/images/gallery/farmer-harvest.webp" alt="Farmer Harvest" loading="lazy">
           </div>
 
           <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-primary">Join Us on Instagram</a>
@@ -512,12 +550,12 @@
         <div class="footer-col">
           <h4>Gallery</h4>
           <div class="footer-gallery-grid">
-            <img src="../assets/images/gallery/greenhouse-tomatoes.webp" alt="Tomatoes" loading="lazy">
-            <img src="../assets/images/gallery/bell-peppers.webp" alt="Peppers" loading="lazy">
-            <img src="../assets/images/gallery/sunflower-field.webp" alt="Sunflowers" loading="lazy">
-            <img src="../assets/images/produce/african-corn.webp" alt="Corn" loading="lazy">
-            <img src="../assets/images/gallery/farmer-harvest.webp" alt="Farmer" loading="lazy">
-            <img src="../assets/images/gallery/fresh-market.webp" alt="Market" loading="lazy">
+            <img src="/assets/images/gallery/greenhouse-tomatoes.webp" alt="Tomatoes" loading="lazy">
+            <img src="/assets/images/gallery/bell-peppers.webp" alt="Peppers" loading="lazy">
+            <img src="/assets/images/gallery/sunflower-field.webp" alt="Sunflowers" loading="lazy">
+            <img src="/assets/images/produce/african-corn.webp" alt="Corn" loading="lazy">
+            <img src="/assets/images/gallery/farmer-harvest.webp" alt="Farmer" loading="lazy">
+            <img src="/assets/images/gallery/fresh-market.webp" alt="Market" loading="lazy">
           </div>
         </div>
         

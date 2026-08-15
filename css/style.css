@@ -47,8 +47,8 @@ body::before {
   height: 100vh;
   /* Use both images as backgrounds */
   background-image: 
-    url('../assets/images/produce/african-corn.webp'),
-    url('../assets/images/produce/peppers.webp');
+    url('/assets/images/produce/african-corn.webp'),
+    url('/assets/images/produce/peppers.webp');
   /* Repeat both images */
   background-repeat: repeat, repeat;
   /* Size them appropriately */

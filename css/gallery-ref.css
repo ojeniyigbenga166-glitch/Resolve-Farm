@@ -20,7 +20,7 @@
 .gallery-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../assets/images/gallery/sunflower-field.webp');
+  background-image: url('/assets/images/gallery/sunflower-field.webp');
   background-size: cover;
   background-position: center;
   transform: scale(1.05);

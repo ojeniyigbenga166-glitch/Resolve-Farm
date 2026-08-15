@@ -11,10 +11,11 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/farm-ref.css">
   <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/mobile-nav.css">
 
   <!-- JS -->
-  <script src="../js/main.js" defer></script>
-  <script src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/main.js" defer></script>
+  <script type="module" src="../js/navigation.js" defer></script>
 </head>
 <body class="farm-page">
 
@@ -63,6 +64,43 @@
       </button>
     </div>
   </header>
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay"></div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="logo">
+        <a href="../index.html">
+          <div class="logo-top">
+            <span class="logo-res" style="color:#fff;">RES</span>
+            <span class="logo-tomato">
+              <svg viewBox="0 0 24 24" fill="var(--color-tomato)" width="16" height="16">
+                <path d="M12 21.5c-4.4 0-8-3.6-8-8 0-3.3 2-6.2 5-7.4v-1.1c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v1.1c3 1.2 5 4.1 5 7.4 0 4.4-3.6 8-8 8z"/>
+              </svg>
+            </span>
+            <span class="logo-lve" style="color:#fff;">LVE</span>
+          </div>
+          <div class="logo-bottom"><span class="logo-farms" style="font-size:0.65rem;">FARMS</span></div>
+        </a>
+      </div>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="farm.html">Our Farm</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-cta">
+      <a href="contact.html" class="btn btn-primary">Get In Touch
+        <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </nav>
 
   <!-- HERO SECTION -->
   <section class="farm-hero">
@@ -95,12 +133,12 @@
       <div class="farm-locations-grid">
         <!-- Card 1: Large vertical -->
         <div class="farm-loc-card farm-loc-card-1">
-          <img src="../assets/images/produce/peppers.webp" alt="Pepper farm in Ontario">
+          <img src="/assets/images/produce/peppers.webp" alt="Pepper farm in Ontario">
         </div>
 
         <!-- Card 2: Top right -->
         <div class="farm-loc-card">
-          <img src="../assets/images/hero/hero-bg.webp" alt="Resolve Farms greenhouse in Leamington">
+          <img src="/assets/images/hero/hero-bg.webp" alt="Resolve Farms greenhouse in Leamington">
           <div class="farm-loc-label">
             <div class="farm-loc-label-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -117,7 +155,7 @@
 
         <!-- Card 3: Bottom right -->
         <div class="farm-loc-card">
-          <img src="../assets/images/produce/fresh-tomatoes.webp" alt="Resolve Farms fields in Kelowna">
+          <img src="/assets/images/produce/fresh-tomatoes.webp" alt="Resolve Farms fields in Kelowna">
           <div class="farm-loc-label">
             <div class="farm-loc-label-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -216,7 +254,7 @@
       <div class="farm-practices-grid">
 
         <div class="farm-practice-card">
-          <img src="../assets/images/produce/peppers.webp" class="farm-practice-img" alt="Fertile farmland">
+          <img src="/assets/images/produce/peppers.webp" class="farm-practice-img" alt="Fertile farmland">
           <div class="farm-practice-icon green">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C12 22 12 16 12 12C12 8 8 4 8 4C8 4 8 8 12 12M12 22C12 22 12 16 12 12C12 8 16 4 16 4C16 4 16 8 12 12"/></svg>
           </div>
@@ -225,7 +263,7 @@
         </div>
 
         <div class="farm-practice-card">
-          <img src="../assets/images/produce/fresh-tomatoes.webp" class="farm-practice-img" alt="Careful harvesting">
+          <img src="/assets/images/produce/fresh-tomatoes.webp" class="farm-practice-img" alt="Careful harvesting">
           <div class="farm-practice-icon green">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 6.5l11 11M6.5 17.5l11-11"/><circle cx="12" cy="12" r="9"/></svg>
           </div>
@@ -234,7 +272,7 @@
         </div>
 
         <div class="farm-practice-card">
-          <img src="../assets/images/farm/about-farmer.webp" class="farm-practice-img" alt="Sustainable farming">
+          <img src="/assets/images/farm/about-farmer.webp" class="farm-practice-img" alt="Sustainable farming">
           <div class="farm-practice-icon green">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
           </div>
@@ -243,7 +281,7 @@
         </div>
 
         <div class="farm-practice-card">
-          <img src="../assets/images/hero/hero-bg.webp" class="farm-practice-img" alt="Farm fresh guarantee">
+          <img src="/assets/images/hero/hero-bg.webp" class="farm-practice-img" alt="Farm fresh guarantee">
           <div class="farm-practice-icon red">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
@@ -331,12 +369,12 @@
         <div class="footer-col">
           <h4>Gallery</h4>
           <div class="footer-gallery-grid">
-            <img src="../assets/images/produce/peppers.webp" alt="Peppers" loading="lazy">
-            <img src="../assets/images/produce/fresh-tomatoes.webp" alt="Tomatoes" loading="lazy">
-            <img src="../assets/images/farm/about-farmer.webp" alt="Farmer" loading="lazy">
-            <img src="../assets/images/produce/african-corn.webp" alt="Corn" loading="lazy">
-            <img src="../assets/images/hero/hero-bg.webp" alt="Farm" loading="lazy">
-            <img src="../assets/images/produce/peppers.webp" alt="Harvest" loading="lazy">
+            <img src="/assets/images/produce/peppers.webp" alt="Peppers" loading="lazy">
+            <img src="/assets/images/produce/fresh-tomatoes.webp" alt="Tomatoes" loading="lazy">
+            <img src="/assets/images/farm/about-farmer.webp" alt="Farmer" loading="lazy">
+            <img src="/assets/images/produce/african-corn.webp" alt="Corn" loading="lazy">
+            <img src="/assets/images/hero/hero-bg.webp" alt="Farm" loading="lazy">
+            <img src="/assets/images/produce/peppers.webp" alt="Harvest" loading="lazy">
           </div>
         </div>
 

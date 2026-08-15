@@ -9,7 +9,7 @@ const PRODUCTS = [
     name: 'Fresh Tomatoes',
     category: 'produce',
     description: 'Premium vine-ripened fresh tomatoes.',
-    image: 'assets/images/produce/fresh-tomatoes.jpg',
+    image: '/assets/images/produce/fresh-tomatoes.webp',
     price: 4.99, // Placeholder
     unit: 'lb',
     availability: 'in-stock',
@@ -20,7 +20,7 @@ const PRODUCTS = [
     name: 'Roma Tomatoes',
     category: 'produce',
     description: 'Perfect for sauces and canning.',
-    image: 'assets/images/produce/roma-tomatoes.jpg',
+    image: '/assets/images/produce/fresh-tomatoes.webp',
     price: 3.99, // Placeholder
     unit: 'lb',
     availability: 'in-stock',
@@ -31,7 +31,7 @@ const PRODUCTS = [
     name: 'Pepper',
     category: 'produce',
     description: 'Fresh and crisp bell peppers.',
-    image: 'assets/images/produce/pepper.jpg',
+    image: '/assets/images/produce/peppers.webp',
     price: 5.99, // Placeholder
     unit: 'lb',
     availability: 'in-stock',
@@ -42,7 +42,7 @@ const PRODUCTS = [
     name: 'Habanero',
     category: 'produce',
     description: 'Spicy habanero peppers for authentic flavor.',
-    image: 'assets/images/produce/habanero.jpg',
+    image: '/assets/images/produce/peppers.webp',
     price: 8.99, // Placeholder
     unit: 'lb',
     availability: 'in-stock',
@@ -53,7 +53,7 @@ const PRODUCTS = [
     name: 'Crimson Hot',
     category: 'produce',
     description: 'Flavorful crimson hot peppers.',
-    image: 'assets/images/produce/crimson-hot.jpg',
+    image: '/assets/images/produce/peppers.webp',
     price: 7.99, // Placeholder
     unit: 'lb',
     availability: 'in-stock',
@@ -64,7 +64,7 @@ const PRODUCTS = [
     name: 'Cayenne Pepper',
     category: 'produce',
     description: 'Fresh cayenne peppers.',
-    image: 'assets/images/produce/cayenne.jpg',
+    image: '/assets/images/produce/peppers.webp',
     price: 6.99, // Placeholder
     unit: 'lb',
     availability: 'in-stock',
@@ -75,7 +75,7 @@ const PRODUCTS = [
     name: 'African Corn — Agbado Naija',
     category: 'produce',
     description: 'Authentic African corn.',
-    image: 'assets/images/produce/african-corn.jpg',
+    image: '/assets/images/produce/african-corn.webp',
     price: 10.99, // Placeholder
     unit: 'dozen',
     availability: 'seasonal',

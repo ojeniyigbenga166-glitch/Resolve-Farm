@@ -16,12 +16,13 @@
   <link rel="stylesheet" href="../css/contact-ref.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/mobile-nav.css">
   
   <!-- JS -->
-  <script src="../js/main.js" defer></script>
-  <script src="../js/navigation.js" defer></script>
-  <script src="../js/animations.js" defer></script>
-  <script src="../js/form.js" defer></script>
+  <script type="module" src="../js/main.js" defer></script>
+  <script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/animations.js" defer></script>
+  <script type="module" src="../js/form.js" defer></script>
 </head>
 <body class="contact-page">
   
@@ -67,6 +68,43 @@
       </button>
     </div>
   </header>
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay"></div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="logo">
+        <a href="../index.html">
+          <div class="logo-top">
+            <span class="logo-res" style="color:#fff;">RES</span>
+            <span class="logo-tomato">
+              <svg viewBox="0 0 24 24" fill="var(--color-tomato)" width="16" height="16">
+                <path d="M12 21.5c-4.4 0-8-3.6-8-8 0-3.3 2-6.2 5-7.4v-1.1c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v1.1c3 1.2 5 4.1 5 7.4 0 4.4-3.6 8-8 8z"/>
+              </svg>
+            </span>
+            <span class="logo-lve" style="color:#fff;">LVE</span>
+          </div>
+          <div class="logo-bottom"><span class="logo-farms" style="font-size:0.65rem;">FARMS</span></div>
+        </a>
+      </div>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="farm.html">Our Farm</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-cta">
+      <a href="contact.html" class="btn btn-primary">Get In Touch
+        <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </nav>
 
   <main>
     <!-- HERO SECTION (EXACT REFERENCE DESIGN) -->
@@ -248,7 +286,7 @@
 
           <!-- Left Card: Landscape Photo & Floating Location Box -->
           <div class="location-visual-card">
-            <img src="../assets/images/hero/hero-bg.webp" alt="Resolve Farm Farmland" loading="lazy">
+            <img src="/assets/images/hero/hero-bg.webp" alt="Resolve Farm Farmland" loading="lazy">
             <div class="floating-location-box">
               <div class="floating-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -402,12 +440,12 @@
         <div class="footer-col">
           <h4>Gallery</h4>
           <div class="footer-gallery-grid">
-            <img src="../assets/images/produce/peppers.webp" alt="Peppers" loading="lazy">
-            <img src="../assets/images/produce/fresh-tomatoes.webp" alt="Tomatoes" loading="lazy">
-            <img src="../assets/images/farm/about-farmer.webp" alt="Farmer" loading="lazy">
-            <img src="../assets/images/produce/african-corn.webp" alt="Corn" loading="lazy">
-            <img src="../assets/images/hero/hero-bg.webp" alt="Farm" loading="lazy">
-            <img src="../assets/images/produce/peppers.webp" alt="Harvest" loading="lazy">
+            <img src="/assets/images/produce/peppers.webp" alt="Peppers" loading="lazy">
+            <img src="/assets/images/produce/fresh-tomatoes.webp" alt="Tomatoes" loading="lazy">
+            <img src="/assets/images/farm/about-farmer.webp" alt="Farmer" loading="lazy">
+            <img src="/assets/images/produce/african-corn.webp" alt="Corn" loading="lazy">
+            <img src="/assets/images/hero/hero-bg.webp" alt="Farm" loading="lazy">
+            <img src="/assets/images/produce/peppers.webp" alt="Harvest" loading="lazy">
           </div>
         </div>
         
