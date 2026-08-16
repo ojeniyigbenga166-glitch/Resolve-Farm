@@ -1,18 +1,27 @@
 /**
  * RESOLVEFARM - Animations Module
  * Responsible for scroll reveal, IntersectionObserver animations.
+ * Uses progressive enhancement: elements are visible by default,
+ * and the .js-animate class is added to <body> to enable animations.
  */
 
 class Animations {
   constructor() {
     this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!this.prefersReducedMotion) {
-      this.init();
-    }
-  }
 
-  init() {
-    this.initScrollReveal();
+    if (this.prefersReducedMotion) {
+      // Reduced motion: don't hide elements, skip animations entirely
+      return;
+    }
+
+    // Mark body so CSS knows JS animations are active
+    // This causes .fade-in elements to become opacity: 0
+    document.body.classList.add('js-animate');
+
+    // Use requestAnimationFrame to ensure layout is painted before observing
+    requestAnimationFrame(() => {
+      this.initScrollReveal();
+    });
   }
 
   initScrollReveal() {
@@ -20,12 +29,11 @@ class Animations {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-        } else {
-          // Remove the class when out of view so the animation replays when scrolling back
-          entry.target.classList.remove('is-visible');
+          // Once revealed, unobserve to avoid the element disappearing on scroll back
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    }, { threshold: 0.05, rootMargin: "0px 0px -30px 0px" });
 
     const selectors = '.fade-in, .scale-in, .slide-in-left, .slide-in-right';
     document.querySelectorAll(selectors).forEach(el => observer.observe(el));
@@ -33,3 +41,4 @@ class Animations {
 }
 
 document.addEventListener('DOMContentLoaded', () => new Animations());
+
