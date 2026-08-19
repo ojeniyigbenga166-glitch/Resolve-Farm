@@ -152,49 +152,32 @@ img {
 }
 
 .logo a {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
-  font-family: var(--font-body);
-  font-weight: 800;
+  line-height: 0;
 }
 
-.logo-top {
-  display: flex;
-  align-items: center;
-  font-size: 1.4rem;
-  color: var(--color-charcoal);
-  letter-spacing: 2px;
+.logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
 }
 
-.logo-res, .logo-lve {
-  display: inline-block;
+/* Footer logo blends into the footer (ships with the footer background baked in) */
+.footer-brand .logo-img {
+  height: 44px;
 }
 
-.logo-tomato {
-  display: flex;
-  margin: 0 -1px;
+/* Light chip keeps the full-colour logo legible on the dark mobile drawer */
+.mobile-nav-header .logo a {
+  background-color: var(--color-white);
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.logo-bottom {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: -4px;
-}
-
-.logo-farms {
-  color: var(--color-farm-green);
-  font-size: 0.75rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-
-.logo-line {
-  display: inline-block;
-  width: 15px;
-  height: 1px;
-  background-color: var(--color-farm-green);
+.mobile-nav-header .logo-img {
+  height: 40px;
 }
 
 .desktop-nav ul {
