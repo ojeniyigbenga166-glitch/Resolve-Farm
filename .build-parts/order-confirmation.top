@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Order Confirmed | RESOLVE FARMS</title>
+  <meta name="description" content="Your Resolve Farms order is confirmed. Here are your order number, delivery window and summary.">
+  <meta name="robots" content="noindex">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/shop-ref.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/mobile-nav.css">
+
+  <!-- JS -->
+  <script type="module" src="../js/main.js" defer></script>
+  <script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/order-confirmation.js" defer></script>
+</head>
+<body class="shop-page order-page-body">

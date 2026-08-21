@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>About Us | RESOLVE FARMS</title>
-  <meta name="description" content="At Resolve Farms, farming is more than what we do, it's who we are. Premium agricultural production and sustainable farming.">
-  
+
+  <title>Product | Farm Shop | RESOLVE FARMS</title>
+  <meta name="description" content="Product details from the Resolve Farms Farm Shop - grown, picked and packed on our own farm in Maidstone, Ontario.">
+
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/about-ref.css">
+  <link rel="stylesheet" href="../css/shop-ref.css">
   <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/mobile-nav.css">
-  
+
   <!-- JS -->
   <script type="module" src="../js/main.js" defer></script>
   <script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/product-detail.js" defer></script>
 </head>
-<body class="about-page">
+<body class="shop-page product-page">
 
-  <!-- NAVIGATION BAR -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="/" aria-label="RESOLVE FARMS home"><img src="/assets/images/logo/logo.png" alt="RESOLVE FARMS" class="logo-img"></a></div>
       <nav class="desktop-nav">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="about" class="active">About</a></li>
+          <li><a href="about">About</a></li>
           <li><a href="farm">Our Farm</a></li>
-          <li><a href="shop">Farm Shop</a></li>
+          <li><a href="shop" class="active">Farm Shop</a></li>
           <li><a href="gallery">Gallery</a></li>
           <li><a href="contact">Contact</a></li>
         </ul>
@@ -73,149 +75,155 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="about-hero">
-    <div class="about-hero-bg"></div>
-    <div class="about-hero-overlay"></div>
-    <div class="about-hero-container">
-      <div class="about-hero-content">
-        <span class="about-eyebrow">Our Story</span>
-        <h1>Rooted in Passion.<br>Growing a <span>Better Future.</span></h1>
-        <div class="about-hero-divider"></div>
-        <p>At Resolve Farms, farming is more than what we do, it's who we are. From nurturing healthy crops to empowering our community, we grow with purpose, care with integrity, and harvest with pride.</p>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <!-- OUR PURPOSE SECTION -->
-  <section class="about-purpose">
-    <div class="about-purpose-container">
-      
-      <div class="about-purpose-text">
-        <span class="purpose-eyebrow">OUR PURPOSE</span>
-        <div class="purpose-divider"></div>
-        <h2>Better Peppers,<br>Better Living.</h2>
-        <p>We are committed to producing premium quality peppers through sustainable farming practices that protect the environment and improve lives.</p>
-        <a href="farm" class="about-purpose-cta">Discover Our Farm &rarr;</a>
+    <!-- BREADCRUMB -->
+    <nav class="shop-breadcrumb" aria-label="Breadcrumb">
+      <div class="shop-breadcrumb-container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="shop">Farm Shop</a></li>
+          <li><a href="shop" data-breadcrumb-category>Produce</a></li>
+          <li aria-current="page" data-breadcrumb-name>Product</li>
+        </ol>
       </div>
-      
-      <div class="about-purpose-collage">
-        <!-- Vertical image left -->
-        <img src="/assets/images/produce/peppers.webp" class="collage-img collage-img-1" alt="Pepper Plant">
-        <!-- Landscape top right -->
-        <img src="/assets/images/produce/peppers-harvest-top.webp" class="collage-img collage-img-2" alt="Freshly harvested red hot peppers in buckets">
-        <!-- Landscape bottom right -->
-        <img src="/assets/images/produce/peppers-harvest-field.webp" class="collage-img collage-img-3" alt="Buckets of red peppers on the farm field">
-      </div>
-      
-    </div>
-  </section>
+    </nav>
 
-  <!-- WHAT DRIVES US SECTION -->
-  <section class="about-drives">
-    <div class="about-drives-header">
-      <span class="drives-eyebrow">WHAT DRIVES US</span>
-      <div class="drives-divider"></div>
-    </div>
-    
-    <div class="about-drives-grid">
-      <!-- Feature 1 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-green">
-          <!-- Leaf / Sustainability icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-        </div>
-        <h3>Sustainability</h3>
-        <p>We farm responsibly to protect our soil, water and future.</p>
+    <!-- PRODUCT NOT FOUND (shown when ?slug= is missing or unknown) -->
+    <section class="shop-notice" data-product-not-found hidden>
+      <div class="shop-notice-inner">
+        <span class="shop-notice-icon" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </span>
+        <h1>We couldn't find that product</h1>
+        <p>It may have sold out for the season, or the link may be out of date. Everything we currently harvest is in the shop.</p>
+        <a href="shop" class="btn btn-primary">Back to the Farm Shop
+          <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
       </div>
-      
-      <!-- Feature 2 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-red">
-          <!-- Award / Quality icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-        </div>
-        <h3>Quality</h3>
-        <p>We don't compromise on quality from seed to shelf.</p>
-      </div>
-      
-      <!-- Feature 3 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-beige">
-          <!-- Community icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Community</h3>
-        <p>We grow together and support the communities we serve.</p>
-      </div>
-      
-      <!-- Feature 4 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-green">
-          <!-- Heart / Integrity icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <h3>Integrity</h3>
-        <p>We do the right thing, every step of the way.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- JOURNEY IN NUMBERS SECTION -->
-  <section class="about-journey">
-    <div class="about-journey-container">
-      
-      <img src="/assets/images/produce/african-corn.webp" class="journey-image" alt="Farm Produce">
-      
-      <div class="journey-panel">
-        <div>
-          <span class="journey-eyebrow">OUR JOURNEY IN NUMBERS</span>
-          <div class="journey-divider"></div>
+    <!-- PRODUCT DETAIL -->
+    <section class="product-detail-section" data-product-detail hidden>
+      <div class="product-detail-container">
+
+        <!-- Gallery -->
+        <div class="product-detail-gallery">
+          <figure class="product-detail-main">
+            <img data-product-image src="" alt="" decoding="async">
+          </figure>
+          <div class="product-thumbs" data-product-thumbs>
+            <!-- Thumbnails rendered by product-detail.js -->
+          </div>
         </div>
-        
-        <div class="journey-stats-grid">
-          <div class="stat-item stat-item-1">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span class="stat-number">12+</span>
-            </div>
-            <span class="stat-label">Years of Experience</span>
+
+        <!-- Info -->
+        <div class="product-detail-info">
+          <div class="product-detail-meta">
+            <span class="product-detail-category" data-product-category></span>
+            <span class="product-detail-availability" data-product-availability></span>
           </div>
-          
-          <div class="stat-item stat-item-2">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
-              <span class="stat-number">50+</span>
+
+          <h1 class="product-detail-title" data-product-name></h1>
+
+          <p class="product-detail-price">
+            <strong data-product-price></strong>
+            <span data-product-unit></span>
+          </p>
+
+          <p class="product-detail-desc" data-product-description></p>
+
+          <ul class="product-detail-highlights" data-product-highlights>
+            <!-- Highlights rendered by product-detail.js -->
+          </ul>
+
+          <div class="product-detail-buy">
+            <div class="product-quantity" data-quantity-control>
+              <span class="product-quantity-label">Quantity</span>
+              <div class="product-quantity-control">
+                <button type="button" class="product-quantity-btn" data-quantity-decrease aria-label="Decrease quantity">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <span class="product-quantity-value" data-quantity-value aria-live="polite">1</span>
+                <button type="button" class="product-quantity-btn" data-quantity-increase aria-label="Increase quantity">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+              </div>
+              <span class="product-quantity-stock" data-product-stock></span>
             </div>
-            <span class="stat-label">Hectares of Farmland</span>
-          </div>
-          
-          <div class="stat-item stat-item-3">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              <span class="stat-number">500+</span>
+
+            <p class="product-detail-linetotal">
+              Total <strong data-product-line-total></strong>
+            </p>
+
+            <div class="product-detail-actions">
+              <button type="button" class="btn btn-primary product-detail-add" data-product-add>
+                Add to Cart
+                <span class="btn-icon" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </span>
+              </button>
+              <button type="button" class="btn btn-tomato product-detail-buy-btn" data-product-buy>
+                Buy Now
+                <span class="btn-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </button>
             </div>
-            <span class="stat-label">Happy Customers</span>
           </div>
-          
-          <div class="stat-item stat-item-4">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span class="stat-number">100%</span>
-            </div>
-            <span class="stat-label">Natural & Fresh</span>
-          </div>
+
+          <ul class="product-detail-assurances">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Picked after you order
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              Free delivery over $75
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Grown in Maidstone, Ontario
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RELATED PRODUCTS -->
+    <section class="shop-featured-section" data-product-related-section>
+      <div class="shop-featured-container">
+        <div class="shop-featured-head">
+          <span class="section-eyebrow">FROM THE SAME HARVEST</span>
+          <h2>You May Also Like</h2>
+        </div>
+        <div class="shop-featured-rail" data-product-related>
+          <!-- Related cards rendered by product-detail.js -->
         </div>
       </div>
-      
-    </div>
-  </section>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-container fade-in">
+        <div class="cta-content">
+          <h2>Need a larger volume?</h2>
+          <p>We supply restaurants, grocers and distributors straight from the field.</p>
+        </div>
+        <a href="contact" class="btn btn-tomato">Talk to our team <span class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span></a>
+      </div>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        
+
         <!-- Column 1: Brand -->
         <div class="footer-col footer-brand">
           <div class="logo"><a href="/" aria-label="RESOLVE FARMS home"><img src="/assets/images/logo/logo-footer.png" alt="RESOLVE FARMS" class="logo-img"></a></div>
@@ -232,7 +240,7 @@
             </a>
           </div>
         </div>
-        
+
         <!-- Column 2: Quick Links -->
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -240,11 +248,12 @@
             <li><a href="/">Home</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="farm">Our Farm</a></li>
+            <li><a href="shop">Farm Shop</a></li>
             <li><a href="gallery">Gallery</a></li>
             <li><a href="contact">Contact</a></li>
           </ul>
         </div>
-        
+
         <!-- Column 3: Contact Us -->
         <div class="footer-col">
           <h4>Contact Us</h4>
@@ -263,7 +272,7 @@
             </li>
           </ul>
         </div>
-        
+
         <!-- Column 4: Gallery -->
         <div class="footer-col">
           <h4>Gallery</h4>
@@ -276,9 +285,9 @@
             <img src="/assets/images/produce/peppers.webp" alt="Harvest" loading="lazy">
           </div>
         </div>
-        
+
       </div>
-      
+
       <div class="footer-bottom">
         <p>&copy; 2026 RESOLVEFARM. All Rights Reserved.</p>
         <a href="#" class="privacy-link">Privacy Policy</a>

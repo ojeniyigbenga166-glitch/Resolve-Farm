@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Your Cart | RESOLVE FARMS</title>
+  <meta name="description" content="Review your Resolve Farms basket before checkout - fresh produce picked to order on our farm in Maidstone, Ontario.">
+  <meta name="robots" content="noindex">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/shop-ref.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/mobile-nav.css">
+
+  <!-- JS -->
+  <script type="module" src="../js/main.js" defer></script>
+  <script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/cart-page.js" defer></script>
+</head>
+<body class="shop-page cart-page-body">

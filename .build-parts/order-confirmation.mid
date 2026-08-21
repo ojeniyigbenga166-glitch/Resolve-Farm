@@ -1,0 +1,148 @@
+
+  <main>
+
+    <!-- NO ORDER TO SHOW -->
+    <section class="shop-notice order-fallback" data-order-fallback hidden>
+      <div class="shop-notice-inner">
+        <span class="shop-notice-icon" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        <h1>No recent order to show</h1>
+        <p>We could not find an order in this browser. If you have just placed one, check your email for the confirmation - or call us and we will look it up for you.</p>
+        <div class="order-fallback-actions">
+          <a href="shop.html" class="btn btn-primary">Back to the Farm Shop</a>
+          <a href="contact.html" class="btn btn-outline-dark">Contact us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIRMED ORDER -->
+    <div data-order-success hidden>
+
+      <!-- Success band -->
+      <section class="order-hero">
+        <div class="order-hero-container">
+          <span class="order-check" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+
+          <span class="section-eyebrow section-eyebrow--light">ORDER CONFIRMED</span>
+          <h1>Thank you &mdash; your <span>harvest</span> is booked</h1>
+          <p>
+            We have your order and the field team has it on the list. A confirmation is on its way to
+            <strong data-order-email></strong>.
+          </p>
+
+          <dl class="order-facts">
+            <div>
+              <dt>Order number</dt>
+              <dd data-order-number></dd>
+            </div>
+            <div>
+              <dt>Placed</dt>
+              <dd data-order-date></dd>
+            </div>
+            <div>
+              <dt>Expected delivery</dt>
+              <dd data-order-window></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Detail -->
+      <section class="order-detail-section">
+        <div class="order-detail-container">
+
+          <div class="order-panel">
+            <h2>Order summary</h2>
+            <ul class="checkout-summary-lines" data-order-lines>
+              <!-- Order lines rendered by order-confirmation.js -->
+            </ul>
+
+            <dl class="cart-summary-rows">
+              <div>
+                <dt>Subtotal</dt>
+                <dd data-order-subtotal>$0.00</dd>
+              </div>
+              <div>
+                <dt>Delivery</dt>
+                <dd data-order-delivery>Free</dd>
+              </div>
+            </dl>
+
+            <div class="cart-summary-total">
+              <span>Total</span>
+              <strong data-order-total>$0.00</strong>
+            </div>
+
+            <p class="order-payment-note">
+              Payment is settled directly with the farm - we will confirm the arrangement when we call
+              about your delivery window. No card has been charged.
+            </p>
+          </div>
+
+          <div class="order-side">
+            <div class="order-panel">
+              <h2>Delivering to</h2>
+              <address class="order-address" data-order-address></address>
+
+              <div class="order-notes-block" data-order-notes-block hidden>
+                <h3>Delivery notes</h3>
+                <p data-order-notes></p>
+              </div>
+            </div>
+
+            <div class="order-panel">
+              <h2>What happens next</h2>
+              <ol class="order-steps">
+                <li>
+                  <span class="order-step-num">1</span>
+                  <div>
+                    <strong>We confirm your order</strong>
+                    <p>A quick call or email within one business day to lock in your delivery window.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="order-step-num">2</span>
+                  <div>
+                    <strong>We harvest for you</strong>
+                    <p>Your produce is picked the morning it leaves the farm - nothing sits in storage.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="order-step-num">3</span>
+                  <div>
+                    <strong>It arrives at your door</strong>
+                    <p>Packed cool and delivered on the agreed day.</p>
+                  </div>
+                </li>
+              </ol>
+
+              <p class="order-help">
+                Need to change something? Call
+                <a href="tel:+18002345678">+1 (800) 234-5678</a> or email
+                <a href="mailto:hello@resolvefarms.ca">hello@resolvefarms.ca</a> and quote your order number.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section">
+        <div class="cta-container fade-in">
+          <span class="section-eyebrow section-eyebrow--light">KEEP GOING</span>
+          <h2>More coming out of the fields</h2>
+          <p>Tomatoes, peppers and corn are picked to order all season. Have another look at what is ready this week.</p>
+          <a href="shop.html" class="btn btn-tomato">Continue Shopping
+            <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+

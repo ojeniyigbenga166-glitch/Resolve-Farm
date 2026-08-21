@@ -20,7 +20,7 @@ mobile_nav_root = '''
   <nav class="mobile-nav" aria-label="Mobile Navigation">
     <div class="mobile-nav-header">
       <div class="logo">
-        <a href="index.html">
+        <a href="/">
           <div class="logo-top">
             <span class="logo-res" style="color:#fff;">RES</span>
             <span class="logo-tomato">
@@ -38,14 +38,16 @@ mobile_nav_root = '''
       </button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="pages/about.html">About</a></li>
-      <li><a href="pages/farm.html">Our Farm</a></li>
-      <li><a href="pages/gallery.html">Gallery</a></li>
-      <li><a href="pages/contact.html">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="pages/about">About</a></li>
+      <li><a href="pages/farm">Our Farm</a></li>
+      <li><a href="pages/shop">Farm Shop</a></li>
+      <li><a href="pages/gallery">Gallery</a></li>
+      <li><a href="pages/contact">Contact</a></li>
+      <li><a href="pages/cart">Cart</a></li>
     </ul>
     <div class="mobile-nav-cta">
-      <a href="pages/contact.html" class="btn btn-primary">Get In Touch
+      <a href="pages/contact" class="btn btn-primary">Get In Touch
         <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
     </div>
@@ -59,7 +61,7 @@ mobile_nav_pages = '''
   <nav class="mobile-nav" aria-label="Mobile Navigation">
     <div class="mobile-nav-header">
       <div class="logo">
-        <a href="../index.html">
+        <a href="/">
           <div class="logo-top">
             <span class="logo-res" style="color:#fff;">RES</span>
             <span class="logo-tomato">
@@ -77,14 +79,16 @@ mobile_nav_pages = '''
       </button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="farm.html">Our Farm</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="about">About</a></li>
+      <li><a href="farm">Our Farm</a></li>
+      <li><a href="shop">Farm Shop</a></li>
+      <li><a href="gallery">Gallery</a></li>
+      <li><a href="contact">Contact</a></li>
+      <li><a href="cart">Cart</a></li>
     </ul>
     <div class="mobile-nav-cta">
-      <a href="contact.html" class="btn btn-primary">Get In Touch
+      <a href="contact" class="btn btn-primary">Get In Touch
         <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
     </div>

@@ -301,14 +301,87 @@ body.farm-page::before {
   position: relative;
 }
 
-.farm-map-visual svg {
-  width: 100%;
-  height: auto;
+/* Live Google Maps embed, framed as a brand card.
+   The map itself is a cross-origin iframe, so only the frame is styled. */
+.farm-map-embed {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--farm-soft-green);
+  border: 1px solid rgba(36, 74, 27, 0.12);
+  box-shadow: 0 14px 34px rgba(36, 74, 27, 0.14);
 }
 
-.map-pin {
-  fill: var(--farm-accent-red);
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+/* aspect-ratio reserves the box before the iframe loads, so there is no layout shift.
+   min-height keeps the map usable on very narrow screens. */
+.farm-map-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 300px;
+  border: 0;
+}
+
+.farm-map-caption {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  padding: 1.1rem 1.2rem;
+  background-color: var(--farm-white);
+  border-top: 1px solid rgba(36, 74, 27, 0.1);
+}
+
+.farm-map-caption-icon {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--farm-soft-red);
+  color: var(--farm-accent-red);
+}
+
+.farm-map-address {
+  flex: 1 1 60%;
+  min-width: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--farm-text-sec);
+  font-style: normal;
+}
+
+.farm-map-address strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--farm-text-main);
+  margin-bottom: 2px;
+}
+
+.farm-map-directions {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: center;
+  margin-left: auto;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  background-color: var(--farm-primary);
+  color: var(--farm-white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.farm-map-directions:hover,
+.farm-map-directions:focus-visible {
+  background-color: var(--farm-primary-dark);
+  transform: translateY(-1px);
 }
 
 .farm-map-content {
@@ -472,7 +545,8 @@ body.farm-page::before {
   .farm-map-visual {
     flex: none;
     width: 100%;
-    max-width: 400px;
+    /* Wider than the old SVG sketch allowed — an interactive map needs room to be usable. */
+    max-width: 560px;
     margin: 0 auto;
   }
 
@@ -509,6 +583,13 @@ body.farm-page::before {
   .farm-map-feat {
     flex-direction: row;
     text-align: left;
+  }
+
+  /* Stack the directions button under the address as a full-width tap target */
+  .farm-map-directions {
+    flex-basis: 100%;
+    margin-left: 0;
+    justify-content: center;
   }
 
   .farm-practices-grid {

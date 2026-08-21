@@ -77,9 +77,12 @@ class Navigation {
   }
 
   setActiveLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    let currentPage = window.location.pathname.split('/').pop() || 'index';
+    if (currentPage === 'index.html') currentPage = 'index';
+
     document.querySelectorAll('.site-header nav a, .mobile-nav a').forEach(link => {
-      const linkPage = link.getAttribute('href')?.split('/').pop();
+      let linkPage = link.getAttribute('href')?.split('/').pop() || '';
+      if (linkPage === 'index.html' || linkPage === '') linkPage = 'index';
       if (linkPage === currentPage) {
         link.classList.add('active');
       }

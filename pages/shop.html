@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>About Us | RESOLVE FARMS</title>
-  <meta name="description" content="At Resolve Farms, farming is more than what we do, it's who we are. Premium agricultural production and sustainable farming.">
-  
+
+  <title>Farm Shop | RESOLVE FARMS</title>
+  <meta name="description" content="Buy fresh tomatoes, peppers and African corn direct from Resolve Farms in Maidstone, Ontario. Harvested to order and delivered across Canada.">
+
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/about-ref.css">
+  <link rel="stylesheet" href="../css/shop-ref.css">
   <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/mobile-nav.css">
-  
+
   <!-- JS -->
   <script type="module" src="../js/main.js" defer></script>
   <script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/shop.js" defer></script>
 </head>
-<body class="about-page">
+<body class="shop-page">
 
-  <!-- NAVIGATION BAR -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="/" aria-label="RESOLVE FARMS home"><img src="/assets/images/logo/logo.png" alt="RESOLVE FARMS" class="logo-img"></a></div>
       <nav class="desktop-nav">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="about" class="active">About</a></li>
+          <li><a href="about">About</a></li>
           <li><a href="farm">Our Farm</a></li>
-          <li><a href="shop">Farm Shop</a></li>
+          <li><a href="shop" class="active">Farm Shop</a></li>
           <li><a href="gallery">Gallery</a></li>
           <li><a href="contact">Contact</a></li>
         </ul>
@@ -73,149 +75,166 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="about-hero">
-    <div class="about-hero-bg"></div>
-    <div class="about-hero-overlay"></div>
-    <div class="about-hero-container">
-      <div class="about-hero-content">
-        <span class="about-eyebrow">Our Story</span>
-        <h1>Rooted in Passion.<br>Growing a <span>Better Future.</span></h1>
-        <div class="about-hero-divider"></div>
-        <p>At Resolve Farms, farming is more than what we do, it's who we are. From nurturing healthy crops to empowering our community, we grow with purpose, care with integrity, and harvest with pride.</p>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <!-- OUR PURPOSE SECTION -->
-  <section class="about-purpose">
-    <div class="about-purpose-container">
-      
-      <div class="about-purpose-text">
-        <span class="purpose-eyebrow">OUR PURPOSE</span>
-        <div class="purpose-divider"></div>
-        <h2>Better Peppers,<br>Better Living.</h2>
-        <p>We are committed to producing premium quality peppers through sustainable farming practices that protect the environment and improve lives.</p>
-        <a href="farm" class="about-purpose-cta">Discover Our Farm &rarr;</a>
+    <!-- SHOP HERO -->
+    <section class="shop-hero">
+      <div class="shop-hero-bg"></div>
+      <div class="shop-hero-overlay"></div>
+      <div class="shop-hero-container">
+        <span class="shop-hero-eyebrow">FARM SHOP</span>
+        <h1>Straight From Our<br>Fields to Your <span>Table</span></h1>
+        <div class="shop-hero-divider"></div>
+        <p>Everything below was planted, tended and harvested on our own farm in Maidstone, Ontario. Order today and we pick to fill it.</p>
+        <div class="shop-hero-trust">
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Harvested to order
+          </span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            No middlemen
+          </span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Free delivery over $75
+          </span>
+        </div>
       </div>
-      
-      <div class="about-purpose-collage">
-        <!-- Vertical image left -->
-        <img src="/assets/images/produce/peppers.webp" class="collage-img collage-img-1" alt="Pepper Plant">
-        <!-- Landscape top right -->
-        <img src="/assets/images/produce/peppers-harvest-top.webp" class="collage-img collage-img-2" alt="Freshly harvested red hot peppers in buckets">
-        <!-- Landscape bottom right -->
-        <img src="/assets/images/produce/peppers-harvest-field.webp" class="collage-img collage-img-3" alt="Buckets of red peppers on the farm field">
-      </div>
-      
-    </div>
-  </section>
+    </section>
 
-  <!-- WHAT DRIVES US SECTION -->
-  <section class="about-drives">
-    <div class="about-drives-header">
-      <span class="drives-eyebrow">WHAT DRIVES US</span>
-      <div class="drives-divider"></div>
-    </div>
-    
-    <div class="about-drives-grid">
-      <!-- Feature 1 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-green">
-          <!-- Leaf / Sustainability icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-        </div>
-        <h3>Sustainability</h3>
-        <p>We farm responsibly to protect our soil, water and future.</p>
-      </div>
-      
-      <!-- Feature 2 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-red">
-          <!-- Award / Quality icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-        </div>
-        <h3>Quality</h3>
-        <p>We don't compromise on quality from seed to shelf.</p>
-      </div>
-      
-      <!-- Feature 3 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-beige">
-          <!-- Community icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Community</h3>
-        <p>We grow together and support the communities we serve.</p>
-      </div>
-      
-      <!-- Feature 4 -->
-      <div class="drive-feature">
-        <div class="drive-icon bg-green">
-          <!-- Heart / Integrity icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <h3>Integrity</h3>
-        <p>We do the right thing, every step of the way.</p>
-      </div>
-    </div>
-  </section>
+    <!-- FILTER / SEARCH TOOLBAR -->
+    <section class="shop-toolbar-section">
+      <div class="shop-toolbar-container">
 
-  <!-- JOURNEY IN NUMBERS SECTION -->
-  <section class="about-journey">
-    <div class="about-journey-container">
-      
-      <img src="/assets/images/produce/african-corn.webp" class="journey-image" alt="Farm Produce">
-      
-      <div class="journey-panel">
-        <div>
-          <span class="journey-eyebrow">OUR JOURNEY IN NUMBERS</span>
-          <div class="journey-divider"></div>
+        <div class="shop-categories" data-shop-categories role="tablist" aria-label="Product categories">
+          <!-- Category tabs are rendered from the catalogue by shop.js -->
         </div>
-        
-        <div class="journey-stats-grid">
-          <div class="stat-item stat-item-1">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span class="stat-number">12+</span>
-            </div>
-            <span class="stat-label">Years of Experience</span>
+
+        <div class="shop-tools">
+          <form class="shop-search" data-shop-search-form role="search">
+            <label class="visually-hidden" for="shop-search-input">Search products</label>
+            <span class="shop-search-icon" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input
+              type="search"
+              id="shop-search-input"
+              class="shop-search-input"
+              data-shop-search
+              placeholder="Search tomatoes, peppers, corn..."
+              autocomplete="off">
+            <button type="button" class="shop-search-clear" data-shop-search-clear aria-label="Clear search" hidden>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </form>
+
+          <div class="shop-sort">
+            <label class="visually-hidden" for="shop-sort-select">Sort products</label>
+            <select id="shop-sort-select" class="shop-sort-select" data-shop-sort>
+              <option value="featured">Sort: Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+            </select>
           </div>
-          
-          <div class="stat-item stat-item-2">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
-              <span class="stat-number">50+</span>
-            </div>
-            <span class="stat-label">Hectares of Farmland</span>
-          </div>
-          
-          <div class="stat-item stat-item-3">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              <span class="stat-number">500+</span>
-            </div>
-            <span class="stat-label">Happy Customers</span>
-          </div>
-          
-          <div class="stat-item stat-item-4">
-            <div class="stat-item-header">
-              <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span class="stat-number">100%</span>
-            </div>
-            <span class="stat-label">Natural & Fresh</span>
-          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="shop-grid-section">
+      <div class="shop-grid-container">
+
+        <p class="shop-result-count" data-shop-count aria-live="polite"></p>
+
+        <div class="shop-grid" data-shop-grid>
+          <!-- Product cards are rendered by shop.js via the ProductCard component -->
+        </div>
+
+        <div class="shop-empty" data-shop-empty hidden>
+          <span class="shop-empty-icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <h2>Nothing matched <span data-shop-empty-query></span></h2>
+          <p>That crop may be out of season, or try a different spelling. Our full harvest is always one click away.</p>
+          <button type="button" class="btn btn-primary" data-shop-reset>Show all products</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FARM FAVOURITES RAIL -->
+    <section class="shop-featured-section">
+      <div class="shop-featured-container">
+        <div class="shop-featured-head">
+          <span class="section-eyebrow">FARM FAVOURITES</span>
+          <h2>What Our Customers<br>Come Back For</h2>
+          <p>The three lines we harvest most often &mdash; and the ones that sell out first.</p>
+        </div>
+        <div class="shop-featured-rail" data-shop-featured>
+          <!-- Featured cards are rendered by shop.js -->
         </div>
       </div>
-      
-    </div>
-  </section>
+    </section>
+
+    <!-- FARM QUALITY / TRUST SECTION -->
+    <section class="quality-section shop-quality">
+      <div class="quality-container fade-in">
+        <div class="quality-image-wrap">
+          <img src="/assets/images/farm/farm-family-planting.webp" alt="The Resolve Farms team planting seedlings by hand" class="quality-image" loading="lazy">
+        </div>
+        <div class="quality-content">
+          <span class="section-eyebrow section-eyebrow--light">WHY BUY DIRECT</span>
+          <h2>You Are Buying From the People Who Grew It</h2>
+          <ul class="quality-list">
+            <li>
+              <span class="quality-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Picked after you order, not weeks before
+            </li>
+            <li>
+              <span class="quality-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              One farm, one team, full traceability
+            </li>
+            <li>
+              <span class="quality-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Sustainable growing practices on every bed
+            </li>
+          </ul>
+          <a href="farm" class="btn-outline-light">See how we farm
+            <span class="btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-container fade-in">
+        <div class="cta-content">
+          <h2>Ordering for a restaurant or store?</h2>
+          <p>We supply wholesale volumes straight from the field. Tell us what you need.</p>
+        </div>
+        <a href="contact" class="btn btn-tomato">Talk to our team <span class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span></a>
+      </div>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        
+
         <!-- Column 1: Brand -->
         <div class="footer-col footer-brand">
           <div class="logo"><a href="/" aria-label="RESOLVE FARMS home"><img src="/assets/images/logo/logo-footer.png" alt="RESOLVE FARMS" class="logo-img"></a></div>
@@ -232,7 +251,7 @@
             </a>
           </div>
         </div>
-        
+
         <!-- Column 2: Quick Links -->
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -240,11 +259,12 @@
             <li><a href="/">Home</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="farm">Our Farm</a></li>
+            <li><a href="shop">Farm Shop</a></li>
             <li><a href="gallery">Gallery</a></li>
             <li><a href="contact">Contact</a></li>
           </ul>
         </div>
-        
+
         <!-- Column 3: Contact Us -->
         <div class="footer-col">
           <h4>Contact Us</h4>
@@ -263,7 +283,7 @@
             </li>
           </ul>
         </div>
-        
+
         <!-- Column 4: Gallery -->
         <div class="footer-col">
           <h4>Gallery</h4>
@@ -276,9 +296,9 @@
             <img src="/assets/images/produce/peppers.webp" alt="Harvest" loading="lazy">
           </div>
         </div>
-        
+
       </div>
-      
+
       <div class="footer-bottom">
         <p>&copy; 2026 RESOLVEFARM. All Rights Reserved.</p>
         <a href="#" class="privacy-link">Privacy Policy</a>
