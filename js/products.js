@@ -128,7 +128,7 @@ const PRODUCTS = [
       'The variety for jollof, pepper soup and hot sauce',
       'Grown from seed on our own beds'
     ],
-    image: '/assets/images/produce/peppers.webp',
+    image: '/assets/images/produce/fresh-peppers.jpg',
     gallery: [
       '/assets/images/produce/peppers-harvest-field.webp',
       '/assets/images/gallery/farmer-harvest.webp'
