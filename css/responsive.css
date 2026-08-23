@@ -28,6 +28,14 @@
     gap: 2.5rem;
   }
 
+  .quality-container {
+    height: auto;
+  }
+
+  .quality-image-wrap {
+    height: 280px;
+  }
+
   .produce-container {
     grid-template-columns: 1fr;
   }
@@ -128,6 +136,12 @@
 
   .quality-container {
     grid-template-columns: 1fr;
+    height: auto;
+    width: calc(100% - 2rem);
+  }
+
+  .quality-image-wrap {
+    height: 240px;
   }
 
   .quality-content {
