@@ -733,12 +733,23 @@
   }
 
   .gallery-filter-section {
-    top: 60px;
-    padding: 1.25rem 0;
+    top: 76px;
+    padding: 1rem 0 0.5rem;
   }
 
   .gallery-filter-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 1.5rem 0.5rem;
     gap: 0.5rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .gallery-filter-container::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-btn {

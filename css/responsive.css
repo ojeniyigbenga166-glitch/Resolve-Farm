@@ -32,6 +32,10 @@
     grid-template-columns: 1fr;
   }
 
+  .produce-intro {
+    position: static;
+  }
+
   .produce-cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -82,6 +86,10 @@
   
   .mobile-menu-btn {
     display: block;
+  }
+  
+  .features-bar {
+    margin-top: -30px;
   }
   
   .features-grid {

@@ -1945,20 +1945,34 @@ body.shop-page {
     flex-direction: column;
   }
 
-  .cart-line-item {
+  .cart-line {
     grid-template-columns: 60px 1fr auto;
-    gap: 1rem;
+    gap: 0.5rem 1rem;
   }
 
   .cart-line-media {
     width: 60px;
-    height: 45px;
+    height: 60px;
   }
 
-  .cart-line-price {
+  .cart-line-total {
     grid-column: 3;
-    grid-row: 1 / span 2;
+    grid-row: 1;
     align-self: center;
+    font-size: 0.9rem;
+  }
+
+  .cart-line-remove {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: center;
+    justify-self: end;
+  }
+
+  .cart-line-quantity {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 4px;
   }
 
   .checkout-field-row {

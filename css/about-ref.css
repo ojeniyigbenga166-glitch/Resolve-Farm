@@ -685,6 +685,10 @@ body.about-page::before {
     border-bottom: none;
   }
 
+  .journey-panel {
+    padding: 2rem 1.5rem;
+  }
+
   .team-grid {
     grid-template-columns: 1fr;
   }
