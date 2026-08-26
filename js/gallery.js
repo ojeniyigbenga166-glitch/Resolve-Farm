@@ -37,7 +37,6 @@ class Gallery {
       all: this.items.length,
       crops: 0,
       farm: 0,
-      team: 0,
       video: 0
     };
 
@@ -73,19 +72,53 @@ class Gallery {
   }
 
   filterItems(category) {
-    this.visibleItems = [];
+    if (this.filterTimeout) clearTimeout(this.filterTimeout);
+    if (this.cleanTimeout) clearTimeout(this.cleanTimeout);
 
+    // 1. Fade out all items
     this.items.forEach(item => {
-      const itemCat = item.dataset.category;
-      const shouldShow = (category === 'all' || itemCat === category);
-
-      if (shouldShow) {
-        item.classList.remove('hidden');
-        this.visibleItems.push(item);
-      } else {
-        item.classList.add('hidden');
-      }
+      item.style.transition = 'opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)';
+      item.style.opacity = '0';
+      item.style.transform = 'scale(0.95) translateY(10px)';
     });
+
+    // 2. Wait for fade-out, then update visibility and fade back in
+    this.filterTimeout = setTimeout(() => {
+      this.visibleItems = [];
+
+      this.items.forEach(item => {
+        const itemCat = item.dataset.category;
+        const shouldShow = (category === 'all' || itemCat === category);
+
+        if (shouldShow) {
+          item.classList.remove('hidden');
+          this.visibleItems.push(item);
+          
+          // Force layout reflow
+          void item.offsetHeight;
+          
+          // Fade and scale in
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1) translateY(0)';
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+      
+      // Clean up styles after transition to let hover styles take over properly
+      this.cleanTimeout = setTimeout(() => {
+        this.items.forEach(item => {
+          if (!item.classList.contains('hidden')) {
+            item.style.transition = '';
+            item.style.opacity = '';
+            item.style.transform = '';
+          }
+        });
+        this.filterTimeout = null;
+        this.cleanTimeout = null;
+      }, 250);
+      
+    }, 200);
   }
 
   bindLightboxEvents() {

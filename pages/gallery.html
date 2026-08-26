@@ -82,6 +82,18 @@
 
   <main>
 
+    <!-- HERO SECTION -->
+    <section class="gallery-hero fade-in">
+      <div class="gallery-hero-bg"></div>
+      <div class="gallery-hero-overlay"></div>
+      <div class="gallery-hero-container">
+        <span class="gallery-eyebrow">Visual Tour</span>
+        <h1>Resolve Farm <span>in Motion &amp; Color</span></h1>
+        <div class="gallery-hero-divider"></div>
+        <p>Explore daily farm life, precision harvesting, high-tech greenhouses, and the passionate team behind Resolve Farms.</p>
+      </div>
+    </section>
+
     <!-- STICKY FILTER BAR -->
     <section class="gallery-filter-section">
       <div class="container">
@@ -98,10 +110,7 @@
             <span>Farm Fields & Life</span>
             <span class="filter-count">0</span>
           </button>
-          <button class="filter-btn" data-filter="team">
-            <span>Our People</span>
-            <span class="filter-count">0</span>
-          </button>
+
           <button class="filter-btn" data-filter="video">
             <span>Video Highlights</span>
             <span class="filter-count">0</span>
@@ -116,9 +125,9 @@
         <div class="gallery-grid" id="gallery-grid">
 
           <!-- Item 1: Greenhouse Tomatoes -->
-          <div class="gallery-item" data-category="crops" data-title="Greenhouse Heirloom Tomatoes" data-caption="Nurtured heirloom tomatoes growing under sustainable climate-controlled care." data-full-src="/assets/images/gallery/greenhouse-tomatoes.webp">
+          <div class="gallery-item fade-in" data-category="crops" data-title="Resolve Harvest Team" data-caption="Our dedicated agricultural team celebrating a successful harvest of red shepherd peppers." data-full-src="/assets/images/gallery/harvest-team.jpg">
             <div class="gallery-thumb-wrap">
-              <img src="/assets/images/gallery/greenhouse-tomatoes.webp" alt="Greenhouse Heirloom Tomatoes" loading="lazy">
+              <img src="/assets/images/gallery/harvest-team.jpg" alt="Resolve Harvest Team" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -127,15 +136,15 @@
               </div>
             </div>
             <div class="gallery-card-info">
-              <h3>Greenhouse Heirloom Tomatoes</h3>
-              <p>Climatically managed vines yielding sweet, vibrant red tomatoes year-round.</p>
+              <h3>Resolve Harvest Team</h3>
+              <p>A proud moment showing the collaboration and hand-crafted care behind our harvests.</p>
             </div>
           </div>
 
-          <!-- Item 2: Golden Sunflower Fields -->
-          <div class="gallery-item" data-category="farm" data-title="Golden Hour Sunflower Field" data-caption="Vibrant golden sunflowers glowing at sunset across our expanses in Ontario." data-full-src="/assets/images/gallery/sunflower-field.webp">
+          <!-- Item 2: Resolve Field Walk -->
+          <div class="gallery-item fade-in stagger-1" data-category="farm" data-title="Resolve Field Walk" data-caption="Our agricultural team and visitors taking a walk through the crop rows." data-full-src="/assets/images/gallery/farm-tour.jpg">
             <div class="gallery-thumb-wrap">
-              <img src="/assets/images/gallery/sunflower-field.webp" alt="Golden Hour Sunflower Field" loading="lazy">
+              <img src="/assets/images/gallery/farm-tour.jpg" alt="Resolve Field Walk" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Farm Fields</span>
                 <div class="gallery-overlay-icon">
@@ -144,13 +153,13 @@
               </div>
             </div>
             <div class="gallery-card-info">
-              <h3>Golden Hour Sunflower Field</h3>
-              <p>Promoting biodiversity and natural pollination across our farming eco-system.</p>
+              <h3>Resolve Field Walk</h3>
+              <p>Walking the fields to assess soil health, irrigation efficiency, and plant growth.</p>
             </div>
           </div>
 
           <!-- Item 3: Video Feature -->
-          <div class="gallery-item" data-category="video" data-title="Resolve Farm Portrait Video" data-caption="Watch an authentic look into morning field walkthroughs and daily harvest routines." data-video-src="/assets/images/produce/resolved_farm_portrait.mp4">
+          <div class="gallery-item fade-in stagger-2" data-category="video" data-title="Resolve Farm Portrait Video" data-caption="Watch an authentic look into morning field walkthroughs and daily harvest routines." data-video-src="/assets/images/produce/resolved_farm_portrait.mp4">
             <div class="gallery-thumb-wrap">
               <video src="/assets/images/produce/resolved_farm_portrait.mp4" muted loop playsinline></video>
               <div class="video-play-indicator">
@@ -170,9 +179,9 @@
           </div>
 
           <!-- Item 4: Dewy Bell Peppers -->
-          <div class="gallery-item" data-category="crops" data-title="Dewy Sweet Bell Peppers" data-caption="Fresh red and yellow bell peppers harvested at peak crispness and nutrient density." data-full-src="/assets/images/gallery/bell-peppers.webp">
+          <div class="gallery-item fade-in" data-category="crops" data-title="Farmer Harvest Field" data-caption="Our farm team member proudly holding a basket overflowing with fresh red peppers." data-full-src="/assets/images/gallery/harvest-worker.jpg">
             <div class="gallery-thumb-wrap">
-              <img src="/assets/images/gallery/bell-peppers.webp" alt="Dewy Sweet Bell Peppers" loading="lazy">
+              <img src="/assets/images/gallery/harvest-worker.jpg" alt="Farmer Harvest Field" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -181,32 +190,17 @@
               </div>
             </div>
             <div class="gallery-card-info">
-              <h3>Dewy Sweet Bell Peppers</h3>
-              <p>Organically nurtured blocky bell peppers grown with drip irrigation efficiency.</p>
+              <h3>Farmer Harvest Field</h3>
+              <p>Bringing passion and handpicked standards from Ontario fields to Canadian tables.</p>
             </div>
           </div>
 
-          <!-- Item 5: Dedicated Farmer Harvest -->
-          <div class="gallery-item" data-category="team" data-title="Farmer Harvest Crate" data-caption="Our experienced agricultural hands bringing fresh produce to Canadian tables." data-full-src="/assets/images/gallery/farmer-harvest.webp">
-            <div class="gallery-thumb-wrap">
-              <img src="/assets/images/gallery/farmer-harvest.webp" alt="Farmer Harvest Crate" loading="lazy">
-              <div class="gallery-overlay">
-                <span class="gallery-badge">Our People</span>
-                <div class="gallery-overlay-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </div>
-              </div>
-            </div>
-            <div class="gallery-card-info">
-              <h3>Farmer Harvest Crate</h3>
-              <p>Passion and hand-crafted care behind every bushel harvested at Resolve Farms.</p>
-            </div>
-          </div>
+
 
           <!-- Item 6: Fresh Produce Stand -->
-          <div class="gallery-item" data-category="crops" data-title="Farm Stand Fresh Market" data-caption="Daily market displays overflowing with freshly picked vegetables and herbs." data-full-src="/assets/images/gallery/fresh-market.webp">
+          <div class="gallery-item fade-in stagger-2" data-category="crops" data-title="Harvest Sorting &amp; Packing" data-caption="Team members sorting and packing fresh red peppers into harvest baskets." data-full-src="/assets/images/gallery/harvest-sorting.jpg">
             <div class="gallery-thumb-wrap">
-              <img src="/assets/images/gallery/fresh-market.webp" alt="Farm Stand Fresh Market" loading="lazy">
+              <img src="/assets/images/gallery/harvest-sorting.jpg" alt="Harvest Sorting &amp; Packing" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -215,15 +209,15 @@
               </div>
             </div>
             <div class="gallery-card-info">
-              <h3>Farm Stand Fresh Market</h3>
-              <p>Connecting consumers directly with nutritious, farm-fresh produce.</p>
+              <h3>Harvest Sorting &amp; Packing</h3>
+              <p>Rigorous quality inspection ensuring only the best, fresh produce makes it to shop shelves.</p>
             </div>
           </div>
 
           <!-- Item 7: African Corn Harvest -->
-          <div class="gallery-item" data-category="crops" data-title="Golden African Sweet Corn" data-caption="Golden sweet corn cultivated with rich soil nutrients and non-GMO practices." data-full-src="/assets/images/produce/african-corn.webp">
+          <div class="gallery-item fade-in" data-category="crops" data-title="Fresh Pepper Fields" data-caption="Red pepper harvest baskets lined up along the rows of our fertile farmland." data-full-src="/assets/images/gallery/harvest-field.jpg">
             <div class="gallery-thumb-wrap">
-              <img src="/assets/images/produce/african-corn.webp" alt="Golden African Sweet Corn" loading="lazy">
+              <img src="/assets/images/gallery/harvest-field.jpg" alt="Fresh Pepper Fields" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Crops & Harvest</span>
                 <div class="gallery-overlay-icon">
@@ -232,15 +226,15 @@
               </div>
             </div>
             <div class="gallery-card-info">
-              <h3>Golden African Sweet Corn</h3>
-              <p>Plump, sweet kernels harvested at maximum natural flavor and sweetness.</p>
+              <h3>Fresh Pepper Fields</h3>
+              <p>Sustainable farming in Essex County yielding clean, vibrant, and premium-quality crops.</p>
             </div>
           </div>
 
-          <!-- Item 8: Thriving Pepper Crops -->
-          <div class="gallery-item" data-category="farm" data-title="Pepper Plantation Rows" data-caption="Extensive rows of healthy pepper plants benefiting from rich organic compost." data-full-src="/assets/images/produce/peppers.webp">
+          <!-- Item 8: Heirloom Tomatoes on the Vine -->
+          <div class="gallery-item fade-in stagger-1" data-category="farm" data-title="Heirloom Tomatoes on the Vine" data-caption="Vibrant red and green heirloom tomatoes growing naturally on the farm field vine." data-full-src="/assets/images/gallery/farm-tomatoes.jpg">
             <div class="gallery-thumb-wrap">
-              <img src="/assets/images/produce/peppers.webp" alt="Pepper Plantation Rows" loading="lazy">
+              <img src="/assets/images/gallery/farm-tomatoes.jpg" alt="Heirloom Tomatoes on the Vine" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Farm Fields</span>
                 <div class="gallery-overlay-icon">
@@ -249,66 +243,17 @@
               </div>
             </div>
             <div class="gallery-card-info">
-              <h3>Pepper Plantation Rows</h3>
-              <p>Carefully managed field acreage utilizing natural pest management strategies.</p>
+              <h3>Heirloom Tomatoes on the Vine</h3>
+              <p>Promoting natural growth cycles and biodiversity across our farm fields.</p>
             </div>
           </div>
 
-          <!-- Item 9: Head Agronomist -->
-          <div class="gallery-item" data-category="team" data-title="Soil & Crop Health Research" data-caption="Scientific soil sampling and precision agronomist field diagnostics." data-full-src="/assets/images/farm/team-agronomist.webp">
-            <div class="gallery-thumb-wrap">
-              <img src="/assets/images/farm/team-agronomist.webp" alt="Soil & Crop Health Research" loading="lazy">
-              <div class="gallery-overlay">
-                <span class="gallery-badge">Our People</span>
-                <div class="gallery-overlay-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </div>
-              </div>
-            </div>
-            <div class="gallery-card-info">
-              <h3>Soil & Crop Agronomy</h3>
-              <p>Combining modern agricultural science with eco-friendly growing techniques.</p>
-            </div>
-          </div>
 
-          <!-- Item 10: Farm Founder -->
-          <div class="gallery-item" data-category="team" data-title="Leadership in Sustainable Farming" data-caption="Founder vision focused on premium food security, soil stewardship, and community." data-full-src="/assets/images/farm/team-founder.webp">
-            <div class="gallery-thumb-wrap">
-              <img src="/assets/images/farm/team-founder.webp" alt="Leadership in Sustainable Farming" loading="lazy">
-              <div class="gallery-overlay">
-                <span class="gallery-badge">Our People</span>
-                <div class="gallery-overlay-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </div>
-              </div>
-            </div>
-            <div class="gallery-card-info">
-              <h3>Founder & Visionary</h3>
-              <p>Driving sustainable agriculture forward with integrity and high standards.</p>
-            </div>
-          </div>
 
-          <!-- Item 11: Operations Manager -->
-          <div class="gallery-item" data-category="team" data-title="Harvest Operations Management" data-caption="Overseeing efficient cold-chain distribution and fresh harvest handling." data-full-src="/assets/images/farm/team-manager.webp">
+          <!-- Item 12: Vibrant Field Tomatoes -->
+          <div class="gallery-item fade-in stagger-2" data-category="farm" data-title="Vibrant Field Tomatoes" data-caption="Close-up of a fresh red tomato on the vine in Ontario." data-full-src="/assets/images/gallery/farm-tomato-close.jpg">
             <div class="gallery-thumb-wrap">
-              <img src="/assets/images/farm/team-manager.webp" alt="Harvest Operations Management" loading="lazy">
-              <div class="gallery-overlay">
-                <span class="gallery-badge">Our People</span>
-                <div class="gallery-overlay-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </div>
-              </div>
-            </div>
-            <div class="gallery-card-info">
-              <h3>Harvest Operations</h3>
-              <p>Guaranteeing peak freshness from field pick to store shelves.</p>
-            </div>
-          </div>
-
-          <!-- Item 12: Broad Farmland Sunrise -->
-          <div class="gallery-item" data-category="farm" data-title="Expansive Farmland Horizon" data-caption="Morning mist rising over green acres on our Canadian farming property." data-full-src="/assets/images/hero/hero-bg.webp">
-            <div class="gallery-thumb-wrap">
-              <img src="/assets/images/hero/hero-bg.webp" alt="Expansive Farmland Horizon" loading="lazy">
+              <img src="/assets/images/gallery/farm-tomato-close.jpg" alt="Vibrant Field Tomatoes" loading="lazy">
               <div class="gallery-overlay">
                 <span class="gallery-badge">Farm Fields</span>
                 <div class="gallery-overlay-icon">
@@ -317,8 +262,25 @@
               </div>
             </div>
             <div class="gallery-card-info">
-              <h3>Expansive Farmland Horizon</h3>
-              <p>Over 500 acres of fertile soil dedicated to sustainable crop rotation.</p>
+              <h3>Vibrant Field Tomatoes</h3>
+              <p>Nutrient-rich soil and natural compost feeding healthy, plump field produce.</p>
+            </div>
+          </div>
+
+          <!-- Item 13: Field Inspection Walk -->
+          <div class="gallery-item fade-in stagger-1" data-category="farm" data-title="Field Inspection Walk" data-caption="Agricultural managers reviewing crop rows during field walks." data-full-src="/assets/images/gallery/farm-fields-walk.jpg">
+            <div class="gallery-thumb-wrap">
+              <img src="/assets/images/gallery/farm-fields-walk.jpg" alt="Field Inspection Walk" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">Farm Fields</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>Field Inspection Walk</h3>
+              <p>Rigorous standards and daily checkups to ensure crop health and quality.</p>
             </div>
           </div>
 
@@ -329,7 +291,7 @@
     <!-- VIDEO SPOTLIGHT SECTION -->
     <section class="gallery-video-spotlight">
       <div class="video-spotlight-container">
-        <div class="video-spotlight-text">
+        <div class="video-spotlight-text slide-in-left">
           <span class="section-eyebrow section-eyebrow--light">VIDEO SPOTLIGHT</span>
           <h2>Experience Resolve Farms in Motion</h2>
           <p>Take a closer look at our daily operations. From solar-assisted irrigation systems to hands-on crop inspection, see how our team maintains uncompromised standards.</p>
@@ -352,7 +314,7 @@
           <a href="contact" class="btn btn-primary">Schedule a Farm Tour <span class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
         </div>
 
-        <div class="video-frame-wrapper">
+        <div class="video-frame-wrapper slide-in-right">
           <video src="/assets/images/produce/resolved_farm_portrait.mp4" controls poster="/assets/images/gallery/greenhouse-tomatoes.webp" playsinline></video>
         </div>
       </div>
@@ -362,19 +324,19 @@
     <section class="gallery-stats-banner">
       <div class="container">
         <div class="gallery-stats-grid">
-          <div class="gallery-stat-card">
+          <div class="gallery-stat-card fade-in">
             <div class="gallery-stat-num">500<span>+</span></div>
             <div class="gallery-stat-label">Acres Cultivated</div>
           </div>
-          <div class="gallery-stat-card">
+          <div class="gallery-stat-card fade-in stagger-1">
             <div class="gallery-stat-num">100<span>%</span></div>
             <div class="gallery-stat-label">Sustainable Practices</div>
           </div>
-          <div class="gallery-stat-card">
+          <div class="gallery-stat-card fade-in stagger-2">
             <div class="gallery-stat-num">12<span>+</span></div>
             <div class="gallery-stat-label">Produce Varieties</div>
           </div>
-          <div class="gallery-stat-card">
+          <div class="gallery-stat-card fade-in stagger-3">
             <div class="gallery-stat-num">4.9<span>★</span></div>
             <div class="gallery-stat-label">Community Rating</div>
           </div>
@@ -385,7 +347,7 @@
     <!-- INSTAGRAM / SOCIAL CTA BOX -->
     <section class="gallery-social-section">
       <div class="container">
-        <div class="gallery-social-box">
+        <div class="gallery-social-box scale-in">
           <span class="social-handle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             @RESOLVEFARMS
