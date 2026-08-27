@@ -20,16 +20,11 @@
 .gallery-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/images/gallery/sunflower-field.webp');
+  background-image: url('/assets/images/gallery/farm-tour-hero.png');
   background-size: cover;
   background-position: center;
-  transform: scale(1.05);
   filter: brightness(0.7);
-  transition: transform 10s ease-out;
-}
-
-.gallery-hero:hover .gallery-hero-bg {
-  transform: scale(1.1);
+  animation: gallerySlowZoom 20s ease-out forwards;
 }
 
 .gallery-hero-overlay {
@@ -787,4 +782,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
   }
+}
+
+/* Keyframe Animations */
+@keyframes gallerySlowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
