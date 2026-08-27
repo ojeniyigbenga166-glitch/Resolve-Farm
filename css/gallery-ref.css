@@ -24,7 +24,7 @@
   background-size: cover;
   background-position: center;
   filter: brightness(0.7);
-  animation: gallerySlowZoom 20s ease-out forwards;
+  animation: gallerySlowZoom 28s ease-in-out infinite;
 }
 
 .gallery-hero-overlay {
@@ -786,6 +786,13 @@
 
 /* Keyframe Animations */
 @keyframes gallerySlowZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.12) translate(-1.5%, -1%);
+  }
+  100% {
+    transform: scale(1.02) translate(0, 0);
+  }
 }
