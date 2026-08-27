@@ -97,6 +97,7 @@ body.farm-page::before {
   font-family: var(--font-farm-heading);
   color: var(--farm-white);
   font-size: 52px;
+  font-weight: 700;
   line-height: 1.08;
   margin: 0 0 1.5rem 0;
 }

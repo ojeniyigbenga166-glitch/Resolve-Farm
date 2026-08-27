@@ -52,18 +52,23 @@ body.shop-page {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-image: url('/assets/images/hero/hero-bg.webp');
+  background-image: url('/assets/images/farm/about-farmer.webp');
   background-size: cover;
   background-position: center;
   z-index: 1;
-  transform: scale(1.02);
+  animation: shopSlowZoom 20s ease-out forwards;
 }
 
 .shop-hero-overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.55) 50%,
+    rgba(0,0,0,0.35) 100%
+  );
   z-index: 2;
 }
 
@@ -74,6 +79,11 @@ body.shop-page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+.shop-hero-content {
+  max-width: 520px;
+  animation: shopFadeUp 1s ease-out;
 }
 
 .shop-hero-eyebrow {
@@ -88,7 +98,9 @@ body.shop-page {
 
 .shop-hero h1 {
   font-family: var(--font-shop-heading);
+  color: var(--shop-white);
   font-size: 46px;
+  font-weight: 700;
   line-height: 1.15;
   margin: 0 0 1rem 0;
 }
@@ -2262,4 +2274,15 @@ body.shop-page {
   .cart-modal-product {
     padding: 1rem;
   }
+}
+
+/* Keyframe Animations */
+@keyframes shopSlowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+@keyframes shopFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

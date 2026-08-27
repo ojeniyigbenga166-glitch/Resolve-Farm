@@ -120,6 +120,7 @@ body.about-page::before {
 .about-hero h1 {
   color: var(--about-white);
   font-size: 46px;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1.5rem;
 }
