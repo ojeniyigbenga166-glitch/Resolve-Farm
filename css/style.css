@@ -1154,3 +1154,143 @@ img {
   color: #666;
   line-height: 1.6;
 }
+
+/* ==========================================================================
+   WhatsApp Floating Widget Styling
+   ========================================================================== */
+.whatsapp-widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+}
+
+.whatsapp-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff !important;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  animation: wa-bounce-in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  color: #ffffff !important;
+}
+
+.whatsapp-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.whatsapp-icon-wrap svg {
+  display: block;
+}
+
+/* Pulse Ripple Animation */
+.whatsapp-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: 0.4;
+  z-index: 1;
+  animation: wa-pulse 2s infinite;
+}
+
+/* Tooltip Badge */
+.whatsapp-tooltip {
+  position: absolute;
+  right: 75px;
+  background-color: #1e2521;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-btn:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Entry Animation */
+@keyframes wa-bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pulse Ripple Animation */
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Responsive Overrides */
+@media screen and (max-width: 767px) {
+  .whatsapp-widget {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .whatsapp-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .whatsapp-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .whatsapp-tooltip {
+    display: none; /* Hide tooltip on mobile to avoid overlapping */
+  }
+}

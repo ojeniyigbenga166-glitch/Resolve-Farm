@@ -15,6 +15,7 @@ import './animations.js';
 import './testimonials.js';
 import './navigation.js';
 import './cart-badge.js';
+import './whatsapp.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('RESOLVEFARM Application Initialized');
