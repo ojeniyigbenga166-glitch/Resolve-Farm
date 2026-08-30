@@ -208,18 +208,44 @@ function buildOrder() {
       postalCode: String(data.get('postalCode') || '').trim().toUpperCase(),
       notes: String(data.get('notes') || '').trim()
     },
-    paymentMethod: String(data.get('paymentMethod') || 'pay-on-delivery')
+    paymentMethod: String(data.get('paymentMethod') || 'WhatsApp Direct')
   };
 }
 
+function buildWhatsAppUrl(order) {
+  const phone = '15146297097';
+  let msg = `🛒 *NEW ORDER: ${order.orderNumber}*\n`;
+  msg += `-----------------------------------\n`;
+  msg += `👤 *Name:* ${order.customer.fullName}\n`;
+  msg += `📞 *Phone:* ${order.customer.phone}\n`;
+  msg += `✉️ *Email:* ${order.customer.email}\n`;
+  msg += `📍 *Delivery Address:* ${order.delivery.address}, ${order.delivery.city}, ${order.delivery.province} ${order.delivery.postalCode}\n`;
+  if (order.delivery.notes) {
+    msg += `📝 *Notes:* ${order.delivery.notes}\n`;
+  }
+  msg += `-----------------------------------\n`;
+  msg += `📦 *ORDERED ITEMS:*\n`;
+  order.items.forEach((item, index) => {
+    msg += `${index + 1}. *${item.name}* (${item.quantity} × ${formatPrice(item.price)}/${item.unit}) = *${formatPrice(item.lineTotal)}*\n`;
+  });
+  msg += `-----------------------------------\n`;
+  msg += `💵 *Subtotal:* ${formatPrice(order.totals.subtotal)}\n`;
+  msg += `🚚 *Delivery Fee:* ${order.totals.deliveryFee === 0 ? 'Free' : formatPrice(order.totals.deliveryFee)}\n`;
+  msg += `💰 *TOTAL AMOUNT:* *${formatPrice(order.totals.grandTotal)}*\n`;
+  msg += `-----------------------------------\n`;
+  msg += `Hello RESOLVEFARM, I would like to complete this order and arrange payment.`;
+
+  return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+}
+
 /**
- * The API seam. Today it persists locally; tomorrow it becomes
- * `await fetch('/api/orders', { method: 'POST', body: JSON.stringify(order) })`
- * and no caller has to change.
+ * Persists order locally and prepares WhatsApp link.
  */
 async function submitOrder(order) {
+  const waUrl = buildWhatsAppUrl(order);
+  order.whatsappUrl = waUrl;
   localStorage.setItem(ORDER_STORAGE_KEY, JSON.stringify(order));
-  return { ok: true, order };
+  return { ok: true, order, waUrl };
 }
 
 /* ---------------------------------------------------------------------------
@@ -256,8 +282,12 @@ function bindEvents() {
 
       if (!result.ok) throw new Error('Order was not accepted.');
 
-      // Stop re-rendering before clearing, otherwise the subscriber would
-      // immediately swap in the "cart is empty" state during the redirect.
+      // Open WhatsApp with pre-filled message
+      if (result.waUrl) {
+        window.open(result.waUrl, '_blank');
+      }
+
+      // Stop re-rendering before clearing
       unsubscribe?.();
       clearCart();
 
@@ -266,7 +296,7 @@ function bindEvents() {
       console.error('Checkout failed.', error);
       el.formError.hidden = false;
       el.formError.textContent =
-        'We could not place your order just now. Please try again, or call us on +1 (800) 234-5678.';
+        'We could not place your order just now. Please try again, or call us on +1 (514) 629-7097.';
       el.submitBtn.disabled = false;
       el.submitBtn.classList.remove('is-loading');
     }

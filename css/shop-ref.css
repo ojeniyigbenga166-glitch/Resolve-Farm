@@ -2286,3 +2286,72 @@ body.shop-page {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* WhatsApp Checkout Direct Styling */
+.checkout-whatsapp-box {
+  background-color: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.checkout-whatsapp-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 0.85rem;
+}
+
+.checkout-whatsapp-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.checkout-whatsapp-header strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #14532d;
+  font-weight: 700;
+}
+
+.checkout-whatsapp-header p {
+  font-size: 0.85rem;
+  color: #166534;
+  margin: 2px 0 0 0;
+}
+
+.checkout-whatsapp-desc {
+  font-size: 0.9rem;
+  color: #15803d;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.whatsapp-submit-btn {
+  background-color: #25d366 !important;
+  border-color: #25d366 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3) !important;
+  transition: all 0.25s ease !important;
+}
+
+.whatsapp-submit-btn:hover {
+  background-color: #1eb956 !important;
+  border-color: #1eb956 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4) !important;
+}

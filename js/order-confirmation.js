@@ -122,6 +122,17 @@ function render(order) {
   } else {
     notesEl.hidden = true;
   }
+
+  const waBtn = document.querySelector('[data-order-whatsapp-btn]');
+  if (waBtn) {
+    if (order.whatsappUrl) {
+      waBtn.href = order.whatsappUrl;
+    } else {
+      const phone = '15146297097';
+      const msg = encodeURIComponent(`Hello RESOLVEFARM, inquiring about order ${order.orderNumber}.`);
+      waBtn.href = `https://wa.me/${phone}?text=${msg}`;
+    }
+  }
 }
 
 function init() {
