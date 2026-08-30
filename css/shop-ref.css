@@ -50,8 +50,10 @@ body.shop-page {
 
 .shop-hero-bg {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('/assets/images/farm/about-farmer.webp');
   background-size: cover;
   background-position: center;
@@ -61,14 +63,14 @@ body.shop-page {
 
 .shop-hero-overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,0.72) 0%,
-    rgba(0,0,0,0.55) 50%,
-    rgba(0,0,0,0.35) 100%
-  );
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.35) 100%);
   z-index: 2;
 }
 
@@ -118,7 +120,7 @@ body.shop-page {
 
 .shop-hero p {
   font-size: 15px;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 520px;
   margin: 0 0 1.5rem 0;
 }
@@ -1097,10 +1099,12 @@ body.shop-page {
 .cart-lines::-webkit-scrollbar {
   width: 6px;
 }
+
 .cart-lines::-webkit-scrollbar-track {
   background: var(--shop-cream);
   border-radius: 99px;
 }
+
 .cart-lines::-webkit-scrollbar-thumb {
   background: var(--shop-primary);
   border-radius: 99px;
@@ -1118,7 +1122,9 @@ body.shop-page {
   transition: background 0.15s ease;
 }
 
-.cart-line:last-child { border-bottom: none; }
+.cart-line:last-child {
+  border-bottom: none;
+}
 
 .cart-line-media {
   grid-row: 1 / 3;
@@ -1138,7 +1144,9 @@ body.shop-page {
   transition: transform 0.3s ease;
 }
 
-.cart-line-media:hover img { transform: scale(1.06); }
+.cart-line-media:hover img {
+  transform: scale(1.06);
+}
 
 .cart-line-info {
   display: flex;
@@ -1169,7 +1177,9 @@ body.shop-page {
   text-decoration: none;
 }
 
-.cart-line-title a:hover { color: var(--shop-primary); }
+.cart-line-title a:hover {
+  color: var(--shop-primary);
+}
 
 .cart-line-unit {
   font-size: 0.78rem;
@@ -1304,7 +1314,7 @@ body.shop-page {
   font-size: 0.9rem;
 }
 
-.cart-summary-rows > div {
+.cart-summary-rows>div {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.75rem;
@@ -2007,7 +2017,8 @@ body.shop-page {
 
 .cart-modal-overlay {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
@@ -2030,7 +2041,7 @@ body.shop-page {
 .cart-modal {
   background-color: var(--shop-white);
   border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 680px;
   padding: 2rem;
@@ -2279,13 +2290,25 @@ body.shop-page {
 
 /* Keyframe Animations */
 @keyframes shopSlowZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes shopFadeUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* WhatsApp Checkout Direct Styling */
