@@ -49,9 +49,6 @@ export function renderProductCard(product) {
         <p class="product-card-desc">${escapeHtml(product.shortDescription)}</p>
 
         <div class="product-card-footer">
-          <p class="product-card-price">
-            Unit: ${escapeHtml(product.unit)}
-          </p>
           ${
             purchasable && product.stock <= 10
               ? `<span class="product-card-stock">Only ${product.stock} left</span>`
