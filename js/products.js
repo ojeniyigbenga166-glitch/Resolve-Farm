@@ -16,7 +16,6 @@
  *   highlights       string[] bullet points on the detail page
  *   image            string   primary image (card + detail hero)
  *   gallery          string[] additional detail-page images
- *   price            number   CAD, per `unit`
  *   unit             string   'lb' | 'dozen' | ...
  *   availability     string   'in-stock' | 'seasonal' | 'out-of-stock'
  *   stock            number    units on hand (caps the quantity picker)
@@ -58,7 +57,6 @@ const PRODUCTS = [
       '/assets/images/gallery/greenhouse-tomatoes.webp',
       '/assets/images/gallery/farmer-harvest.webp'
     ],
-    price: 4.99, // Placeholder - pending pricing sign-off
     unit: 'lb',
     availability: 'in-stock',
     stock: 120,
@@ -83,7 +81,6 @@ const PRODUCTS = [
       '/assets/images/produce/fresh-tomatoes.webp',
       '/assets/images/gallery/fresh-market.webp'
     ],
-    price: 3.99, // Placeholder - pending pricing sign-off
     unit: 'lb',
     availability: 'in-stock',
     stock: 90,
@@ -108,7 +105,6 @@ const PRODUCTS = [
       '/assets/images/produce/peppers.webp',
       '/assets/images/produce/peppers-harvest-top.webp'
     ],
-    price: 5.99, // Placeholder - pending pricing sign-off
     unit: 'lb',
     availability: 'in-stock',
     stock: 140,
@@ -133,7 +129,6 @@ const PRODUCTS = [
       '/assets/images/produce/peppers-harvest-field.webp',
       '/assets/images/gallery/farmer-harvest.webp'
     ],
-    price: 8.99, // Placeholder - pending pricing sign-off
     unit: 'lb',
     availability: 'in-stock',
     stock: 45,
@@ -158,7 +153,6 @@ const PRODUCTS = [
       '/assets/images/produce/peppers.webp',
       '/assets/images/produce/peppers-harvest-field.webp'
     ],
-    price: 7.99, // Placeholder - pending pricing sign-off
     unit: 'lb',
     availability: 'in-stock',
     stock: 60,
@@ -183,7 +177,6 @@ const PRODUCTS = [
       '/assets/images/produce/peppers.webp',
       '/assets/images/gallery/bell-peppers.webp'
     ],
-    price: 6.99, // Placeholder - pending pricing sign-off
     unit: 'lb',
     availability: 'in-stock',
     stock: 75,
@@ -208,7 +201,6 @@ const PRODUCTS = [
       '/assets/images/gallery/fresh-market.webp',
       '/assets/images/farm/farm-family-planting.webp'
     ],
-    price: 10.99, // Placeholder - pending pricing sign-off
     unit: 'dozen',
     availability: 'seasonal',
     stock: 30,

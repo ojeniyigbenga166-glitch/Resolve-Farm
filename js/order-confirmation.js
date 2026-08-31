@@ -6,7 +6,6 @@
  * bookmark) shows a graceful fallback instead of an empty template.
  */
 
-import { formatPrice } from './product-service.js';
 import { escapeHtml } from './dom.js';
 
 const ORDER_STORAGE_KEY = 'resolvefarm_last_order';
@@ -88,22 +87,19 @@ function render(order) {
           <img src="${escapeHtml(item.image)}" alt="" loading="lazy">
           <div>
             <strong>${escapeHtml(item.name)}</strong>
-            <span>${item.quantity} × ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</span>
+            <span>${item.quantity} × ${escapeHtml(item.unit)}</span>
           </div>
-          <span class="checkout-summary-amount">${formatPrice(item.lineTotal)}</span>
         </li>
       `
     )
     .join('');
 
-  document.querySelector('[data-order-subtotal]').textContent = formatPrice(
-    order.totals.subtotal
-  );
-  document.querySelector('[data-order-delivery]').textContent =
-    order.totals.deliveryFee === 0 ? 'Free' : formatPrice(order.totals.deliveryFee);
-  document.querySelector('[data-order-total]').textContent = formatPrice(
-    order.totals.grandTotal
-  );
+  const subtotalEl = document.querySelector('[data-order-subtotal]');
+  const deliveryEl = document.querySelector('[data-order-delivery]');
+  const totalEl = document.querySelector('[data-order-total]');
+  if (subtotalEl) subtotalEl.textContent = '';
+  if (deliveryEl) deliveryEl.textContent = '';
+  if (totalEl) totalEl.textContent = '';
 
   const province = PROVINCE_NAMES[order.delivery.province] || order.delivery.province;
   document.querySelector('[data-order-address]').innerHTML = [

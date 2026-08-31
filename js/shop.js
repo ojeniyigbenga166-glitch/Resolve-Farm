@@ -15,14 +15,15 @@ import {
   getFeaturedProducts,
   getProductById,
   searchProducts,
-  sortProducts
+  sortProducts,
+  productsLoaded
 } from './product-service.js';
 import {
   bindProductCardActions,
   renderProductGrid
 } from './product-card.js';
 
-const ALL_PRODUCTS = getAllProducts();
+let ALL_PRODUCTS = [];
 
 const state = {
   category: 'all',
@@ -232,7 +233,7 @@ function bindEvents() {
    Init
    --------------------------------------------------------------------------- */
 
-function init() {
+async function init() {
   el.categoryNav = document.querySelector('[data-shop-categories]');
   el.grid = document.querySelector('[data-shop-grid]');
   el.empty = document.querySelector('[data-shop-empty]');
@@ -247,6 +248,9 @@ function init() {
 
   // Not the shop page - nothing to do.
   if (!el.grid || !el.categoryNav) return;
+
+  await productsLoaded;
+  ALL_PRODUCTS = getAllProducts();
 
   readStateFromUrl();
   renderCategoryTabs();

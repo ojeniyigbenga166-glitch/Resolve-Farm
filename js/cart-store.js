@@ -13,7 +13,7 @@
  * silently on hydrate.
  */
 
-import { getProductById, isPurchasable } from './product-service.js';
+import { getProductById, isPurchasable, productsLoaded } from './product-service.js';
 
 const STORAGE_KEY = 'resolvefarm_cart';
 
@@ -104,7 +104,7 @@ export function getItems() {
       return {
         ...product,
         quantity: line.quantity,
-        lineTotal: Number((product.price * line.quantity).toFixed(2))
+        lineTotal: 0
       };
     })
     .filter(Boolean);
@@ -115,28 +115,19 @@ export function getTotalItems() {
 }
 
 export function getSubtotal() {
-  return Number(
-    getItems()
-      .reduce((sum, item) => sum + item.lineTotal, 0)
-      .toFixed(2)
-  );
+  return 0;
 }
 
-/** Free above the threshold; nothing to charge on an empty cart either. */
 export function getDeliveryFee() {
-  const subtotal = getSubtotal();
-  if (subtotal <= 0 || subtotal >= FREE_DELIVERY_THRESHOLD) return 0;
-  return DELIVERY_FLAT_FEE;
+  return 0;
 }
 
 export function getGrandTotal() {
-  return Number((getSubtotal() + getDeliveryFee()).toFixed(2));
+  return 0;
 }
 
-/** How much more a customer needs to spend to unlock free delivery (0 if unlocked). */
 export function getAmountToFreeDelivery() {
-  const remaining = FREE_DELIVERY_THRESHOLD - getSubtotal();
-  return remaining > 0 ? Number(remaining.toFixed(2)) : 0;
+  return 0;
 }
 
 export function isEmpty() {
@@ -230,12 +221,17 @@ export function clearCart() {
    Init
    --------------------------------------------------------------------------- */
 
-lines = load();
+export const cartInitialized = (async () => {
+  await productsLoaded;
+  lines = load();
+  notify();
+})();
 
 /* Keep duplicate tabs in agreement - if the cart changes in another tab,
    re-hydrate and re-render here too. */
-window.addEventListener('storage', (event) => {
+window.addEventListener('storage', async (event) => {
   if (event.key !== STORAGE_KEY) return;
+  await productsLoaded;
   lines = load();
   notify();
 });

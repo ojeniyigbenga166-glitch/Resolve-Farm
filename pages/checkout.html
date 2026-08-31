@@ -228,7 +228,7 @@
               <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.551 4.101 1.517 5.832L0 24l6.335-1.485C8.016 23.46 9.957 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.805 0-3.561-.476-5.111-1.378l-.367-.212-3.793.889.907-3.694-.233-.377A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
             </svg>
             <span class="checkout-submit-label">Complete Order via WhatsApp</span>
-            <span class="checkout-submit-total" data-checkout-submit-total>$0.00</span>
+            <span class="checkout-submit-total" data-checkout-submit-total style="display: none;">$0.00</span>
           </button>
 
           <p class="checkout-submit-reassure">
@@ -245,7 +245,7 @@
             <!-- Summary lines rendered by checkout.js -->
           </ul>
 
-          <dl class="cart-summary-rows">
+          <dl class="cart-summary-rows" style="display: none;">
             <div>
               <dt>Subtotal</dt>
               <dd data-checkout-subtotal>$0.00</dd>
@@ -256,7 +256,7 @@
             </div>
           </dl>
 
-          <div class="cart-summary-total">
+          <div class="cart-summary-total" style="display: none;">
             <span>Total</span>
             <strong data-checkout-total>$0.00</strong>
           </div>

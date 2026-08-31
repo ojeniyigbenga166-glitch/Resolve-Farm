@@ -47,7 +47,7 @@ function ensureModalCreated() {
         <!-- Order Stats and Navigation links -->
         <div class="cart-modal-summary">
           <div class="cart-modal-summary-title">Cart Summary</div>
-          <div class="cart-modal-summary-row">
+          <div class="cart-modal-summary-row" style="display: none;">
             <span>Subtotal</span>
             <strong class="cart-modal-subtotal"></strong>
           </div>
@@ -109,15 +109,15 @@ export function showCartModal(product, quantityAdded = 1) {
   categoryEl.textContent = getCategoryName(product.category);
   titleEl.textContent = product.name;
   metaEl.innerHTML = `
-    Qty: <strong>${quantityAdded}</strong> &nbsp;•&nbsp; Unit Price: <strong>${formatPrice(product.price)}</strong>
+    Qty: <strong>${quantityAdded}</strong>
   `;
 
   // 2. Hydrate cart summary
   const subtotalEl = overlayEl.querySelector('.cart-modal-subtotal');
   const countEl = overlayEl.querySelector('.cart-modal-items-count');
 
-  subtotalEl.textContent = formatPrice(state.subtotal);
-  countEl.textContent = String(state.totalItems);
+  if (subtotalEl) subtotalEl.textContent = formatPrice(state.subtotal);
+  if (countEl) countEl.textContent = String(state.totalItems);
 
   // 3. Free delivery meter — hidden for now
   // To re-enable: remove `hidden` from .cart-modal-delivery in the HTML template above

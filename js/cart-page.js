@@ -14,7 +14,7 @@ import {
   subscribe,
   FREE_DELIVERY_THRESHOLD
 } from './cart-store.js';
-import { formatPrice, getCategoryName } from './product-service.js';
+import { getCategoryName } from './product-service.js';
 import { escapeHtml, showToast } from './dom.js';
 import { productUrl } from './product-card.js';
 
@@ -38,10 +38,10 @@ function renderLine(item) {
       <div class="cart-line-info">
         <span class="cart-line-category">${catName}</span>
         <h3 class="cart-line-title"><a href="${href}">${name}</a></h3>
-        <p class="cart-line-unit">${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
+        <p class="cart-line-unit">Unit: ${escapeHtml(item.unit)}</p>
       </div>
 
-      <p class="cart-line-total">${formatPrice(item.lineTotal)}</p>
+      <p class="cart-line-total" style="display: none;"></p>
       <button type="button" class="cart-line-remove" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove ${name}">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
       </button>
@@ -98,10 +98,9 @@ function render(state) {
 
   el.lines.innerHTML = state.items.map(renderLine).join('');
 
-  el.subtotal.textContent = formatPrice(state.subtotal);
-  el.delivery.textContent =
-    state.deliveryFee === 0 ? 'Free' : formatPrice(state.deliveryFee);
-  el.total.textContent = formatPrice(state.grandTotal);
+  if (el.subtotal) el.subtotal.textContent = '';
+  if (el.delivery) el.delivery.textContent = '';
+  if (el.total) el.total.textContent = '';
 
   // Free delivery meter hidden — re-enable by uncommenting the line below
   // renderFreeDeliveryMeter(state);

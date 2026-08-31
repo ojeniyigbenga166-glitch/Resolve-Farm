@@ -8,7 +8,66 @@
  * detail, cart and checkout pages keep working against the same names.
  */
 
-import { PRODUCTS, CATEGORIES } from './products.js';
+import { supabase } from './supabaseClient.js';
+import { PRODUCTS as FALLBACK_PRODUCTS, CATEGORIES } from './products.js';
+
+let PRODUCTS = [];
+
+export const productsLoaded = (async () => {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .select('*')
+      .order('id', { ascending: true });
+
+    if (error) throw error;
+
+    PRODUCTS = (data || []).map((dbProduct) => {
+      const slug = dbProduct.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)+/g, '');
+
+      let cat = (dbProduct.category || '').toLowerCase();
+      const validCategories = ['tomatoes', 'peppers', 'corn'];
+      if (!validCategories.includes(cat)) {
+        cat = 'other';
+      }
+
+      let availability = 'out-of-stock';
+      if (dbProduct.status === 'published') {
+        availability = dbProduct.qty > 0 ? 'in-stock' : 'out-of-stock';
+      }
+
+      return {
+        id: String(dbProduct.id),
+        slug,
+        name: dbProduct.name,
+        category: cat,
+        shortDescription: `${dbProduct.name} - Premium quality produce.`,
+        description: `${dbProduct.name} grown with purpose at Resolve Farm. Crisp, natural, and handpicked daily.`,
+        highlights: [
+          'Grown naturally with care',
+          'Handpicked for top quality',
+          'Delivered fresh to you'
+        ],
+        image: dbProduct.img || '/assets/images/produce/placeholder.jpg',
+        gallery: [],
+        unit: dbProduct.unit || 'lb',
+        availability,
+        stock: dbProduct.qty || 0,
+        featured: dbProduct.qty > 0,
+        badge: dbProduct.qty > 80 ? 'Best Seller' : '',
+        tags: [cat, dbProduct.name.toLowerCase()]
+      };
+    });
+  } catch (err) {
+    console.error('Failed to load products from Supabase, using fallback local list:', err);
+    PRODUCTS = FALLBACK_PRODUCTS.map((p) => ({ ...p }));
+  }
+})();
+
+export { CATEGORIES };
 
 /* ---------------------------------------------------------------------------
    Reads
@@ -104,8 +163,6 @@ export function searchProducts(products, query) {
 
 const SORTERS = {
   featured: (a, b) => Number(b.featured) - Number(a.featured),
-  'price-asc': (a, b) => a.price - b.price,
-  'price-desc': (a, b) => b.price - a.price,
   'name-asc': (a, b) => a.name.localeCompare(b.name)
 };
 
@@ -118,19 +175,14 @@ export function sortProducts(products, sortKey = 'featured') {
    Formatting + display helpers
    --------------------------------------------------------------------------- */
 
-const CURRENCY = new Intl.NumberFormat('en-CA', {
-  style: 'currency',
-  currency: 'CAD'
-});
-
-/** 4.99 -> "$4.99". Used everywhere a price is shown, so the format never drifts. */
+/** Return empty string as prices are removed. */
 export function formatPrice(amount) {
-  return CURRENCY.format(Number(amount) || 0);
+  return '';
 }
 
-/** 4.99, 'lb' -> "$4.99 / lb" */
+/** Return only unit information. */
 export function formatUnitPrice(amount, unit) {
-  return `${formatPrice(amount)} / ${unit}`;
+  return unit ? `per ${unit}` : '';
 }
 
 const AVAILABILITY_LABELS = {

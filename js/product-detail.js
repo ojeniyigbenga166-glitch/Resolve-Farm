@@ -8,13 +8,13 @@
  */
 
 import {
-  formatPrice,
   getAvailabilityLabel,
   getCategoryName,
   getProductBySlug,
   getProductById,
   getRelatedProducts,
-  isPurchasable
+  isPurchasable,
+  productsLoaded
 } from './product-service.js';
 import { escapeHtml, getQueryParam, showToast } from './dom.js';
 import { bindProductCardActions, renderProductGrid } from './product-card.js';
@@ -74,8 +74,8 @@ function renderInfo() {
 
   el.category.textContent = getCategoryName(product.category);
   el.name.textContent = product.name;
-  el.price.textContent = formatPrice(product.price);
-  el.unit.textContent = `/ ${product.unit}`;
+  if (el.price) el.price.textContent = '';
+  el.unit.textContent = product.unit;
   el.description.textContent = product.description;
 
   el.availability.textContent = getAvailabilityLabel(product.availability);
@@ -110,7 +110,10 @@ function renderQuantity() {
   el.quantityValue.textContent = String(quantity);
   el.quantityDecrease.disabled = quantity <= 1;
   el.quantityIncrease.disabled = quantity >= product.stock;
-  el.lineTotal.textContent = formatPrice(product.price * quantity);
+  if (el.lineTotal) {
+    const parentTotal = el.lineTotal.closest('.product-detail-linetotal');
+    if (parentTotal) parentTotal.style.display = 'none';
+  }
 }
 
 function renderRelated() {
@@ -182,7 +185,7 @@ function bindEvents() {
    Init
    --------------------------------------------------------------------------- */
 
-function init() {
+async function init() {
   el.detail = document.querySelector('[data-product-detail]');
   if (!el.detail) return;
 
@@ -190,6 +193,7 @@ function init() {
   el.related = document.querySelector('[data-product-related-section]');
   el.relatedRail = document.querySelector('[data-product-related]');
 
+  await productsLoaded;
   product = getProductBySlug(getQueryParam('slug'));
 
   if (!product) {

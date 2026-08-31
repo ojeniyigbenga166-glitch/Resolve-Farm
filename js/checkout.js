@@ -20,8 +20,8 @@ import {
   DELIVERY_FLAT_FEE,
   FREE_DELIVERY_THRESHOLD
 } from './cart-store.js';
-import { formatPrice } from './product-service.js';
 import { escapeHtml } from './dom.js';
+import { supabase } from './supabaseClient.js';
 
 const ORDER_STORAGE_KEY = 'resolvefarm_last_order';
 
@@ -134,27 +134,19 @@ function renderSummary(state) {
           <img src="${escapeHtml(item.image)}" alt="" loading="lazy">
           <div>
             <strong>${escapeHtml(item.name)}</strong>
-            <span>${item.quantity} × ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</span>
+            <span>${item.quantity} × ${escapeHtml(item.unit)}</span>
           </div>
-          <span class="checkout-summary-amount">${formatPrice(item.lineTotal)}</span>
         </li>
       `
     )
     .join('');
 
-  el.subtotal.textContent = formatPrice(state.subtotal);
-  el.delivery.textContent =
-    state.deliveryFee === 0 ? 'Free' : formatPrice(state.deliveryFee);
-  el.total.textContent = formatPrice(state.grandTotal);
+  if (el.subtotal) el.subtotal.textContent = '';
+  if (el.delivery) el.delivery.textContent = '';
+  if (el.total) el.total.textContent = '';
 
-  el.deliveryNote.textContent =
-    state.deliveryFee === 0
-      ? `Free delivery applied on orders over ${formatPrice(FREE_DELIVERY_THRESHOLD)}.`
-      : `Flat-rate delivery ${formatPrice(DELIVERY_FLAT_FEE)}. Free over ${formatPrice(
-          FREE_DELIVERY_THRESHOLD
-        )}.`;
-
-  el.submitTotal.textContent = formatPrice(state.grandTotal);
+  if (el.deliveryNote) el.deliveryNote.style.display = 'none';
+  if (el.submitTotal) el.submitTotal.style.display = 'none';
 }
 
 /* ---------------------------------------------------------------------------
@@ -187,14 +179,14 @@ function buildOrder() {
       name: item.name,
       image: item.image,
       unit: item.unit,
-      price: item.price,
+      price: 0,
       quantity: item.quantity,
-      lineTotal: item.lineTotal
+      lineTotal: 0
     })),
     totals: {
-      subtotal: state.subtotal,
-      deliveryFee: state.deliveryFee,
-      grandTotal: state.grandTotal
+      subtotal: 0,
+      deliveryFee: 0,
+      grandTotal: 0
     },
     customer: {
       fullName: String(data.get('fullName') || '').trim(),
@@ -214,7 +206,7 @@ function buildOrder() {
 
 function buildWhatsAppUrl(order) {
   const phone = '15146297097';
-  let msg = `🛒 *NEW ORDER: ${order.orderNumber}*\n`;
+  let msg = `🛒 *NEW ORDER REQUEST: ${order.orderNumber}*\n`;
   msg += `-----------------------------------\n`;
   msg += `👤 *Name:* ${order.customer.fullName}\n`;
   msg += `📞 *Phone:* ${order.customer.phone}\n`;
@@ -226,14 +218,10 @@ function buildWhatsAppUrl(order) {
   msg += `-----------------------------------\n`;
   msg += `📦 *ORDERED ITEMS:*\n`;
   order.items.forEach((item, index) => {
-    msg += `${index + 1}. *${item.name}* (${item.quantity} × ${formatPrice(item.price)}/${item.unit}) = *${formatPrice(item.lineTotal)}*\n`;
+    msg += `${index + 1}. *${item.name}* (${item.quantity} × ${item.unit})\n`;
   });
   msg += `-----------------------------------\n`;
-  msg += `💵 *Subtotal:* ${formatPrice(order.totals.subtotal)}\n`;
-  msg += `🚚 *Delivery Fee:* ${order.totals.deliveryFee === 0 ? 'Free' : formatPrice(order.totals.deliveryFee)}\n`;
-  msg += `💰 *TOTAL AMOUNT:* *${formatPrice(order.totals.grandTotal)}*\n`;
-  msg += `-----------------------------------\n`;
-  msg += `Hello RESOLVEFARM, I would like to complete this order and arrange payment.`;
+  msg += `Hello RESOLVEFARM, I would like to place this order request. Please contact me with pricing and delivery details.`;
 
   return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 }
@@ -245,6 +233,50 @@ async function submitOrder(order) {
   const waUrl = buildWhatsAppUrl(order);
   order.whatsappUrl = waUrl;
   localStorage.setItem(ORDER_STORAGE_KEY, JSON.stringify(order));
+
+  try {
+    const dbOrder = {
+      id: order.orderNumber,
+      customer: {
+        name: order.customer.fullName,
+        email: order.customer.email,
+        phone: order.customer.phone,
+        address: `${order.delivery.address}, ${order.delivery.city}, ${order.delivery.province} ${order.delivery.postalCode}`,
+        avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=60' // Default avatar as in dashboard
+      },
+      date: new Date().toISOString().split('T')[0],
+      time: new Date().toTimeString().split(' ')[0].substring(0, 5),
+      status: 'pending',
+      items: order.items.map(item => ({
+        id: isNaN(parseInt(item.id)) ? item.id : parseInt(item.id),
+        name: item.name,
+        price: 0,
+        qty: item.quantity,
+        img: item.image
+      })),
+      delivery_fee: 0,
+      notes: order.delivery.notes || '',
+      timeline: [
+        {
+          status: 'pending',
+          title: 'Order Placed',
+          description: 'Your order was received and is pending confirmation.',
+          time: new Date().toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }),
+          date: new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+        }
+      ]
+    };
+
+    const { error } = await supabase
+      .from('orders')
+      .insert([dbOrder]);
+
+    if (error) throw error;
+  } catch (err) {
+    console.error('Failed to save order to Supabase:', err);
+    // Proceed so user can complete order via WhatsApp direct
+  }
+
   return { ok: true, order, waUrl };
 }
 

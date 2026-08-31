@@ -1,7 +1,81 @@
-/**
- * RESOLVEFARM - Gallery Module
- * Interactive filtering, category counts, lightbox modal, video playback, and keyboard navigation.
- */
+import { supabase } from './supabaseClient.js';
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+async function loadGalleryLogs() {
+  try {
+    const { data: logs, error } = await supabase
+      .from('gallery_logs')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+    if (!logs || logs.length === 0) return;
+
+    const grid = document.getElementById('gallery-grid');
+    if (!grid) return;
+
+    const logsHtml = logs
+      .map((log) => {
+        let category = 'crops';
+        const dbCat = (log.category || '').toLowerCase();
+        if (dbCat.includes('farm') || dbCat.includes('fields')) {
+          category = 'farm';
+        } else if (dbCat.includes('video')) {
+          category = 'video';
+        }
+
+        const title = log.title || 'Farm Update';
+        const caption = log.description || `Log for ${log.crop || 'produce'}.`;
+        const img = log.img || '/assets/images/produce/placeholder.jpg';
+        const author = log.author_name || 'Resolve Farm';
+
+        let telemetryHtml = '';
+        if (log.telemetry && typeof log.telemetry === 'object') {
+          const t = log.telemetry;
+          const telItems = [];
+          if (t.stage && t.stage !== 'N/A') telItems.push(`Stage: ${t.stage}`);
+          if (t.moisture && t.moisture !== 'N/A') telItems.push(`Moisture: ${t.moisture}`);
+          if (t.ph && t.ph !== 'N/A') telItems.push(`pH: ${t.ph}`);
+          if (t.temp && t.temp !== 'N/A') telItems.push(`Temp: ${t.temp}`);
+          if (telItems.length > 0) {
+            telemetryHtml = ` | Telemetry: [${telItems.join(', ')}]`;
+          }
+        }
+
+        return `
+          <div class="gallery-item fade-in is-visible" data-category="${category}" data-title="${escapeHtml(title)}" data-caption="${escapeHtml(caption)} - by ${escapeHtml(author)}${escapeHtml(telemetryHtml)}" data-full-src="${escapeHtml(img)}">
+            <div class="gallery-thumb-wrap">
+              <img src="${escapeHtml(img)}" alt="${escapeHtml(title)}" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-badge">${escapeHtml(log.category || 'Crops & Harvest')}</span>
+                <div class="gallery-overlay-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-card-info">
+              <h3>${escapeHtml(title)}</h3>
+              <p>${escapeHtml(caption)} - by ${escapeHtml(author)}</p>
+            </div>
+          </div>
+        `;
+      })
+      .join('');
+
+    grid.insertAdjacentHTML('afterbegin', logsHtml);
+  } catch (err) {
+    console.error('Failed to load gallery logs from Supabase:', err);
+  }
+}
 
 class Gallery {
   constructor() {
@@ -241,4 +315,14 @@ class Gallery {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => new Gallery());
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadGalleryLogs();
+    new Gallery();
+  });
+} else {
+  (async () => {
+    await loadGalleryLogs();
+    new Gallery();
+  })();
+}

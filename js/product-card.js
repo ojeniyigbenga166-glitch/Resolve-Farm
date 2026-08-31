@@ -11,7 +11,6 @@
  */
 
 import {
-  formatPrice,
   getAvailabilityLabel,
   getCategoryName,
   isPurchasable
@@ -51,7 +50,7 @@ export function renderProductCard(product) {
 
         <div class="product-card-footer">
           <p class="product-card-price">
-            <strong>${formatPrice(product.price)}</strong> / ${escapeHtml(product.unit)}
+            Unit: ${escapeHtml(product.unit)}
           </p>
           ${
             purchasable && product.stock <= 10
