@@ -351,31 +351,32 @@ body:has(.hero) .site-header {
   position: absolute;
   inset: 0;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+  pointer-events: none;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
+  will-change: opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .hero-slide.is-active {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
   z-index: 2;
 }
 
-/* Slide content entry animation */
-.hero-slide.is-active .hero-content {
-  animation: hero-content-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Slide content smooth transition */
+.hero-slide .hero-content {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-@keyframes hero-content-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hero-slide.is-active .hero-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
 }
 
 .hero-bg {
@@ -389,11 +390,13 @@ body:has(.hero) .site-header {
   height: 100%;
   object-fit: cover;
   object-position: center right;
-  transition: transform 6s ease;
+  transition: transform 7s ease-out;
+  will-change: transform;
+  transform: scale(1.0);
 }
 
 .hero-slide.is-active .hero-image {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .hero-overlay {
@@ -601,19 +604,40 @@ body:has(.hero) .site-header {
   align-items: center;
   gap: 3rem;
   width: max-content;
-  animation: featuresTickerScroll 28s linear infinite;
+  -webkit-animation: featuresTickerScroll 25s linear infinite;
+  animation: featuresTickerScroll 25s linear infinite;
+  will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
-.features-bar:hover .features-ticker-track {
-  animation-play-state: paused;
+/* Pause ticker on hover ONLY for desktop pointer devices, so touch scrolling won't freeze it */
+@media (hover: hover) and (pointer: fine) {
+  .features-bar:hover .features-ticker-track {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+}
+
+@-webkit-keyframes featuresTickerScroll {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 @keyframes featuresTickerScroll {
   0% {
-    transform: translateX(0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
