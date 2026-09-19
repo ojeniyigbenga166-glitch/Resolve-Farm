@@ -365,9 +365,9 @@
   }
 
   .testimonials-video-card {
-    max-width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 14px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
   }
 
   .cta-container {
