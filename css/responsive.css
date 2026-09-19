@@ -364,9 +364,10 @@
     grid-template-columns: 1fr;
   }
 
-  .testimonials-image-circle {
-    width: 200px;
-    height: 200px;
+  .testimonials-video-card {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
   }
 
   .cta-container {

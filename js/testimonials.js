@@ -52,6 +52,38 @@ class Testimonials {
     // Pause auto-rotation on hover
     this.card.addEventListener('mouseenter', () => this.stopAutoRotate());
     this.card.addEventListener('mouseleave', () => this.startAutoRotate());
+
+    // Setup Testimonial Video Sound Toggle
+    this.initVideoToggle();
+  }
+
+  initVideoToggle() {
+    const video = document.getElementById('testimonial-video');
+    const toggleBtn = document.getElementById('testimonial-video-toggle');
+
+    if (!video || !toggleBtn) return;
+
+    const soundMutedIcon = toggleBtn.querySelector('.sound-muted');
+    const soundOnIcon = toggleBtn.querySelector('.sound-on');
+    const label = toggleBtn.querySelector('.video-sound-label');
+
+    // Ensure muted play on mobile
+    video.muted = true;
+    video.play().catch(() => {});
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      if (video.muted) {
+        if (soundMutedIcon) soundMutedIcon.style.display = 'inline-flex';
+        if (soundOnIcon) soundOnIcon.style.display = 'none';
+        if (label) label.textContent = 'Unmute';
+      } else {
+        if (soundMutedIcon) soundMutedIcon.style.display = 'none';
+        if (soundOnIcon) soundOnIcon.style.display = 'inline-flex';
+        if (label) label.textContent = 'Mute';
+      }
+    });
   }
 
   updateUI() {
