@@ -58,30 +58,32 @@ class Testimonials {
   }
 
   initVideoToggle() {
-    const video = document.getElementById('testimonial-video');
-    const toggleBtn = document.getElementById('testimonial-video-toggle');
+    const iframe = document.getElementById('testimonial-youtube-iframe');
+    const toggleBtn = document.getElementById('testimonial-sound-toggle-btn');
 
-    if (!video || !toggleBtn) return;
+    if (!iframe || !toggleBtn) return;
 
-    const soundMutedIcon = toggleBtn.querySelector('.sound-muted');
-    const soundOnIcon = toggleBtn.querySelector('.sound-on');
-    const label = toggleBtn.querySelector('.video-sound-label');
-
-    // Ensure muted play on mobile
-    video.muted = true;
-    video.play().catch(() => {});
+    let isMuted = true;
+    const iconMuted = toggleBtn.querySelector('.icon-muted');
+    const iconOn = toggleBtn.querySelector('.icon-on');
+    const label = toggleBtn.querySelector('.sound-label');
 
     toggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      video.muted = !video.muted;
-      if (video.muted) {
-        if (soundMutedIcon) soundMutedIcon.style.display = 'inline-flex';
-        if (soundOnIcon) soundOnIcon.style.display = 'none';
-        if (label) label.textContent = 'Unmute';
+      isMuted = !isMuted;
+
+      if (isMuted) {
+        iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+        toggleBtn.classList.remove('is-unmuted');
+        if (iconMuted) iconMuted.style.display = 'inline-flex';
+        if (iconOn) iconOn.style.display = 'none';
+        if (label) label.innerHTML = 'Sound Off &bull; Tap to Listen 🔊';
       } else {
-        if (soundMutedIcon) soundMutedIcon.style.display = 'none';
-        if (soundOnIcon) soundOnIcon.style.display = 'inline-flex';
-        if (label) label.textContent = 'Mute';
+        iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+        toggleBtn.classList.add('is-unmuted');
+        if (iconMuted) iconMuted.style.display = 'none';
+        if (iconOn) iconOn.style.display = 'inline-flex';
+        if (label) label.innerHTML = 'Sound On &bull; Tap to Mute 🔇';
       }
     });
   }
