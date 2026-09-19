@@ -40,13 +40,11 @@ function load() {
     return parsed
       .map((line) => ({
         id: String(line?.id || ''),
-        quantity: Math.max(1, Math.floor(Number(line?.quantity) || 0))
+        quantity: Math.max(1, Math.floor(Number(line?.quantity) || 0)),
+        packaging: String(line?.packaging || '')
       }))
-      // Drop anything that is no longer a real, purchasable product.
       .filter((line) => line.id && line.quantity > 0 && getProductById(line.id));
   } catch (error) {
-    // Corrupt or unavailable storage (private mode, quota, hand-edited JSON)
-    // must never take the whole shop down - start from an empty cart instead.
     console.warn('Cart could not be restored, starting empty.', error);
     return [];
   }
@@ -75,10 +73,6 @@ function notify() {
   });
 }
 
-/**
- * Register a listener. Fires immediately with the current state so callers
- * don't need a separate first paint. Returns an unsubscribe function.
- */
 export function subscribe(fn) {
   if (typeof fn !== 'function') return () => {};
   subscribers.add(fn);
@@ -95,16 +89,18 @@ function commit() {
    Derived state
    --------------------------------------------------------------------------- */
 
-/** Cart lines hydrated with live product data + line totals. */
 export function getItems() {
   return lines
-    .map((line) => {
+    .map((line, index) => {
       const product = getProductById(line.id);
       if (!product) return null;
+      const defaultPkg = product.packagingOptions?.[0]?.name || 'Standard Package';
       return {
         ...product,
+        cartIndex: index,
+        lineId: `${line.id}_${line.packaging || defaultPkg}`,
         quantity: line.quantity,
-        lineTotal: 0
+        packaging: line.packaging || defaultPkg
       };
     })
     .filter(Boolean);
@@ -114,28 +110,27 @@ export function getTotalItems() {
   return lines.reduce((sum, line) => sum + line.quantity, 0);
 }
 
-export function getSubtotal() {
-  return 0;
-}
-
-export function getDeliveryFee() {
-  return 0;
-}
-
-export function getGrandTotal() {
-  return 0;
-}
-
-export function getAmountToFreeDelivery() {
-  return 0;
-}
-
 export function isEmpty() {
   return lines.length === 0;
 }
 
-export function getQuantity(productId) {
-  return lines.find((line) => line.id === productId)?.quantity || 0;
+export function getQuantity(productId, packaging = '') {
+  const line = lines.find((l) => l.id === productId && (!packaging || l.packaging === packaging));
+  return line ? line.quantity : 0;
+}
+
+export function generateWhatsAppMessage() {
+  const items = getItems();
+  if (!items.length) return '';
+
+  let message = `👋 Hello RESOLVEFARM! I would like to place an order inquiry:\n\n📋 *Order Details:*\n`;
+  items.forEach((item, idx) => {
+    message += `${idx + 1}. *${item.name}*\n   • Packaging: ${item.packaging}\n   • Quantity: ${item.quantity}\n`;
+  });
+  message += `\n📍 *Delivery / Pickup:* Canada\n`;
+  message += `Please confirm product availability and total price to close the deal. Thank you!`;
+
+  return encodeURIComponent(message);
 }
 
 /** Everything a subscriber needs, computed once. */
@@ -143,10 +138,7 @@ export function getState() {
   return {
     items: getItems(),
     totalItems: getTotalItems(),
-    subtotal: getSubtotal(),
-    deliveryFee: getDeliveryFee(),
-    grandTotal: getGrandTotal(),
-    amountToFreeDelivery: getAmountToFreeDelivery(),
+    whatsAppUrl: `https://wa.me/15146297097?text=${generateWhatsAppMessage()}`,
     isEmpty: isEmpty()
   };
 }
@@ -155,60 +147,57 @@ export function getState() {
    Mutations
    --------------------------------------------------------------------------- */
 
-/**
- * Add a product, or top up its quantity if it is already in the cart.
- * Quantity is clamped to available stock. Returns the resulting quantity,
- * or 0 if the product was rejected.
- */
-export function addItem(productId, quantity = 1) {
+export function addItem(productId, quantity = 1, packaging = '') {
   const product = getProductById(productId);
   if (!product || !isPurchasable(product)) return 0;
 
+  const selectedPkg = packaging || product.packagingOptions?.[0]?.name || 'Standard Package';
   const requested = Math.max(1, Math.floor(Number(quantity) || 1));
-  const existing = lines.find((line) => line.id === productId);
-  const nextQuantity = Math.min((existing?.quantity || 0) + requested, product.stock);
+  const existing = lines.find((line) => line.id === productId && line.packaging === selectedPkg);
 
   if (existing) {
-    existing.quantity = nextQuantity;
+    existing.quantity = Math.min(existing.quantity + requested, product.stock);
   } else {
-    lines.push({ id: productId, quantity: nextQuantity });
+    lines.push({ id: productId, quantity: requested, packaging: selectedPkg });
   }
 
   commit();
-  return nextQuantity;
+  return requested;
 }
 
-export function removeItem(productId) {
-  const before = lines.length;
-  lines = lines.filter((line) => line.id !== productId);
-  if (lines.length !== before) commit();
+export function removeItem(indexOrId) {
+  if (typeof indexOrId === 'number') {
+    lines.splice(indexOrId, 1);
+  } else {
+    lines = lines.filter((line) => line.id !== indexOrId);
+  }
+  commit();
 }
 
-/** Set an absolute quantity. Zero or less removes the line. */
-export function updateQuantity(productId, quantity) {
+export function updateQuantity(index, quantity) {
   const next = Math.floor(Number(quantity) || 0);
 
   if (next <= 0) {
-    removeItem(productId);
+    removeItem(index);
     return;
   }
 
-  const product = getProductById(productId);
-  if (!product) return;
-
-  const line = lines.find((item) => item.id === productId);
-  if (!line) return;
-
-  line.quantity = Math.min(next, product.stock);
-  commit();
+  if (lines[index]) {
+    lines[index].quantity = next;
+    commit();
+  }
 }
 
-export function increaseQuantity(productId) {
-  updateQuantity(productId, getQuantity(productId) + 1);
+export function increaseQuantity(index) {
+  if (lines[index]) {
+    updateQuantity(index, lines[index].quantity + 1);
+  }
 }
 
-export function decreaseQuantity(productId) {
-  updateQuantity(productId, getQuantity(productId) - 1);
+export function decreaseQuantity(index) {
+  if (lines[index]) {
+    updateQuantity(index, lines[index].quantity - 1);
+  }
 }
 
 export function clearCart() {
@@ -227,11 +216,10 @@ export const cartInitialized = (async () => {
   notify();
 })();
 
-/* Keep duplicate tabs in agreement - if the cart changes in another tab,
-   re-hydrate and re-render here too. */
 window.addEventListener('storage', async (event) => {
   if (event.key !== STORAGE_KEY) return;
   await productsLoaded;
   lines = load();
   notify();
 });
+

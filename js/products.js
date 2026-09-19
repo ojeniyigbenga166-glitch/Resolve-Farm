@@ -33,181 +33,121 @@
    any category with zero products, so adding a product to 'other' is enough to
    make the "Other Produce" tab appear. */
 const CATEGORIES = [
-  { id: 'tomatoes', name: 'Tomatoes',      description: 'Vine-ripened and sauce-ready.' },
-  { id: 'peppers',  name: 'Peppers',       description: 'From sweet bells to serious heat.' },
-  { id: 'corn',     name: 'Corn',          description: 'Sweet cobs, harvested in season.' },
-  { id: 'other',    name: 'Other Produce', description: 'The rest of the harvest.' }
+  { id: 'peppers',  name: 'Habanero Peppers', description: 'Fresh Habaneros in Baskets (Amper), Single Boxes & Double Boxes.' },
+  { id: 'corn',     name: 'African Corn',     description: 'Traditional Agbado field corn, sold in bags.' }
 ];
 
 const PRODUCTS = [
   {
-    id: 'p-001',
-    slug: 'fresh-tomatoes',
-    name: 'Fresh Tomatoes',
-    category: 'tomatoes',
-    shortDescription: 'Premium vine-ripened fresh tomatoes.',
-    description: 'Our flagship tomatoes are left on the vine until they are fully coloured, then hand-picked the same morning they ship. The result is a deep, sweet flavour and a firm skin that holds up in a salad or on a sandwich.',
-    highlights: [
-      'Ripened on the vine, never gas-ripened',
-      'Hand-picked the morning of dispatch',
-      'Grown in Essex County soil at our Maidstone farm'
-    ],
-    image: '/assets/images/produce/fresh-tomatoes.webp',
-    gallery: [
-      '/assets/images/gallery/greenhouse-tomatoes.webp',
-      '/assets/images/gallery/farmer-harvest.webp'
-    ],
-    unit: 'lb',
-    availability: 'in-stock',
-    stock: 120,
-    featured: true,
-    badge: 'Best Seller',
-    tags: ['tomato', 'salad', 'vine ripened', 'fresh']
-  },
-  {
-    id: 'p-002',
-    slug: 'roma-tomatoes',
-    name: 'Roma Tomatoes',
-    category: 'tomatoes',
-    shortDescription: 'Perfect for sauces and canning.',
-    description: 'Roma tomatoes are dense, low in seed and low in water, which makes them the variety to reach for when you are reducing a sauce or filling jars for the winter. They cook down fast without going watery.',
-    highlights: [
-      'Meaty, low-moisture flesh built for cooking',
-      'Ideal for passata, paste and canning',
-      'Sold by the pound so you can buy batch quantities'
-    ],
-    image: '/assets/images/gallery/greenhouse-tomatoes.webp',
-    gallery: [
-      '/assets/images/produce/fresh-tomatoes.webp',
-      '/assets/images/gallery/fresh-market.webp'
-    ],
-    unit: 'lb',
-    availability: 'in-stock',
-    stock: 90,
-    featured: true,
-    badge: '',
-    tags: ['tomato', 'roma', 'plum', 'sauce', 'canning', 'cooking']
-  },
-  {
-    id: 'p-003',
-    slug: 'bell-pepper',
-    name: 'Pepper',
-    category: 'peppers',
-    shortDescription: 'Fresh and crisp bell peppers.',
-    description: 'Thick-walled sweet bell peppers with a clean snap and no heat at all. Good raw in a crudite platter, and sturdy enough to roast, stuff or grill without collapsing.',
-    highlights: [
-      'No heat - sweet and mild',
-      'Thick walls, ideal for roasting and stuffing',
-      'Picked at full colour for maximum sweetness'
-    ],
-    image: '/assets/images/gallery/bell-peppers.webp',
-    gallery: [
-      '/assets/images/produce/peppers.webp',
-      '/assets/images/produce/peppers-harvest-top.webp'
-    ],
-    unit: 'lb',
-    availability: 'in-stock',
-    stock: 140,
-    featured: false,
-    badge: '',
-    tags: ['pepper', 'bell', 'sweet', 'mild', 'capsicum']
-  },
-  {
     id: 'p-004',
-    slug: 'habanero',
-    name: 'Habanero',
+    slug: 'habanero-basket',
+    name: 'Habanero Pepper (Basket)',
     category: 'peppers',
-    shortDescription: 'Spicy habanero peppers for authentic flavor.',
-    description: 'Seriously hot, but the heat arrives behind a distinctly fruity, almost citrus top note - which is why habanero is the backbone of West African and Caribbean cooking rather than just a novelty. Handle with gloves.',
+    shortDescription: 'Spicy habanero peppers sold in baskets (Amper).',
+    description: 'Seriously hot, fruity habanero peppers freshly harvested and packed in traditional farm baskets (Amper).',
     highlights: [
+      'Sold in Basket (Amper)',
       'Intense heat with a fruity, citrus finish',
-      'The variety for jollof, pepper soup and hot sauce',
-      'Grown from seed on our own beds'
+      'Essential for jollof, pepper soup and hot sauce'
     ],
     image: '/assets/images/produce/fresh-peppers.jpg',
     gallery: [
       '/assets/images/produce/peppers-harvest-field.webp',
       '/assets/images/gallery/farmer-harvest.webp'
     ],
-    unit: 'lb',
+    unit: 'Basket (Amper)',
+    packagingOptions: [
+      { id: 'basket-amper', name: 'Basket (Amper)', icon: '🧺' }
+    ],
     availability: 'in-stock',
     stock: 45,
-    featured: false,
-    badge: 'Very Hot',
-    tags: ['pepper', 'habanero', 'hot', 'spicy', 'chilli', 'chili', 'scotch bonnet']
+    featured: true,
+    badge: 'Popular',
+    tags: ['pepper', 'habanero', 'hot', 'spicy', 'amper', 'basket']
   },
   {
-    id: 'p-005',
-    slug: 'crimson-hot',
-    name: 'Crimson Hot',
+    id: 'p-004-single-box',
+    slug: 'habanero-single-box',
+    name: 'Habanero Pepper (Single Box)',
     category: 'peppers',
-    shortDescription: 'Flavorful crimson hot peppers.',
-    description: 'A deep red chilli that sits in the middle of the heat range - hot enough to notice, mild enough to use generously. Excellent fresh, and it dries and flakes beautifully.',
+    shortDescription: 'Spicy habanero peppers sold in a Single Box.',
+    description: 'Seriously hot habanero peppers freshly packed in a standard Single Box according to Canadian agricultural produce standards.',
     highlights: [
-      'Medium heat, big flavour',
-      'Dries well for flakes and powder',
-      'Deep crimson colour that holds after cooking'
+      'Sold as Single Box',
+      'Intense heat with a fruity, citrus finish',
+      'Ideal for restaurants, caterers, and home kitchens'
     ],
-    image: '/assets/images/produce/peppers-harvest-top.webp',
+    image: '/assets/images/produce/harvest-habaneros.webp',
     gallery: [
-      '/assets/images/produce/peppers.webp',
+      '/assets/images/produce/fresh-peppers.jpg',
       '/assets/images/produce/peppers-harvest-field.webp'
     ],
-    unit: 'lb',
+    unit: 'Single Box',
+    packagingOptions: [
+      { id: 'single-box', name: 'Single Box', icon: '📦' }
+    ],
     availability: 'in-stock',
-    stock: 60,
-    featured: false,
-    badge: '',
-    tags: ['pepper', 'crimson', 'hot', 'red', 'chilli', 'chili', 'medium heat']
+    stock: 50,
+    featured: true,
+    badge: 'Single Box',
+    tags: ['pepper', 'habanero', 'hot', 'spicy', 'single box', 'box']
   },
   {
-    id: 'p-006',
-    slug: 'cayenne-pepper',
-    name: 'Cayenne Pepper',
+    id: 'p-004-double-box',
+    slug: 'habanero-double-box',
+    name: 'Habanero Pepper (Double Box)',
     category: 'peppers',
-    shortDescription: 'Fresh cayenne peppers.',
-    description: 'Long, slender and reliably sharp. Cayenne is the workhorse chilli - clean heat without a strong flavour of its own, so it lifts a dish instead of taking it over. Sold fresh, not ground.',
+    shortDescription: 'Spicy habanero peppers sold in a Double Box.',
+    description: 'Seriously hot habanero peppers packed in a large Double Box for bulk wholesale orders, catering, and food processing.',
     highlights: [
-      'Clean, straightforward heat',
-      'Sold fresh rather than ground',
-      'Freezes and dries without losing potency'
+      'Sold as Double Box (Bulk Wholesale)',
+      'Intense heat with a fruity, citrus finish',
+      'Maximum value for large quantity buyers'
     ],
-    image: '/assets/images/produce/peppers-harvest-field.webp',
+    image: '/assets/images/produce/fresh-peppers.jpg',
     gallery: [
-      '/assets/images/produce/peppers.webp',
-      '/assets/images/gallery/bell-peppers.webp'
+      '/assets/images/produce/harvest-habaneros.webp',
+      '/assets/images/produce/peppers-harvest-field.webp'
     ],
-    unit: 'lb',
+    unit: 'Double Box',
+    packagingOptions: [
+      { id: 'double-box', name: 'Double Box', icon: '📦📦' }
+    ],
     availability: 'in-stock',
-    stock: 75,
-    featured: false,
-    badge: '',
-    tags: ['pepper', 'cayenne', 'hot', 'spicy', 'chilli', 'chili', 'fresh']
+    stock: 40,
+    featured: true,
+    badge: 'Double Box',
+    tags: ['pepper', 'habanero', 'hot', 'spicy', 'double box', 'bulk']
   },
   {
     id: 'p-007',
     slug: 'african-corn-agbado-naija',
     name: 'African Corn — Agbado Naija',
     category: 'corn',
-    shortDescription: 'Authentic African corn.',
-    description: 'The starchy, full-flavoured field corn used across West African kitchens - firmer and far less sugary than North American sweetcorn, which is exactly what makes it right for boiling, roasting over coals, or grinding. Grown in limited quantity and strictly seasonal.',
+    shortDescription: 'Authentic African corn sold in bags.',
+    description: 'The starchy, full-flavoured field corn used across West African kitchens - firmer and far less sugary than North American sweetcorn. Sold in bags for home cooking, events, and commercial supply.',
     highlights: [
+      'Sold in Standard Bags and Wholesale Bags',
       'Traditional West African variety, grown in Ontario',
-      'Starchy and firm - built for boiling, roasting or milling',
-      'Seasonal harvest, limited quantity'
+      'Starchy and firm - built for boiling, roasting or milling'
     ],
     image: '/assets/images/produce/african-corn.webp',
     gallery: [
       '/assets/images/gallery/fresh-market.webp',
       '/assets/images/farm/farm-family-planting.webp'
     ],
-    unit: 'dozen',
+    unit: 'Bags',
+    packagingOptions: [
+      { id: 'standard-bag', name: 'Standard Bag', icon: '🛍️' },
+      { id: 'full-bag', name: 'Full Bag (Wholesale)', icon: '🌾' }
+    ],
     availability: 'seasonal',
     stock: 30,
     featured: true,
     badge: 'Seasonal',
-    tags: ['corn', 'agbado', 'african', 'maize', 'naija', 'seasonal']
+    tags: ['corn', 'agbado', 'african', 'maize', 'naija', 'seasonal', 'bag']
   }
 ];
 
 export { PRODUCTS, CATEGORIES };
+

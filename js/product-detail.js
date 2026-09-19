@@ -98,6 +98,10 @@ function renderInfo() {
     ? `${product.stock} ${product.unit === 'dozen' ? 'dozen' : product.unit} available`
     : 'Currently unavailable';
 
+  if (el.buyBtn) {
+    el.buyBtn.textContent = 'Order via WhatsApp';
+  }
+
   if (!purchasable) {
     el.addBtn.disabled = true;
     el.addBtn.textContent = 'Sold Out';
@@ -161,7 +165,8 @@ function bindEvents() {
   });
 
   el.addBtn.addEventListener('click', () => {
-    if (!addItem(product.id, quantity)) {
+    const pkgName = product.packagingOptions?.[0]?.name || product.unit || 'Standard Package';
+    if (!addItem(product.id, quantity, pkgName)) {
       showToast('Sorry, that item is unavailable.');
       return;
     }
@@ -171,11 +176,15 @@ function bindEvents() {
   });
 
   el.buyBtn.addEventListener('click', () => {
-    if (!addItem(product.id, quantity)) {
-      showToast('Sorry, that item is unavailable.');
-      return;
-    }
-    window.location.href = 'cart';
+    const pkgName = product.packagingOptions?.[0]?.name || product.unit || 'Standard Package';
+    const text = encodeURIComponent(
+      `Hello RESOLVEFARM! I would like to place an order inquiry:\n\n` +
+      `🌾 *Product:* ${product.name}\n` +
+      `📦 *Packaging:* ${pkgName}\n` +
+      `🔢 *Quantity:* ${quantity}\n\n` +
+      `Please confirm availability and final details. Thank you!`
+    );
+    window.open(`https://wa.me/15146297097?text=${text}`, '_blank');
   });
 
   bindProductCardActions(el.relatedRail, { getProduct: getProductById });

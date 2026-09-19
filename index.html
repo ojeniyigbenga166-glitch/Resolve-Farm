@@ -24,7 +24,7 @@
   <!-- JS -->
   <script type="module" src="js/main.js" defer></script>
 </head>
-<body>
+<body class="home-page">
   
   <header class="site-header">
     <div class="container header-inner">
@@ -80,55 +80,130 @@
   </nav>
 
   <main>
-    <section class="hero fade-in">
-      <div class="hero-bg">
-        <img src="/assets/images/hero/hero-bg.webp" alt="Fresh red peppers, tomatoes, and corn in a crate on a farm" class="hero-image">
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-container">
-        <div class="hero-content">
-          <span class="eyebrow">GROWN IN CANADA &bull; ROOTED IN PURPOSE</span>
-          <h1>Fresh From Our Fields.<br>Grown With Purpose.</h1>
-          <p>We cultivate fresh, quality produce in Canada with care, passion and a commitment to food people can trust.</p>
-          <a href="pages/farm" class="btn btn-primary">Our Farm <span class="btn-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span></a>
+    <section class="hero hero-carousel fade-in" id="hero-carousel">
+      <div class="hero-slides-wrapper">
+
+        <!-- Slide 1: Habanero Peppers -->
+        <div class="hero-slide is-active" data-slide="0">
+          <div class="hero-bg">
+            <img src="/assets/images/produce/harvest-habaneros.webp" alt="Fresh Canadian Habanero Peppers" class="hero-image">
+            <div class="hero-overlay"></div>
+          </div>
+          <div class="hero-container">
+            <div class="hero-content hero-content-nobox">
+              <span class="eyebrow">CANADIAN HARVEST &bull; HABANERO PEPPERS</span>
+              <h1>Fresh Habanero Peppers</h1>
+              <p>Packaged in Single Boxes 📦, Double Boxes 📦📦, and traditional Baskets (Amper) 🧺.</p>
+              <a href="pages/shop?category=peppers" class="btn btn-primary">Order Habanero Peppers <span class="btn-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span></a>
+            </div>
+          </div>
         </div>
+
+        <!-- Slide 2: Authentic African Corn -->
+        <div class="hero-slide" data-slide="1">
+          <div class="hero-bg">
+            <img src="/assets/images/produce/african-corn.webp" alt="Authentic African Corn Agbado Naija" class="hero-image">
+            <div class="hero-overlay"></div>
+          </div>
+          <div class="hero-container">
+            <div class="hero-content hero-content-nobox">
+              <span class="eyebrow">CANADIAN HARVEST &bull; AGBADO NAIJA</span>
+              <h1>Authentic African Corn</h1>
+              <p>Firm, starchy field corn harvested fresh in Maidstone, Ontario. Available in Standard & Wholesale Bags 🌾.</p>
+              <a href="pages/product?slug=african-corn-agbado-naija" class="btn btn-primary">Order African Corn <span class="btn-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Farm & Fields -->
+        <div class="hero-slide" data-slide="2">
+          <div class="hero-bg">
+            <img src="/assets/images/farm/farm-tractor-field.webp" alt="Maidstone Ontario Farm Fields" class="hero-image">
+            <div class="hero-overlay"></div>
+          </div>
+          <div class="hero-container">
+            <div class="hero-content hero-content-nobox">
+              <span class="eyebrow">GROWN IN ONTARIO &bull; ROOTED IN PURPOSE</span>
+              <h1>Fresh From Our Fields</h1>
+              <p>We cultivate fresh, natural produce in Canada with care, passion, and direct farm dispatch.</p>
+              <a href="pages/farm" class="btn btn-primary">Our Farm <span class="btn-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Navigation Controls -->
+      <button class="hero-carousel-prev" aria-label="Previous Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="hero-carousel-next" aria-label="Next Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      <!-- Carousel Dots -->
+      <div class="hero-carousel-dots">
+        <button class="hero-dot is-active" data-slide-to="0" aria-label="Slide 1"></button>
+        <button class="hero-dot" data-slide-to="1" aria-label="Slide 2"></button>
+        <button class="hero-dot" data-slide-to="2" aria-label="Slide 3"></button>
       </div>
     </section>
 
-    <!-- Features Bar Overlapping Hero -->
-    <section class="features-bar fade-in">
-      <div class="container">
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon feature-icon-red">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C12 22 12 16 12 12C12 8 8 4 8 4C8 4 8 8 12 12M12 22C12 22 12 16 12 12C12 8 16 4 16 4C16 4 16 8 12 12"/></svg>
-            </div>
-            <h3>Naturally Grown</h3>
-            <p>No harmful chemicals,<br>just healthy soil.</p>
+    <!-- Continuous Features Ticker Ribbon directly below Hero -->
+    <section class="features-bar fade-in" aria-label="Farm Highlights">
+      <div class="features-ticker-wrap">
+        <div class="features-ticker-track">
+          
+          <!-- Set 1 -->
+          <div class="feature-ticker-item">
+            <span class="ticker-icon icon-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C12 22 12 16 12 12C12 8 8 4 8 4C8 4 8 8 12 12M12 22C12 22 12 16 12 12C12 8 16 4 16 4C16 4 16 8 12 12"/></svg></span>
+            <div class="ticker-text"><strong>Naturally Grown</strong> <span>Healthy soil, zero chemicals</span></div>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon feature-icon-red">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            </div>
-            <h3>Premium Quality</h3>
-            <p>Fresh, clean and<br>carefully selected.</p>
+          <div class="feature-ticker-item">
+            <span class="ticker-icon icon-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></span>
+            <div class="ticker-text"><strong>Premium Quality</strong> <span>Fresh & hand-selected</span></div>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon feature-icon-green">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <h3>Fast Delivery</h3>
-            <p>From our farm<br>to your table.</p>
+          <div class="feature-ticker-item">
+            <span class="ticker-icon icon-red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <div class="ticker-text"><strong>Fast Delivery</strong> <span>Farm to your table</span></div>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon feature-icon-red">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <h3>24/7 Support</h3>
-            <p>We are always here<br>to serve you.</p>
+          <div class="feature-ticker-item">
+            <span class="ticker-icon icon-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div class="ticker-text"><strong>Direct Orders</strong> <span>WhatsApp dispatch +1 514-629-7097</span></div>
           </div>
+          <div class="feature-ticker-item">
+            <span class="ticker-icon icon-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div class="ticker-text"><strong>Canadian Harvest</strong> <span>Maidstone, Ontario</span></div>
+          </div>
+
+          <!-- Set 2 (Duplicate for continuous seamless scroll) -->
+          <div class="feature-ticker-item" aria-hidden="true">
+            <span class="ticker-icon icon-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C12 22 12 16 12 12C12 8 8 4 8 4C8 4 8 8 12 12M12 22C12 22 12 16 12 12C12 8 16 4 16 4C16 4 16 8 12 12"/></svg></span>
+            <div class="ticker-text"><strong>Naturally Grown</strong> <span>Healthy soil, zero chemicals</span></div>
+          </div>
+          <div class="feature-ticker-item" aria-hidden="true">
+            <span class="ticker-icon icon-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></span>
+            <div class="ticker-text"><strong>Premium Quality</strong> <span>Fresh & hand-selected</span></div>
+          </div>
+          <div class="feature-ticker-item" aria-hidden="true">
+            <span class="ticker-icon icon-red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <div class="ticker-text"><strong>Fast Delivery</strong> <span>Farm to your table</span></div>
+          </div>
+          <div class="feature-ticker-item" aria-hidden="true">
+            <span class="ticker-icon icon-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div class="ticker-text"><strong>Direct Orders</strong> <span>WhatsApp dispatch +1 514-629-7097</span></div>
+          </div>
+          <div class="feature-ticker-item" aria-hidden="true">
+            <span class="ticker-icon icon-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div class="ticker-text"><strong>Canadian Harvest</strong> <span>Maidstone, Ontario</span></div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -203,42 +278,66 @@
           </span></a>
         </div>
 
-        <!-- RIGHT: Product Cards -->
+        <!-- RIGHT: 4 Clean Aligned Harvest Tiles -->
         <div class="produce-cards">
 
           <div class="produce-card fade-in">
-            <div class="produce-card-img-wrap">
-              <img src="/assets/images/produce/super-shepherd.jpg" alt="Super Shepherd" loading="lazy">
-            </div>
+            <a href="pages/product?slug=habanero-basket" class="produce-card-link" aria-label="View Habanero Pepper Basket details">
+              <div class="produce-card-img-wrap">
+                <img src="/assets/images/produce/fresh-peppers.jpg" alt="Habanero Pepper Basket" loading="lazy">
+              </div>
+            </a>
             <div class="produce-card-caption">
-              <span>Super Shepherd</span>
+              <h3>Habanero Pepper</h3>
+              <span class="produce-card-pkg">Traditional Basket (Amper) 🧺</span>
+              <a href="pages/product?slug=habanero-basket" class="btn btn-primary produce-order-btn">Order Now <span class="btn-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span></a>
             </div>
           </div>
 
           <div class="produce-card fade-in">
-            <div class="produce-card-img-wrap">
-              <img src="/assets/images/produce/fresh-tomatoes.webp" alt="Roma Tomatoes" loading="lazy">
-            </div>
+            <a href="pages/product?slug=habanero-single-box" class="produce-card-link" aria-label="View Habanero Pepper Single Box details">
+              <div class="produce-card-img-wrap">
+                <img src="/assets/images/produce/harvest-habaneros.webp" alt="Habanero Pepper Single Box" loading="lazy">
+              </div>
+            </a>
             <div class="produce-card-caption">
-              <span>Roma Tomatoes</span>
+              <h3>Habanero Pepper</h3>
+              <span class="produce-card-pkg">Single Box 📦</span>
+              <a href="pages/product?slug=habanero-single-box" class="btn btn-primary produce-order-btn">Order Now <span class="btn-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span></a>
             </div>
           </div>
 
           <div class="produce-card fade-in">
-            <div class="produce-card-img-wrap">
-              <img src="/assets/images/produce/fresh-peppers.jpg" alt="Habanero Pepper" loading="lazy">
-            </div>
+            <a href="pages/product?slug=habanero-double-box" class="produce-card-link" aria-label="View Habanero Pepper Double Box details">
+              <div class="produce-card-img-wrap">
+                <img src="/assets/images/produce/fresh-peppers.jpg" alt="Habanero Pepper Double Box" loading="lazy">
+              </div>
+            </a>
             <div class="produce-card-caption">
-              <span>Habanero Pepper</span>
+              <h3>Habanero Pepper</h3>
+              <span class="produce-card-pkg">Double Box 📦📦</span>
+              <a href="pages/product?slug=habanero-double-box" class="btn btn-primary produce-order-btn">Order Now <span class="btn-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span></a>
             </div>
           </div>
 
           <div class="produce-card fade-in">
-            <div class="produce-card-img-wrap">
-              <img src="/assets/images/produce/african-corn.webp" alt="African Corn — Agbado Naija" loading="lazy">
-            </div>
+            <a href="pages/product?slug=african-corn-agbado-naija" class="produce-card-link" aria-label="View African Corn Agbado Naija details">
+              <div class="produce-card-img-wrap">
+                <img src="/assets/images/produce/african-corn.webp" alt="African Corn — Agbado Naija" loading="lazy">
+              </div>
+            </a>
             <div class="produce-card-caption">
-              <span>Agbado Naija</span>
+              <h3>African Corn</h3>
+              <span class="produce-card-pkg">Agbado Naija (Bags) 🌾</span>
+              <a href="pages/product?slug=african-corn-agbado-naija" class="btn btn-primary produce-order-btn">Order Now <span class="btn-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span></a>
             </div>
           </div>
 

@@ -39,25 +39,31 @@ export const productsLoaded = (async () => {
         availability = dbProduct.qty > 0 ? 'in-stock' : 'out-of-stock';
       }
 
+      const fallbackP = FALLBACK_PRODUCTS.find((p) => p.slug === slug || p.name.toLowerCase().includes(dbProduct.name.toLowerCase()));
+
       return {
         id: String(dbProduct.id),
         slug,
         name: dbProduct.name,
         category: cat,
-        shortDescription: `${dbProduct.name} - Premium quality produce.`,
-        description: `${dbProduct.name} grown with purpose at Resolve Farm. Crisp, natural, and handpicked daily.`,
-        highlights: [
+        shortDescription: dbProduct.shortDescription || `${dbProduct.name} - Fresh Canadian produce.`,
+        description: dbProduct.description || `${dbProduct.name} grown with purpose at Resolve Farm. Crisp, natural, and handpicked daily.`,
+        highlights: fallbackP?.highlights || [
           'Grown naturally with care',
           'Handpicked for top quality',
-          'Delivered fresh to you'
+          'Direct farm dispatch'
         ],
-        image: dbProduct.img || '/assets/images/produce/placeholder.jpg',
-        gallery: [],
-        unit: dbProduct.unit || 'lb',
+        image: dbProduct.img || fallbackP?.image || '/assets/images/produce/placeholder.jpg',
+        gallery: fallbackP?.gallery || [],
+        unit: dbProduct.unit || fallbackP?.unit || 'Box / Basket',
+        packagingOptions: fallbackP?.packagingOptions || [
+          { id: 'single-box', name: 'Single Box', icon: '📦' },
+          { id: 'basket-amper', name: 'Basket (Amper)', icon: '🧺' }
+        ],
         availability,
         stock: dbProduct.qty || 0,
         featured: dbProduct.qty > 0,
-        badge: dbProduct.qty > 80 ? 'Best Seller' : '',
+        badge: dbProduct.qty > 80 ? 'Best Seller' : (fallbackP?.badge || ''),
         tags: [cat, dbProduct.name.toLowerCase()]
       };
     });
