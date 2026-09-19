@@ -202,6 +202,36 @@
   .features-bar {
     margin-top: 0;
     padding: 0.75rem 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .features-ticker-wrap {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .features-ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: max-content;
+    min-width: max-content;
+    flex-shrink: 0;
+    white-space: nowrap;
+    -webkit-animation: featuresTickerScroll 20s linear infinite !important;
+    animation: featuresTickerScroll 20s linear infinite !important;
+    -webkit-animation-play-state: running !important;
+    animation-play-state: running !important;
+    will-change: transform;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .feature-ticker-item {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
   }
 
   .about-container {

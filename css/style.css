@@ -597,6 +597,9 @@ body:has(.hero) .site-header {
   width: 100%;
   overflow: hidden;
   position: relative;
+  display: flex;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .features-ticker-track {
@@ -604,6 +607,9 @@ body:has(.hero) .site-header {
   align-items: center;
   gap: 3rem;
   width: max-content;
+  min-width: max-content;
+  flex-shrink: 0;
+  white-space: nowrap;
   -webkit-animation: featuresTickerScroll 25s linear infinite;
   animation: featuresTickerScroll 25s linear infinite;
   will-change: transform;
@@ -646,6 +652,7 @@ body:has(.hero) .site-header {
   align-items: center;
   gap: 0.85rem;
   white-space: nowrap;
+  flex-shrink: 0;
   padding: 0.45rem 1.1rem;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
