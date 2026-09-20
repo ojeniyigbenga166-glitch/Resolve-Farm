@@ -33,7 +33,7 @@
    any category with zero products, so adding a product to 'other' is enough to
    make the "Other Produce" tab appear. */
 const CATEGORIES = [
-  { id: 'peppers',  name: 'Habanero Peppers', description: 'Fresh Habaneros in Baskets (Amper), Single Boxes & Double Boxes.' },
+  { id: 'peppers',  name: 'Habanero Peppers', description: 'Fresh Habaneros in Baskets (Hamper), Single Boxes & Double Boxes.' },
   { id: 'corn',     name: 'African Corn',     description: 'Traditional Agbado field corn, sold in bags.' }
 ];
 
@@ -43,10 +43,10 @@ const PRODUCTS = [
     slug: 'habanero-basket',
     name: 'Habanero Pepper (Basket)',
     category: 'peppers',
-    shortDescription: 'Spicy habanero peppers sold in baskets (Amper).',
-    description: 'Seriously hot, fruity habanero peppers freshly harvested and packed in traditional farm baskets (Amper).',
+    shortDescription: 'Spicy habanero peppers sold in baskets (Hamper).',
+    description: 'Seriously hot, fruity habanero peppers freshly harvested and packed in traditional farm baskets (Hamper).',
     highlights: [
-      'Sold in Basket (Amper)',
+      'Sold in Basket (Hamper)',
       'Intense heat with a fruity, citrus finish',
       'Essential for jollof, pepper soup and hot sauce'
     ],
@@ -55,15 +55,15 @@ const PRODUCTS = [
       '/assets/images/produce/peppers-harvest-field.webp',
       '/assets/images/gallery/farmer-harvest.webp'
     ],
-    unit: 'Basket (Amper)',
+    unit: 'Basket (Hamper)',
     packagingOptions: [
-      { id: 'basket-amper', name: 'Basket (Amper)', icon: '🧺' }
+      { id: 'basket-hamper', name: 'Basket (Hamper)', icon: '🧺' }
     ],
     availability: 'in-stock',
     stock: 45,
     featured: true,
     badge: 'Popular',
-    tags: ['pepper', 'habanero', 'hot', 'spicy', 'amper', 'basket']
+    tags: ['pepper', 'habanero', 'hot', 'spicy', 'hamper', 'basket']
   },
   {
     id: 'p-004-single-box',

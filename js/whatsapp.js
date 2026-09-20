@@ -39,7 +39,7 @@ class WhatsAppWidget {
           <span class="online-indicator"></span>
           <strong>RESOLVEFARM Online</strong>
         </div>
-        <p>Looking for Habanero Peppers in Boxes/Amper, or African Corn in Bags? Chat live with us to close your deal!</p>
+        <p>Looking for Habanero Peppers in Boxes/Hamper, or African Corn in Bags? Chat live with us to close your deal!</p>
       </div>
       <a href="${waUrl}" 
          target="_blank" 

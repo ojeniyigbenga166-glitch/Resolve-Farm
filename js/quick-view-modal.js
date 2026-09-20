@@ -2,7 +2,7 @@
  * RESOLVEFARM - Quick View Modal
  * 
  * Renders an interactive popup modal for any product card allowing customers
- * to toggle between Canadian packaging options (Single Box, Double Box, Basket/Amper, Bags),
+ * to toggle between Canadian packaging options (Single Box, Double Box, Basket/Hamper, Bags),
  * select quantities, and send an instant inquiry to WhatsApp or add to order list.
  */
 
@@ -18,7 +18,7 @@ export function openQuickViewModal(product) {
 
   const packagingOptions = product.packagingOptions || [
     { id: 'single-box', name: 'Single Box', icon: '📦' },
-    { id: 'basket-amper', name: 'Basket (Amper)', icon: '🧺' }
+    { id: 'basket-hamper', name: 'Basket (Hamper)', icon: '🧺' }
   ];
 
   let selectedOption = packagingOptions[0];

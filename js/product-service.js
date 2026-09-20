@@ -58,7 +58,7 @@ export const productsLoaded = (async () => {
         unit: dbProduct.unit || fallbackP?.unit || 'Box / Basket',
         packagingOptions: fallbackP?.packagingOptions || [
           { id: 'single-box', name: 'Single Box', icon: '📦' },
-          { id: 'basket-amper', name: 'Basket (Amper)', icon: '🧺' }
+          { id: 'basket-hamper', name: 'Basket (Hamper)', icon: '🧺' }
         ],
         availability,
         stock: dbProduct.qty || 0,
