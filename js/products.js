@@ -122,9 +122,9 @@ const PRODUCTS = [
   {
     id: 'p-007',
     slug: 'african-corn-agbado-naija',
-    name: 'African Corn — Agbado Naija',
+    name: 'African Heritage Corn',
     category: 'corn',
-    shortDescription: 'Authentic African corn sold in bags.',
+    shortDescription: 'Authentic African heritage corn sold in bags.',
     description: 'The starchy, full-flavoured field corn used across West African kitchens - firmer and far less sugary than North American sweetcorn. Sold in bags for home cooking, events, and commercial supply.',
     highlights: [
       'Sold in Standard Bags and Wholesale Bags',
